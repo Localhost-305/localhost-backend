@@ -4,8 +4,7 @@ import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import java.util.Collection;
-import java.util.List;
+import java.time.LocalDate;
 import java.util.Date;
 import com.api.domain.dto.CandidateDto;
 
@@ -13,23 +12,27 @@ import com.api.domain.dto.CandidateDto;
 @Table(name="dim_candidates")
 @NoArgsConstructor // Implements constructor only: new User(); don't user AllArgsContructor
 @Data // Implements GET's and SET's
-public class Candidate{
+public class Candidate {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    private Long candidate_id;
-    private String candidate_name;
+    @Column(name = "candidate_id")
+    private Long candidateId;
+    @Column(name = "candidate_name")
+    private String candidateName;
+    private String email;
     private String phone;
-    private Date birth_date;
+    private Date birthDate;
     @Column(name = "created_on") // use only to convert Camel Case (createdOn) to Snake Case (created_on)
     private LocalDate createdOn;
     @Column(name = "updated_on")
     private LocalDate updatedOn;
 
     public Candidate(@Valid CandidateDto CandidateDto){
-        this.candidate_name = CandidateDto.candidate_name();
+        this.candidateName = CandidateDto.candidate_name();
+        this.email = CandidateDto.email();
         this.phone = CandidateDto.phone();
-        this.birth_date = CandidateDto.birth_date();
+        this.birthDate = CandidateDto.birthDate();
         this.createdOn = LocalDate.now();
         this.updatedOn = LocalDate.now();
     }

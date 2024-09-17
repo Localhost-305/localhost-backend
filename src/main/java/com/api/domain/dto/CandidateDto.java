@@ -2,12 +2,17 @@ package com.api.domain.dto;
 
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.Email;
+
+import java.util.Date;
 
 public record CandidateDto(
         @NotBlank
-        String candidate_name;
+        String candidate_name,
         @NotBlank
-        String phone;
+        String email,
         @NotBlank
-        Date birth_date;
+        String phone,
+        @NotBlank
+        Date birthDate
 ) {}
