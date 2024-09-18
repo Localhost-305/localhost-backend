@@ -36,5 +36,4 @@ public class Candidate {
         this.createdOn = LocalDate.now();
         this.updatedOn = LocalDate.now();
     }
-
 }
