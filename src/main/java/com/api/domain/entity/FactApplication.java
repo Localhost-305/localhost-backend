@@ -30,5 +30,6 @@ public class FactApplication {
                 factApplicationDto.dateId(),
                 factApplicationDto.hourId()
         );
+        this.numberOfApplications = factApplicationDto.numberOfApplications();
     }
 }

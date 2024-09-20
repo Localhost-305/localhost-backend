@@ -12,8 +12,8 @@ import java.io.Serializable;
 @AllArgsConstructor
 @Data
 public class FactHiringId implements Serializable {
-    private Integer candidate_id;
-    private Integer job_id;
-    private Integer date_id;
-    private Integer hour_id;
+    private Integer candidateId;
+    private Integer jobId;
+    private Integer dateId;
+    private Integer hourId;
 }
