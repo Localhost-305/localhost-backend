@@ -6,5 +6,5 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long> {
-    Job findAllById(Long Job);
+    Job findAllByJobId(Long JobId);
 }

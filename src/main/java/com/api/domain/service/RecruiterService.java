@@ -11,7 +11,7 @@ import java.util.List;
 public class RecruiterService {
 
     @Autowired
-    private RecruiterRepository reposityr;
+    private RecruiterRepository repository;
 
-    public List<Recruiter> getAllRecruiters() {return reposityr.findAll();}
+    public List<Recruiter> getAllRecruiters() {return repository.findAll();}
 }
