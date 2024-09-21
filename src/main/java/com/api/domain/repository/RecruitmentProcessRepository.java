@@ -6,5 +6,4 @@ import org.springframework.stereotype.Repository;
 
 @Repository
 public interface RecruitmentProcessRepository extends JpaRepository<RecruitmentProcess, Long> {
-    RecruitmentProcess findAllById(Long recruitmentProcessId);
 }

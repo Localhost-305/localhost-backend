@@ -11,8 +11,8 @@ import java.util.List;
 public class RecruitmentProcessService {
 
     @Autowired
-    private RecruitmentProcessRepository repostiry;
+    private RecruitmentProcessRepository repository;
 
-    public List<RecruitmentProcess> getAllRecruitmentProcesses() {return repostiry.findAll();}
+    public List<RecruitmentProcess> getAllRecruitmentProcesses() {return repository.findAll();}
 
 }

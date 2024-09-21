@@ -1,9 +1,9 @@
 package com.api.domain.dto;
 
-import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record HourDto(
-        @NotBlank
+        @NotNull
         Integer hour
 ){
 }
