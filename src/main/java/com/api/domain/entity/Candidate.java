@@ -23,17 +23,13 @@ public class Candidate {
     private String email;
     private String phone;
     private Date birthDate;
-    @Column(name = "created_on") // use only to convert Camel Case (createdOn) to Snake Case (created_on)
-    private LocalDate createdOn;
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
+
 
     public Candidate(@Valid CandidateDto CandidateDto){
         this.candidateName = CandidateDto.candidate_name();
         this.email = CandidateDto.email();
         this.phone = CandidateDto.phone();
         this.birthDate = CandidateDto.birthDate();
-        this.createdOn = LocalDate.now();
-        this.updatedOn = LocalDate.now();
+//
     }
 }
