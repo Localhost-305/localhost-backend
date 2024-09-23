@@ -2,6 +2,7 @@ package com.api.controller;
 
 import com.api.domain.dto.DataTokenJWTDTO;
 import com.api.domain.dto.LoginDto;
+import com.api.domain.dto.UserResumeDTO;
 import com.api.domain.entity.User;
 import com.api.infra.security.TokenService;
 import jakarta.validation.Valid;
@@ -27,6 +28,6 @@ public class AuthenticationController {
         var authentication = manager.authenticate(authenticationToken);
         User user = (User) authentication.getPrincipal();
         var tokenJWT = tokenService.generateToken(user);
-        return ResponseEntity.ok(new DataTokenJWTDTO(tokenJWT, user));
+        return ResponseEntity.ok(new DataTokenJWTDTO(tokenJWT, new UserResumeDTO(user.getId(), user.getName(), user.getEmail(), user.getCreatedOn(), user.getUpdatedOn())));
     }
 }
