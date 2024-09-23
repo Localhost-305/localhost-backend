@@ -13,5 +13,18 @@ public class FactApplicationService {
     @Autowired
     private FactApplicationRepository repository;
 
-    public List<FactApplication> findAll() {return repository.findAll();}
+    public List<FactApplication> findAll() {
+
+        List<FactApplication> factApplications = repository.findAll();
+
+        factApplications = tratarDados(factApplications);
+
+        return factApplications;
+
+    }
+
+    private List<FactApplication> tratarDados(List<FactApplication> applications) {
+
+        return applications;
+    }
 }
