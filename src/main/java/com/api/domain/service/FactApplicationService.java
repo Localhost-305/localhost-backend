@@ -15,5 +15,3 @@ public class FactApplicationService {
 
     public List<FactApplication> findAll() {return repository.findAll();}
 }
-
-
