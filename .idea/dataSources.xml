@@ -1,0 +1,41 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="DataSourceManagerImpl" format="xml" multifile-model="true">
+    <data-source source="LOCAL" name="gaia-flow-dev@localhost" uuid="7bff4d74-4219-4e2f-96e8-7852351f35e7">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5433/gaia-flow-dev</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="gaia-bidder-dev@localhost" uuid="b666d7f8-72df-463f-9c01-b53a6ade4447">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5435/gaia-bidder-dev</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+    <data-source source="LOCAL" name="gaia-screening-dev@localhost" uuid="c583b563-3bad-4fe6-812d-ce2880de90e9">
+      <driver-ref>postgresql</driver-ref>
+      <synchronize>true</synchronize>
+      <jdbc-driver>org.postgresql.Driver</jdbc-driver>
+      <jdbc-url>jdbc:postgresql://localhost:5434/gaia-screening-dev</jdbc-url>
+      <jdbc-additional-properties>
+        <property name="com.intellij.clouds.kubernetes.db.host.port" />
+        <property name="com.intellij.clouds.kubernetes.db.enabled" value="false" />
+        <property name="com.intellij.clouds.kubernetes.db.container.port" />
+      </jdbc-additional-properties>
+      <working-dir>$ProjectFileDir$</working-dir>
+    </data-source>
+  </component>
+</project>
