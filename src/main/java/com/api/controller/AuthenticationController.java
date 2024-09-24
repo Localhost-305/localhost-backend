@@ -28,6 +28,6 @@ public class AuthenticationController {
         var authentication = manager.authenticate(authenticationToken);
         User user = (User) authentication.getPrincipal();
         var tokenJWT = tokenService.generateToken(user);
-        return ResponseEntity.ok(new DataTokenJWTDTO(tokenJWT, new UserResumeDTO(user.getId(), user.getName(), user.getEmail(), user.getCreatedOn(), user.getUpdatedOn())));
+        return ResponseEntity.ok(new DataTokenJWTDTO(tokenJWT, new UserResumeDTO(user.getId(), user.getName(), user.getEmail())));
     }
 }

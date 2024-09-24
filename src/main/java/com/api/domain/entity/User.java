@@ -20,20 +20,15 @@ public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
+    @Column(name = "user_id")
     private Long id;
     private String name;
     private String email;
     private String password;
-    @Column(name = "created_on") // use only to convert Camel Case (createdOn) to Snake Case (created_on)
-    private LocalDate createdOn;
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
 
     public User(@Valid UserDto userDto){
         this.email = userDto.email();
         this.password = userDto.password();
-        this.createdOn = LocalDate.now();
-        this.updatedOn = LocalDate.now();
     }
 
     @Override

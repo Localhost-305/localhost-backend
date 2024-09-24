@@ -5,8 +5,6 @@ import java.time.LocalDate;
 public record UserResumeDTO (
         Long id,
         String name,
-        String email,
-        LocalDate createdOn,
-        LocalDate updatedOn
+        String email
 )
 { }
