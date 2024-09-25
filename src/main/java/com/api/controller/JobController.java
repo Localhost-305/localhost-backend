@@ -28,12 +28,17 @@ public class JobController {
     public ResponseEntity findAll() {return ResponseEntity.ok(jobService.findAll());}
 
     @GetMapping("/jobAverage")
-    public ArrayList<Object> getAll(@RequestParam ("StartDate") String startDateStr , @RequestParam("EndDate") String endDateStr) {
-
+    public ResponseEntity<ArrayList<Object>> getAll(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
+        if(startDateStr == null){
+            startDateStr = "2000-01-01";
+        }
+        if(endDateStr == null){
+            endDateStr = LocalDate.now().toString();
+        }
         LocalDate startDate = LocalDate.parse(startDateStr);
         LocalDate endDate = LocalDate.parse(endDateStr);
 
-        return jobService.findAll(startDate, endDate);
+        return ResponseEntity.ok(jobService.findAll(startDate, endDate));
     }
 
 
