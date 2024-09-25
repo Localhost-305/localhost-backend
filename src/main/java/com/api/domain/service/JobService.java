@@ -1,17 +1,14 @@
 package com.api.domain.service;
 
-import com.api.domain.dto.AverageByJobDto;
+import com.api.domain.Util.MapObjectList;
 import com.api.domain.entity.Job;
 import com.api.domain.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.web.bind.annotation.RequestParam;
 
-import javax.swing.text.html.Option;
+import java.time.LocalDate;
 import java.util.ArrayList;
-import java.util.Date;
 import java.util.List;
-import java.util.Optional;
 
 @Service
 public class JobService {
@@ -25,23 +22,10 @@ public class JobService {
         return jobs;
     }
 
-    public List<AverageByJobDto> getJobAverager(Optional<Date> startDate, Optional<Date> endDate) {
+    public ArrayList<Object> findAll(LocalDate startDate , LocalDate endDate) {
 
-        List<AverageByJobDto> AverageByJobDtos = new ArrayList<>();
-        if(startDate.isPresent()) {
-            startDate = Optional.of(new Date());
-        }
-        if (endDate.isPresent()){
-            endDate = Optional.of(new Date());
-        }
+        String[] colums ={"JobTitle", "AverageTime"};
+        return MapObjectList.mapObjectList(repository.getAverage(startDate, endDate),colums);
 
-        List<Object[]> obj = repository.getAverage(startDate.get(), endDate.get());
-
-        for (Object[] o : obj) {
-            AverageByJobDto start = new AverageByJobDto((String)o[0], (Integer)o[1]);
-            AverageByJobDtos.add(start);
-        }
-
-        return AverageByJobDtos;
     }
 }
