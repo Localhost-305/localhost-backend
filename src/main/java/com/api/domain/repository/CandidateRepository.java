@@ -8,5 +8,8 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface CandidateRepository extends JpaRepository<Candidate, Long> {
 
+
     Candidate findAllByCandidateId(Long candidateId);
+
+
 }

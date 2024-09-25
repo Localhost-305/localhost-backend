@@ -7,7 +7,3 @@ public interface HourRepository extends JpaRepository<Hour, Long> {
     Hour getAllByHourId(Long hourId);
 }
 
-
-//public interface HourRepository extends JpaRepository<Hour, Long> {
-//    Hour findByHourId(Long hourId);
-//}

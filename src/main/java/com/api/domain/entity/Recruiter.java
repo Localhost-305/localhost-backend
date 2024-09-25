@@ -22,7 +22,7 @@ public class Recruiter {
     @Column(name = "role")
     private String recruiterRole;
     @Column(name = "feedbacks_given")
-    private int recruiterFeedbacksGiven;
+    private Integer recruiterFeedbacksGiven;
 
     public Recruiter(@Valid RecruiterDto recruiterDto) {
         this.recruiterName = recruiterDto.recruiterName();
