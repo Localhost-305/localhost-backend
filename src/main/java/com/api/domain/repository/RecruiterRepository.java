@@ -5,5 +5,5 @@ import com.api.domain.entity.RecruitmentProcess;
 import org.springframework.data.jpa.repository.JpaRepository;
 
 public interface RecruiterRepository extends JpaRepository<Recruiter, Long> {
-    Recruiter findAllByRecruiterId(Long recruiterId);
+    Recruiter findByRecruiterId(Long recruiterId);
 }
