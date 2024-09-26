@@ -1,4 +1,4 @@
-package com.api.domain.Util;
+package com.api.domain.util;
 
 
 

@@ -1,6 +1,6 @@
 package com.api.domain.service;
 
-import com.api.domain.Util.MapObjectList;
+import com.api.domain.util.MapObjectList;
 import com.api.domain.entity.Job;
 import com.api.domain.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -15,12 +15,12 @@ public class JobService {
 
     @Autowired
     private JobRepository repository;
-
     public List<Job> findAll() {
 
         List<Job> jobs = repository.findAll();
         return jobs;
     }
+
 
     public ArrayList<Object> findAll(LocalDate startDate , LocalDate endDate) {
 
