@@ -1,21 +1,22 @@
 package com.api.domain.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record FactApplicationDto (
-        @NotBlank
+        @NotNull
         Integer numberOfApplications,
-        @NotBlank
+        @NotNull
         Integer recruiterId,
-        @NotBlank
+        @NotNull
         Integer candidateId,
-        @NotBlank
+        @NotNull
         Integer jobId,
-        @NotBlank
+        @NotNull
         Integer processId,
-        @NotBlank
+        @NotNull
         Integer dateId,
-        @NotBlank
+        @NotNull
         Integer hourId
 )
 {
