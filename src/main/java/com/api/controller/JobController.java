@@ -12,6 +12,7 @@ import org.springframework.web.bind.annotation.RestController;
 import org.springframework.web.server.ResponseStatusException;
 
 import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.Date;
 import java.util.List;
 import java.util.Optional;
@@ -27,16 +28,17 @@ public class JobController {
     public ResponseEntity findAll() {return ResponseEntity.ok(jobService.findAll());}
 
     @GetMapping("/jobAverage")
-    public ResponseEntity<List<AverageByJobDto>> findJobAverage(@RequestParam(required = false) Optional<Date> startDate,
-                                                                @RequestParam(required = false) Optional<Date> endDate)
-    {
-        try{
-            System.out.println(startDate + " " + endDate);
-            return ResponseEntity.ok(jobService.getJobAverager(startDate, endDate));
-        } catch (Exception e) {
-            throw new ResponseStatusException(HttpStatus.BAD_REQUEST, "Soccoro deus! chama odin, zeus, sla...", e);
+    public ResponseEntity<ArrayList<Object>> getAll(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
+        if(startDateStr == null){
+            startDateStr = "2000-01-01";
         }
+        if(endDateStr == null){
+            endDateStr = LocalDate.now().toString();
+        }
+        LocalDate startDate = LocalDate.parse(startDateStr);
+        LocalDate endDate = LocalDate.parse(endDateStr);
 
+        return ResponseEntity.ok(jobService.findAll(startDate, endDate));
     }
 
 
