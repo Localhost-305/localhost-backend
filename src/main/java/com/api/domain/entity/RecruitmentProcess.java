@@ -19,7 +19,7 @@ public class RecruitmentProcess {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "process_id")
-    private Long id;
+    private Long processId;
     @Column(name = "process_name")
     private String processName;
     @Column(name = "start_date")
