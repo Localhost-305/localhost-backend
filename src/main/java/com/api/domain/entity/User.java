@@ -8,7 +8,6 @@ import lombok.NoArgsConstructor;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
-import java.time.LocalDate;
 import java.util.Collection;
 import java.util.List;
 
@@ -25,16 +24,10 @@ public class User implements UserDetails {
     private String name;
     private String email;
     private String password;
-    @Column(name = "created_on") // use only to convert Camel Case (createdOn) to Snake Case (created_on)
-    private LocalDate createdOn;
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
 
     public User(@Valid UserDto userDto){
         this.email = userDto.email();
         this.password = userDto.password();
-        this.createdOn = LocalDate.now();
-        this.updatedOn = LocalDate.now();
     }
 
     @Override

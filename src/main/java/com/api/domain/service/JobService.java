@@ -1,10 +1,13 @@
 package com.api.domain.service;
 
+import com.api.domain.Util.MapObjectList;
 import com.api.domain.entity.Job;
 import com.api.domain.repository.JobRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.time.LocalDate;
+import java.util.ArrayList;
 import java.util.List;
 
 @Service
@@ -13,5 +16,16 @@ public class JobService {
     @Autowired
     private JobRepository repository;
 
-    public List<Job> getAllJobs() {return repository.findAll();}
+    public List<Job> findAll() {
+
+        List<Job> jobs = repository.findAll();
+        return jobs;
+    }
+
+    public ArrayList<Object> findAll(LocalDate startDate , LocalDate endDate) {
+
+        String[] colums ={"JobTitle", "AverageTime"};
+        return MapObjectList.mapObjectList(repository.getAverage(startDate, endDate),colums);
+
+    }
 }

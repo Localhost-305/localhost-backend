@@ -13,6 +13,6 @@ public class RecruitmentProcessService {
     @Autowired
     private RecruitmentProcessRepository repository;
 
-    public List<RecruitmentProcess> getAllRecruitmentProcesses() {return repository.findAll();}
+
 
 }

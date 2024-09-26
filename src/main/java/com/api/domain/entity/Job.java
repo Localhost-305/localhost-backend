@@ -7,6 +7,7 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
+import java.util.Date;
 
 @Entity(name = "Jobs")
 @Table(name = "dim_jobs")
@@ -30,10 +31,6 @@ public class Job {
     private String location;
     @Column(name = "responsible_person")
     private String responsiblePerson;
-    @Column(name = "created_on") // use only to convert Camel Case (createdOn) to Snake Case (created_on)
-    private LocalDate createdOn;
-    @Column(name = "updated_on")
-    private LocalDate updatedOn;
 
     public Job(@Valid JobDto jobDto) {
         this.jobTitle = jobDto.jobTitle();
@@ -42,7 +39,5 @@ public class Job {
         this.jobStatus = jobDto.jobStatus();
         this.location = jobDto.location();
         this.responsiblePerson = jobDto.responsiblePerson();
-        this.createdOn = LocalDate.now();
-        this.updatedOn = LocalDate.now();
     }
 }
