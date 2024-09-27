@@ -26,4 +26,12 @@ public interface JobRepository extends JpaRepository<Job, Long> {
         """, nativeQuery = true)
 
     List<Object[]> getAverage (@Param("startDate") LocalDate startDate, @Param("endDate")LocalDate endDate);
+
+    @Query(value = """
+            SELECT
+                ROUND(AVG(DATEDIFF(j.closing_date, j.opening_date))) AS tempo_medio_contratacao_dias FROM  dim_jobs j
+            WHERE j.opening_date BETWEEN ?1 AND ?2;
+            """, nativeQuery = true)
+    List<Object[]> getAverageAll (@Param("startDate") LocalDate startDate, @Param("endDate")LocalDate endDate);
+
 }
