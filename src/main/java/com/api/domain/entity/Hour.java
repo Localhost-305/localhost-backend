@@ -16,6 +16,7 @@ public class Hour {
     @GeneratedValue(strategy = GenerationType.IDENTITY)
     @Column(name = "hour_id")
     private Long hourId;
+    @Column(name = "hour")
     private Integer hour;
 
     public Hour(@Valid HourDto hourDto){
