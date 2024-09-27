@@ -1,7 +1,6 @@
 package com.api.domain.service;
 
 import com.api.domain.entity.FactApplication;
-import com.api.domain.entity.Job;
 import com.api.domain.util.MapObjectList;
 import com.api.domain.repository.FactApplicationRepository;
 import org.springframework.beans.factory.annotation.Autowired;
