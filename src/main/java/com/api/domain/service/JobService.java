@@ -15,12 +15,12 @@ public class JobService {
 
     @Autowired
     private JobRepository repository;
-
     public List<Job> findAll() {
 
         List<Job> jobs = repository.findAll();
         return jobs;
     }
+
 
     public ArrayList<Object> findAll(LocalDate startDate , LocalDate endDate) {
 
