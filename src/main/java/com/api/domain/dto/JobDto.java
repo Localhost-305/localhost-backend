@@ -1,11 +1,12 @@
 package com.api.domain.dto;
 
 import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
 
 public record JobDto(
     @NotBlank
     String jobTitle,
-    @NotBlank
+    @NotNull
     Integer numberOfPositions,
     @NotBlank
     String jobRequirements,
