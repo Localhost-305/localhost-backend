@@ -22,10 +22,10 @@ public class FactApplicationService {
         return factApplication;
     }
 
-    public ArrayList<Object> findAll(LocalDate startDate , LocalDate endDate) {
+    public ArrayList<Object> getAllFactorUserByDate(LocalDate startDate , LocalDate endDate) {
 
         String[] colums ={"jobTitle", "count"};
-        return MapObjectList.mapObjectList(repository.getAllFactorUser(startDate, endDate),colums);
+        return MapObjectList.mapObjectList(repository.getAllFactorUserByDate(startDate, endDate),colums);
 
     }
 }
