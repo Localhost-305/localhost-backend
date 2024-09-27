@@ -30,7 +30,7 @@ public class JobService {
     }
 
 
-    public ArrayList<Object> findAllJobs(LocalDate startDate , LocalDate endDate) {
+    public ArrayList<Object> getAverageAll(LocalDate startDate , LocalDate endDate) {
 
         String[] colums ={"AverageTime"};
         return MapObjectList.mapObjectList(repository.getAverageAll(startDate, endDate),colums);
