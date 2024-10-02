@@ -28,4 +28,12 @@ public class JobService {
         return MapObjectList.mapObjectList(repository.getAverage(startDate, endDate),colums);
 
     }
+
+
+    public ArrayList<Object> getAverageAll(LocalDate startDate , LocalDate endDate) {
+
+        String[] colums ={"AverageTime"};
+        return MapObjectList.mapObjectList(repository.getAverageAll(startDate, endDate),colums);
+
+    }
 }

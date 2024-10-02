@@ -42,4 +42,24 @@ public class JobController {
     }
 
 
+    @GetMapping("/jobAverageAll")
+    public ResponseEntity<ArrayList<Object>> getAverageAll(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
+        System.out.println(startDateStr);
+        System.out.println(endDateStr);
+
+        if(startDateStr == null){
+            startDateStr = "2000-01-01";
+        }
+        if(endDateStr == null){
+            endDateStr = LocalDate.now().toString();
+        }
+
+
+        LocalDate startDate = LocalDate.parse(startDateStr);
+        LocalDate endDate = LocalDate.parse(endDateStr);
+
+        return ResponseEntity.ok(jobService.getAverageAll(startDate, endDate));
+    }
+
+
 }

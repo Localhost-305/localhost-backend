@@ -12,9 +12,6 @@ import java.util.List;
 
 @Repository
 public interface JobRepository extends JpaRepository<Job, Long> {
-<<<<<<< HEAD
-    Job findAllByJobId(Long JobId);
-=======
 
     @Query(value = """
         SELECT
@@ -29,5 +26,12 @@ public interface JobRepository extends JpaRepository<Job, Long> {
         """, nativeQuery = true)
 
     List<Object[]> getAverage (@Param("startDate") LocalDate startDate, @Param("endDate")LocalDate endDate);
->>>>>>> 5fb4239d6c47d8b9eaaed63385ff74501a8c47a7
+
+    @Query(value = """
+            SELECT
+                ROUND(AVG(DATEDIFF(j.closing_date, j.opening_date))) AS tempo_medio_contratacao_dias FROM  dim_jobs j
+            WHERE j.opening_date BETWEEN ?1 AND ?2;
+            """, nativeQuery = true)
+    List<Object[]> getAverageAll (@Param("startDate") LocalDate startDate, @Param("endDate")LocalDate endDate);
+
 }

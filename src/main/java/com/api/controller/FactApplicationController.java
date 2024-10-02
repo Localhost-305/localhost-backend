@@ -24,7 +24,8 @@ public class FactApplicationController {
 
     public ResponseEntity findAll() {return ResponseEntity.ok(factApplicationService.findAll());}
     @GetMapping
-    public ResponseEntity<ArrayList<Object>> getAll(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
+
+    public ResponseEntity<ArrayList<Object>> getAllFactorUserByDate(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
         if(startDateStr == null){
             startDateStr = "2000-01-01";
         }
@@ -34,7 +35,7 @@ public class FactApplicationController {
         LocalDate startDate = LocalDate.parse(startDateStr);
         LocalDate endDate = LocalDate.parse(endDateStr);
 
-        return ResponseEntity.ok(factApplicationService.findAll(startDate, endDate));
+        return ResponseEntity.ok(factApplicationService.getAllFactorUserByDate(startDate, endDate));
     }
 
 
