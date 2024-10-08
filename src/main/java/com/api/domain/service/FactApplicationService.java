@@ -28,4 +28,19 @@ public class FactApplicationService {
         return MapObjectList.mapObjectList(repository.getAllFactorUserByDate(startDate, endDate),colums);
 
     }
+
+    public ArrayList<Object> getAllFactorCandidateByDate(LocalDate startDate , LocalDate endDate) {
+
+        String[] colums ={"jobTitle", "count"};
+        return MapObjectList.mapObjectList(repository.getAllFactorCandidateByDate(startDate, endDate),colums);
+
+    }
+
 }
+
+
+
+
+
+
+
