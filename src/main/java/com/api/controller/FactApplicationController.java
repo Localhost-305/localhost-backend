@@ -39,7 +39,7 @@ public class FactApplicationController {
     }
 
 
-    @GetMapping("/candidate")
+    @GetMapping("/add .")
     public ResponseEntity<ArrayList<Object>> getAllFactorCandidateByDate(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
         if(startDateStr == null){
             startDateStr = "2000-01-01";
