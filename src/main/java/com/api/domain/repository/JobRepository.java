@@ -42,7 +42,7 @@ public interface JobRepository extends JpaRepository<Job, Long> {
             fact_applications a
         INNER JOIN dim_jobs j ON a.job_id = j.job_id
         WHERE
-            and job_title = ?1
+            job_title = ?1
         GROUP BY
             j.job_title;
     """, nativeQuery = true)
