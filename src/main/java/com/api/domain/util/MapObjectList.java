@@ -1,6 +1,4 @@
-package com.api.domain.util;
-
-
+package com.api.domain.Util;
 
 import java.util.ArrayList;
 import java.util.HashMap;
