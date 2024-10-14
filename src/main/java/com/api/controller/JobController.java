@@ -61,5 +61,9 @@ public class JobController {
         return ResponseEntity.ok(jobService.getAverageAll(startDate, endDate));
     }
 
+    @GetMapping("/getCandidateByJob")
+    public ResponseEntity<ArrayList<Object>> getCandidateByJob(@RequestParam(required = false) String jobTitle){
+        return ResponseEntity.ok(jobService.getCandidateByJob(jobTitle));
+    }
 
 }

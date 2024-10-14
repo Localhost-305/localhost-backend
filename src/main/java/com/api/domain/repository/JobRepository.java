@@ -34,4 +34,18 @@ public interface JobRepository extends JpaRepository<Job, Long> {
             """, nativeQuery = true)
     List<Object[]> getAverageAll (@Param("startDate") LocalDate startDate, @Param("endDate")LocalDate endDate);
 
+    @Query(value = """
+        SELECT
+            j.job_title,
+            COUNT(a.candidate_id) AS numero_de_candidatos
+        FROM
+            fact_applications a
+        INNER JOIN dim_jobs j ON a.job_id = j.job_id
+        WHERE
+            job_title = ?1
+        GROUP BY
+            j.job_title;
+    """, nativeQuery = true)
+    List<Object[]> getCandidateByJob (@Param("jobTitle") String jobTitle);
+
 }
