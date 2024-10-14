@@ -22,8 +22,11 @@ public class FactApplicationController {
     @Autowired
     private FactApplicationService factApplicationService;
 
+    @GetMapping
+    public ResponseEntity findAll() {
+        return ResponseEntity.ok(factApplicationService.findAll());
+    }
 
-    public ResponseEntity findAll() {return ResponseEntity.ok(factApplicationService.findAll());}
     @GetMapping("/jobs")
     public ResponseEntity<ArrayList<Object>> getAllFactorUserByDate(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
         if(startDateStr == null){
