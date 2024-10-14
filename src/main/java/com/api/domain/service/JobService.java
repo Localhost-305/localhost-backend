@@ -21,7 +21,6 @@ public class JobService {
         return jobs;
     }
 
-
     public ArrayList<Object> findAll(LocalDate startDate , LocalDate endDate) {
 
         String[] colums ={"JobTitle", "AverageTime"};
@@ -29,11 +28,18 @@ public class JobService {
 
     }
 
-
     public ArrayList<Object> getAverageAll(LocalDate startDate , LocalDate endDate) {
 
         String[] colums ={"AverageTime"};
         return MapObjectList.mapObjectList(repository.getAverageAll(startDate, endDate),colums);
 
     }
+
+    public ArrayList<Object> getCandidateByJob(String jobTitle) {
+
+        String[] colums ={"JobTitle"};
+        return MapObjectList.mapObjectList(repository.getCandidateByJob(jobTitle),colums);
+    }
+
+
 }
