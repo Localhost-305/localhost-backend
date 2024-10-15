@@ -6,9 +6,11 @@ import jakarta.persistence.EmbeddedId;
 import jakarta.persistence.Entity;
 import jakarta.persistence.Table;
 import jakarta.validation.Valid;
+import jakarta.validation.constraints.Past;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.time.LocalDate;
 import java.time.LocalDateTime;
 import java.util.Date;
 
@@ -31,6 +33,8 @@ public class FactHiring {
     private LocalDateTime acceptanceDate;
     @Column(name = "qty_hirings")
     private Integer qtyHiring;
+     @Past
+    LocalDate contractEndDate;
 
     public FactHiring (@Valid FactHiringDto factHiringDto) {
         this.id = new FactHiringId(
