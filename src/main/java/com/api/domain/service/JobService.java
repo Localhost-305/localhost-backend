@@ -37,7 +37,7 @@ public class JobService {
 
     public ArrayList<Object> getCandidateByJob(String jobTitle) {
 
-        String[] colums ={"JobTitle"};
+        String[] colums ={"JobTitle","numero_de_candidatos"};
         return MapObjectList.mapObjectList(repository.getCandidateByJob(jobTitle),colums);
     }
 
