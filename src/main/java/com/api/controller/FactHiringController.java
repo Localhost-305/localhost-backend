@@ -28,4 +28,13 @@ public class FactHiringController {
         List<Map<String, Object>> totalCost = factHiringService.calculateTotalCostPerMonth(startDate, endDate);
         return ResponseEntity.ok(totalCost);
     }
+
+    @GetMapping("/retention")
+    public ResponseEntity<List<Map<String, Object>>> getRetentionRate(
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
+            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate) {
+        List<Map<String, Object>> retentionRate = factHiringService.calculateRetentionRate(startDate, endDate);
+        return ResponseEntity.ok(retentionRate);
+    }
+
 }
