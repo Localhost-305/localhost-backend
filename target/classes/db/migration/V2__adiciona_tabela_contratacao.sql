@@ -1,6 +1,4 @@
 
-
-
 CREATE TABLE IF NOT EXISTS fact_hirings (
     hiring_id BIGINT AUTO_INCREMENT,
     candidate_id BIGINT,

@@ -45,4 +45,9 @@ public class FactHiringService {
                 })
                 .collect(Collectors.toList());
     }
+
+    public List<Map<String, Object>> calculateRetentionRate(LocalDate startDate, LocalDate endDate) {
+        return factHiringRepository.calculateRetentionRate(startDate, endDate);
+    }
+
 }
