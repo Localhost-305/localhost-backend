@@ -41,5 +41,11 @@ public class JobService {
         return MapObjectList.mapObjectList(repository.getCandidateByJob(jobTitle),colums);
     }
 
+    public ArrayList<Object> getAverageTimeJob(String jobTitle,LocalDate startDate , LocalDate endDate) {
+
+        String[] colums ={"JobTitle", "AverageTime"};
+        return MapObjectList.mapObjectList(repository.getAverageTimeJob(jobTitle, startDate, endDate),colums);
+    }
+
 
 }

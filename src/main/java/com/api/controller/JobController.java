@@ -58,5 +58,25 @@ public class JobController {
         return ResponseEntity.ok(jobService.getCandidateByJob(jobTitle));
     }
 
+    @GetMapping("/jobAverageOne")
+    public ResponseEntity<ArrayList<Object>> getAverageTimeJobs(@RequestParam(required = false)  String jobTitle,
+                                                                @RequestParam(required = false)  String startDateStr ,
+                                                                @RequestParam(required = false)  String endDateStr
+                                                           ) {
+        if(startDateStr == null){
+            startDateStr = "2000-01-01";
+        }
+        if(endDateStr == null){
+            endDateStr = LocalDate.now().toString();
+        }
+        LocalDate startDate = LocalDate.parse(startDateStr);
+        LocalDate endDate = LocalDate.parse(endDateStr);
+
+        System.out.println(jobTitle);
+        System.out.println(startDate);
+        System.out.println(endDate);
+
+        return ResponseEntity.ok(jobService.getAverageTimeJob(jobTitle, startDate, endDate));
+    }
 
 }
