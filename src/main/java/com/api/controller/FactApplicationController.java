@@ -22,9 +22,12 @@ public class FactApplicationController {
     @Autowired
     private FactApplicationService factApplicationService;
 
-    public ResponseEntity findAll() {return ResponseEntity.ok(factApplicationService.findAll());}
     @GetMapping
+    public ResponseEntity findAll() {
+        return ResponseEntity.ok(factApplicationService.findAll());
+    }
 
+    @GetMapping("/jobs")
     public ResponseEntity<ArrayList<Object>> getAllFactorUserByDate(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
         if(startDateStr == null){
             startDateStr = "2000-01-01";
@@ -36,6 +39,21 @@ public class FactApplicationController {
         LocalDate endDate = LocalDate.parse(endDateStr);
 
         return ResponseEntity.ok(factApplicationService.getAllFactorUserByDate(startDate, endDate));
+    }
+
+
+    @GetMapping("/candidate")
+    public ResponseEntity<ArrayList<Object>> getAllFactorCandidateByDate(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
+        if(startDateStr == null){
+            startDateStr = "2000-01-01";
+        }
+        if(endDateStr == null){
+            endDateStr = LocalDate.now().toString();
+        }
+        LocalDate startDate = LocalDate.parse(startDateStr);
+        LocalDate endDate = LocalDate.parse(endDateStr);
+
+        return ResponseEntity.ok(factApplicationService.getAllFactorCandidateByDate(startDate, endDate));
     }
 
 

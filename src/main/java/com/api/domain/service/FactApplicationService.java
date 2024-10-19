@@ -1,8 +1,10 @@
 package com.api.domain.service;
 
 import com.api.domain.entity.FactApplication;
-import com.api.domain.util.MapObjectList;
+
 import com.api.domain.repository.FactApplicationRepository;
+import com.api.domain.util.MapObjectList;
+
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,4 +30,20 @@ public class FactApplicationService {
         return MapObjectList.mapObjectList(repository.getAllFactorUserByDate(startDate, endDate),colums);
 
     }
+
+    public ArrayList<Object> getAllFactorCandidateByDate(LocalDate startDate , LocalDate endDate) {
+
+        String[] colums ={"jobTitle", "count"};
+        return MapObjectList.mapObjectList(repository.getAllFactorCandidateByDate(startDate, endDate),colums);
+
+    }
+
+
 }
+
+
+
+
+
+
+
