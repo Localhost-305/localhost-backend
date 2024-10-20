@@ -32,7 +32,7 @@ public class SecurityConfigurations {
                         .authorizeHttpRequests(req -> {
                             req.requestMatchers("/swagger-ui.html", "/v3/api-docs/**", "/swagger-ui/**").permitAll();
                             req.requestMatchers("/login").permitAll();
-                            req.anyRequest().authenticated();
+                            req.anyRequest().permitAll();
                         })
                         .addFilterBefore(securityFilter, UsernamePasswordAuthenticationFilter.class)
                         .build();

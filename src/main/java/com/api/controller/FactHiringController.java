@@ -29,12 +29,27 @@ public class FactHiringController {
         return ResponseEntity.ok(totalCost);
     }
 
+
     @GetMapping("/retention")
     public ResponseEntity<List<Map<String, Object>>> getRetentionRate(
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate startDate,
-            @RequestParam @DateTimeFormat(pattern = "yyyy-MM-dd") LocalDate endDate) {
+            @RequestParam(required = false) String startDateStr,
+            @RequestParam(required = false) String endDateStr) {
+
+        if (startDateStr == null) {
+            startDateStr = "2000-01-01"; // data padrão para início
+        }
+        if (endDateStr == null) {
+            endDateStr = LocalDate.now().toString(); // data padrão para fim
+        }
+
+        // Converte as strings para LocalDate
+        LocalDate startDate = LocalDate.parse(startDateStr);
+        LocalDate endDate = LocalDate.parse(endDateStr);
+
+        // Chama o serviço para calcular a taxa de retenção
         List<Map<String, Object>> retentionRate = factHiringService.calculateRetentionRate(startDate, endDate);
         return ResponseEntity.ok(retentionRate);
     }
+
 
 }
