@@ -1,5 +1,6 @@
 package com.api.domain.entity;
 
+import com.api.domain.Enums.Role;
 import com.api.domain.dto.UserDto;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
@@ -26,6 +27,8 @@ public class User implements UserDetails {
     private String email;
     private String password;
 
+    @Enumerated(EnumType.STRING)
+    private Role role;
 
     public User(@Valid UserDto userDto){
         this.email = userDto.email();

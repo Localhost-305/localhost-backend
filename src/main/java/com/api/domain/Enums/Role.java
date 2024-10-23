@@ -1,4 +1,4 @@
-package com.api.Enums;
+package com.api.domain.Enums;
 
 import lombok.Getter;
 import lombok.RequiredArgsConstructor;
@@ -9,8 +9,7 @@ import java.util.List;
 import java.util.Set;
 import java.util.stream.Collectors;
 
-import static com.api.Enums.Permission.ADMIN_CREATE;
-import static com.api.Enums.Permission.ADMIN_UPDATE;
+import static com.api.domain.Enums.Permission.*;
 
 @Getter
 @RequiredArgsConstructor
@@ -18,8 +17,13 @@ public enum Role {
 
     USER(Collections.emptySet()),
     ADMIN(
-            Set.of(ADMIN_CREATE, ADMIN_UPDATE)
+            Set.of(ALLOWED_TO_SEE, ALLOWED_TO_CHANGE, ALLOWED_TO_IMPORT, ALLOWED_TO_ADD_ROLE, ALLOWED_TO_SEE_MONEY)
+    ),
+    SUPERVISOR(
+            Set.of(ALLOWED_TO_SEE, ALLOWED_TO_IMPORT)
     );
+
+
 
     private final Set<Permission> permissions;
 
