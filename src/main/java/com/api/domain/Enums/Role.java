@@ -20,10 +20,11 @@ public enum Role {
             Set.of(ALLOWED_TO_SEE, ALLOWED_TO_CHANGE, ALLOWED_TO_IMPORT, ALLOWED_TO_ADD_ROLE, ALLOWED_TO_SEE_MONEY)
     ),
     SUPERVISOR(
+            Set.of(ALLOWED_TO_SEE, ALLOWED_TO_IMPORT, ALLOWED_TO_SEE_MONEY)
+    ),
+    WORKER(
             Set.of(ALLOWED_TO_SEE, ALLOWED_TO_IMPORT)
     );
-
-
 
     private final Set<Permission> permissions;
 
