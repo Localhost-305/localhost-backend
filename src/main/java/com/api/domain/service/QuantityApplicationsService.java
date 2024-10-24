@@ -15,9 +15,6 @@ public class QuantityApplicationsService {
     private QuantityApplicationsRepository quantityApplicationsRepository;
 
     public List<QuantityApplicationDto> findAll(int months) {
-        // Garante que o número de meses esteja entre 3 e 24
-        if (months < 3) months = 3;
-        if (months > 24) months = 24;
 
         // Chama o repositório para obter os dados
         List<Object[]> results = quantityApplicationsRepository.findAllHiringDatesAndTotalHiringsByMonths(months);
