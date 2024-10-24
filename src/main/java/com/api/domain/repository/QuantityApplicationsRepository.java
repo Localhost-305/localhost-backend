@@ -19,12 +19,28 @@ public interface QuantityApplicationsRepository extends JpaRepository<FactHiring
 //            nativeQuery = true)
 //    List<Object[]> findAllCandidatesAndHiringDatesByMonths(@Param("months") int months);
 
-    @Query(value = "SELECT fh.hiring_date AS hiringDate, SUM(fh.qty_hirings) AS totalHirings " +
-            "FROM fact_hirings fh " +
-            "WHERE fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE " +
-            "GROUP BY fh.hiring_date " +
-            "ORDER BY fh.hiring_date",
-            nativeQuery = true)
+//    @Query(value = "SELECT fh.hiring_date AS hiringDate, SUM(fh.qty_hirings) AS totalHirings " +
+//            "FROM fact_hirings fh " +
+//            "WHERE fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE " +
+//            "GROUP BY fh.hiring_date " +
+//            "ORDER BY fh.hiring_date",
+//            nativeQuery = true)
+//    List<Object[]> findAllHiringDatesAndTotalHiringsByMonths(@Param("months") int months);
+
+    @Query(value = """
+        SELECT 
+            MONTH(fh.hiring_date) AS month,
+            YEAR(fh.hiring_date) AS year,
+            SUM(fh.qty_hirings) AS total_hirings
+        FROM 
+            fact_hirings fh
+        WHERE 
+            fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE
+        GROUP BY 
+            MONTH(fh.hiring_date), YEAR(fh.hiring_date)
+        ORDER BY 
+            YEAR(fh.hiring_date), MONTH(fh.hiring_date)
+    """, nativeQuery = true)
     List<Object[]> findAllHiringDatesAndTotalHiringsByMonths(@Param("months") int months);
 
 

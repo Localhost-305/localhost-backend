@@ -1,17 +1,19 @@
 package com.api.domain.dto;
 
 public class QuantityApplicationDto {
-
     private int month;
     private int year;
     private double quantityApplications;
+    private int rank; // Adicione este atributo
 
-    public QuantityApplicationDto(int month, int year, double quantityApplications) {
+    public QuantityApplicationDto(int month, int year, double quantityApplications, int rank) {
         this.month = month;
         this.year = year;
         this.quantityApplications = quantityApplications;
+        this.rank = rank; // Inicializa o rank
     }
 
+    // Getters e Setters
     public int getMonth() {
         return month;
     }
@@ -34,5 +36,13 @@ public class QuantityApplicationDto {
 
     public void setQuantityApplications(double quantityApplications) {
         this.quantityApplications = quantityApplications;
+    }
+
+    public int getRank() { // Adicione este getter
+        return rank;
+    }
+
+    public void setRank(int rank) { // Adicione este setter
+        this.rank = rank;
     }
 }
