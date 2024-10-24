@@ -4,16 +4,21 @@ package com.api.domain.repository;
 import com.api.domain.entity.FactHiring;
 import org.springframework.data.jpa.repository.JpaRepository;
 import org.springframework.data.jpa.repository.Query;
+import org.springframework.data.repository.query.Param;
 import org.springframework.stereotype.Repository;
 
+
+import java.util.List;
 
 @Repository
 public interface QuantityApplicationsRepository extends JpaRepository<FactHiring, Long> {
 
-    @Query(value = "SELECT(count)(candidate_id) as allCandidate  FROM FactHirings",nativeQuery = true)
-    Long countAllCandidates();
+    @Query(value = "SELECT fh.candidate_id AS candidateId, fh.hiring_date AS hiringDate " +
+            "FROM fact_hirings fh " +
+            "WHERE fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE",
+            nativeQuery = true)
+    List<Object[]> findAllCandidatesAndHiringDatesByMonths(@Param("months") int months);
 
 
 }
-
 
