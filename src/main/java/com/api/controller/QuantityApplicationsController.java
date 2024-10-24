@@ -17,8 +17,13 @@ public class QuantityApplicationsController {
     @Autowired
     private QuantityApplicationsService quantityApplicationsService;
 
+//    @GetMapping("/candidates/{months}")
+//    public List<Object[]> getCandidates(@PathVariable int months) {
+//        return quantityApplicationsService.findAll(months);
+//    }
+
     @GetMapping("/candidates/{months}")
-    public List<Object[]> getCandidates(@PathVariable int months) {
+    public List<List<Object>> getHiringSummary(@PathVariable int months) {
         return quantityApplicationsService.findAll(months);
     }
 

@@ -13,11 +13,19 @@ import java.util.List;
 @Repository
 public interface QuantityApplicationsRepository extends JpaRepository<FactHiring, Long> {
 
-    @Query(value = "SELECT fh.candidate_id AS candidateId, fh.hiring_date AS hiringDate " +
+//    @Query(value = "SELECT fh.candidate_id AS candidateId, fh.hiring_date AS hiringDate " +
+//            "FROM fact_hirings fh " +
+//            "WHERE fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE",
+//            nativeQuery = true)
+//    List<Object[]> findAllCandidatesAndHiringDatesByMonths(@Param("months") int months);
+
+    @Query(value = "SELECT fh.hiring_date AS hiringDate, SUM(fh.qty_hirings) AS totalHirings " +
             "FROM fact_hirings fh " +
-            "WHERE fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE",
+            "WHERE fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE " +
+            "GROUP BY fh.hiring_date " +
+            "ORDER BY fh.hiring_date",
             nativeQuery = true)
-    List<Object[]> findAllCandidatesAndHiringDatesByMonths(@Param("months") int months);
+    List<Object[]> findAllHiringDatesAndTotalHiringsByMonths(@Param("months") int months);
 
 
 }
