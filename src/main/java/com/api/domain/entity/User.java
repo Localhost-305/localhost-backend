@@ -11,6 +11,9 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 import java.util.Collection;
 import java.util.List;
+import java.util.stream.Collectors;
+import java.util.Set;
+import jakarta.persistence.ElementCollection;
 
 @Entity(name="Users")
 @Table(name="users")
@@ -25,22 +28,24 @@ public class User implements UserDetails {
     private String email;
     private String password;
 
+    @ElementCollection(fetch = FetchType.EAGER) // Permite buscar os papéis associados ao usuário
     @Enumerated(EnumType.STRING)
-    private Role role;
+    private Set<Role> roles; // Altera para um conjunto de papéis
 
     public User(@Valid UserDto userDto){
         this.email = userDto.email();
         this.password = userDto.password();
-
+        // Aqui você pode atribuir os papéis, se necessário
     }
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return role.getAuthorities();
+        return roles.stream()
+                .flatMap(role -> role.getAuthorities().stream())
+                .collect(Collectors.toList());
     }
-
     @Override
     public String getUsername() {
-        return "";
+        return email; // or another unique identifier
     }
 }

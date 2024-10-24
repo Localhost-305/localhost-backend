@@ -13,17 +13,16 @@ import java.util.List;
 @RestController
 @RequestMapping("/users")
 public class UserController {
-
     @Autowired
     private UserService userService;
 
     @GetMapping
-    public  ResponseEntity<List<User>> getAllUsers(){
-        return ResponseEntity.ok(userService.getAllUsers());
+    public ResponseEntity<List<User>> getAllUsers(){
+        return ResponseEntity.ok(userService.findAll());
     }
 
     @PostMapping
-    public ResponseEntity saveUser(@RequestBody @Valid UserDto userDto){
+    public ResponseEntity<Void> saveUser(@RequestBody @Valid UserDto userDto){
         userService.save(userDto);
         return ResponseEntity.ok().build();
     }

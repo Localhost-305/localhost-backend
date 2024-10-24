@@ -1,5 +1,6 @@
 package com.api.domain.dto;
 
+import com.api.domain.Enums.Role;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotBlank;
 
@@ -12,5 +13,5 @@ public record UserDto(
         @NotBlank
         String password,
         @NotBlank
-        Set<String> roles
+        Set<Role> roles // Mude de String para Role
 ) {}
