@@ -19,11 +19,12 @@ public interface FactHiringRepository extends JpaRepository<FactHiring, Long> {
 
     @Query(value = """
         SELECT CONCAT(MONTH(hiring_date), '/', YEAR(hiring_date)) AS month_year,
-            AVG(DATEDIFF(IFNULL(contract_end_date, CURDATE()), hiring_date)) AS average_retention_days
+               AVG(DATEDIFF(IFNULL(contract_end_date, CURDATE()), hiring_date)) AS average_retention_days
         FROM fact_hirings
-        WHERE hiring_date BETWEEN ? AND ?
+        WHERE hiring_date BETWEEN :startDate AND :endDate
+        AND (contract_end_date IS NULL OR contract_end_date > hiring_date) -- Garantir que datas sejam válidas
         GROUP BY CONCAT(MONTH(hiring_date), '/', YEAR(hiring_date))
         """, nativeQuery = true)
-    List<Map<String, Object>> calculateRetentionRate(LocalDate startDate, LocalDate endDate);
-
+    List<Map<String, Object>> calculateRetentionRate(@Param("startDate") LocalDate startDate, @Param("endDate") LocalDate endDate);
+    
 }
