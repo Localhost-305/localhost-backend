@@ -5,8 +5,13 @@ import com.api.domain.repository.QuantityApplicationsRepository;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.*;
-import java.util.concurrent.atomic.AtomicInteger;
+import java.io.FilterOutputStream;
+import java.time.LocalDate;
+import java.util.ArrayList;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
+import java.util.stream.Collectors;
 
 @Service
 public class QuantityApplicationsService {
@@ -15,105 +20,65 @@ public class QuantityApplicationsService {
     private QuantityApplicationsRepository quantityApplicationsRepository;
 
     public List<QuantityApplicationDto> findAll(int months) {
-
         // Chama o repositório para obter os dados
-        List<Object[]> results = quantityApplicationsRepository.findAllHiringDatesAndTotalHiringsByMonths(months);
+        List<Object[]> results = quantityApplicationsRepository.findApplicationsByMonths(months);
 
-        // Mapa para armazenar a soma total por mês e ano
-        Map<String, Double> monthlyTotals = new HashMap<>();
 
-        // Processa os resultados para somar as aplicações por mês
-        for (Object[] result : results) {
-            int month = (int) result[0];  // O mês
-            int year = (int) result[1];   // O ano
-            double totalHirings = ((Number) result[2]).doubleValue(); // Total de contratações
+        // Converte os dados para uma lista de QuantityApplicationDto
+        List<QuantityApplicationDto> retornoMedia = results.stream()
+                .map(result -> new QuantityApplicationDto(
+                        (int) result[0],                // year
+                        (int) result[1],                // month
+                        ((Number) result[2]).doubleValue(), // total applications
+                        ((Number) result[3]).intValue()     // rank
+                ))
+                .collect(Collectors.toList());
 
-            // Cria uma chave única para o mês e ano
-            String key = month + "-" + year;
-            monthlyTotals.put(key, monthlyTotals.getOrDefault(key, 0.0) + totalHirings);
-        }
+        List<QuantityApplicationDto> retornoMedia1 = average(retornoMedia,1);
+        List<QuantityApplicationDto> retornoMedia2 = average(retornoMedia1,2);
+        List<QuantityApplicationDto> retornoMedia3 = average(retornoMedia2,3);
 
-        // Lista para armazenar o resultado formatado
-        List<QuantityApplicationDto> resultList = new ArrayList<>();
+        System.out.println(retornoMedia1.size());
+        System.out.println(retornoMedia2.size());
+        System.out.println(retornoMedia3.size());
 
-        // Preenche a lista com os dados agregados
-        monthlyTotals.forEach((key, total) -> {
-            String[] parts = key.split("-");
-            int month = Integer.parseInt(parts[0]); // Obtém o mês
-            int year = Integer.parseInt(parts[1]);   // Obtém o ano
 
-            // Adiciona ao resultado usando o DTO, com total de applications
-            QuantityApplicationDto monthlyData = new QuantityApplicationDto(month, year, total, 0); // Rank será ajustado depois
-            resultList.add(monthlyData);
-        });
-
-        // Ordena a lista por ano e mês antes de calcular o ranking e média ponderada
-        resultList.sort((a, b) -> {
-            if (a.getYear() == b.getYear()) {
-                return Integer.compare(a.getMonth(), b.getMonth());
-            }
-            return Integer.compare(a.getYear(), b.getYear());
-        });
-
-        // Calcula o ranking baseado na ordem temporal
-        AtomicInteger rank = new AtomicInteger(1); // Inicia o ranking
-        resultList.forEach(dto -> dto.setRank(rank.getAndIncrement())); // Define o rank em ordem crescente
-
-        // Gera três meses à frente da data atual
-        List<QuantityApplicationDto> futureMonths = generateFutureMonths(resultList, months);
-
-        // Adiciona os novos meses ao final da lista original
-        resultList.addAll(futureMonths);
-
-        return resultList;
+        return  retornoMedia3;
     }
 
-    // Função para gerar três meses futuros com a média ponderada
-    private List<QuantityApplicationDto> generateFutureMonths(List<QuantityApplicationDto> originalList, int months) {
-        List<QuantityApplicationDto> futureMonths = new ArrayList<>();
 
-        // Certifique-se de que há pelo menos 'months' meses de dados para calcular a média ponderada
-        if (originalList.size() < months) {
-            return futureMonths; // Não há dados suficientes para gerar futuros
+    public  List <QuantityApplicationDto> average(List<QuantityApplicationDto> listAvg, int plusMonth){
+
+        Double sumList = 0.0;
+        Double sumRank = 0.0;
+        int    maxRank =0;
+
+        for (QuantityApplicationDto averageMouth:listAvg){
+            sumList += averageMouth.getQuantityApplications() * averageMouth.getRank();
+            sumRank += averageMouth.getRank();
+
+            System.out.println(averageMouth.getQuantityApplications());
+
+            if (maxRank < averageMouth.getRank()){
+                maxRank = averageMouth.getRank() ;
+            }
         }
 
-        // Gera três meses futuros
-        for (int i = 1; i <= 3; i++) {
-            // Obtém os últimos 'months' meses para cálculo da média ponderada
-            List<QuantityApplicationDto> sublist = originalList.subList(originalList.size() - months, originalList.size());
+        System.out.println();
 
-            // Calcula a média ponderada com base na proximidade temporal
-            double weightedSum = 0.0;
-            double totalWeights = 0.0;
+        Double averageAll = sumList / sumRank;
 
-            // Peso baseado na proximidade temporal: mais recente = maior peso
-            int weight = 1;
-            for (QuantityApplicationDto dto : sublist) {
-                weightedSum += dto.getQuantityApplications() * weight; // Peso maior para meses mais recentes
-                totalWeights += weight;
-                weight++;
-            }
+        maxRank++;
+        LocalDate currentDate = LocalDate.now();
+        System.out.println(currentDate);
+        LocalDate newDate = currentDate.plusMonths(plusMonth);
 
-            double weightedAverage = weightedSum / totalWeights; // Média ponderada pela proximidade temporal
+        QuantityApplicationDto quantityApplicationDto = new QuantityApplicationDto(newDate.getMonthValue(),newDate.getYear(),averageAll,maxRank);
 
-            // Obtém o último mês processado para gerar o próximo mês
-            QuantityApplicationDto lastMonth = futureMonths.isEmpty()
-                    ? originalList.get(originalList.size() - 1)
-                    : futureMonths.get(futureMonths.size() - 1);
+//        System.out.println(quantityApplicationDto.getQuantityApplications());
 
-            // Incrementa o mês e ajusta o ano, se necessário
-            int newMonth = lastMonth.getMonth() + 1;
-            int newYear = lastMonth.getYear();
-            if (newMonth > 12) {
-                newMonth = 1;
-                newYear++;
-            }
+        listAvg.add(quantityApplicationDto);
 
-            // Cria o novo DTO para o próximo mês com base na média ponderada
-            QuantityApplicationDto newTrend = new QuantityApplicationDto(newMonth, newYear, weightedAverage, lastMonth.getRank() + 1);
-            futureMonths.add(newTrend);
-        }
-
-        return futureMonths;
+        return listAvg;
     }
 }

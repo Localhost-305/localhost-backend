@@ -6,6 +6,16 @@ public class QuantityApplicationDto {
     private double quantityApplications;
     private int rank; // Adicione este atributo
 
+    @Override
+    public String toString() {
+        return "QuantityApplicationDto{" +
+                "month=" + month +
+                ", year=" + year +
+                ", quantityApplications=" + quantityApplications +
+                ", rank=" + rank +
+                '}';
+    }
+
     public QuantityApplicationDto(int month, int year, double quantityApplications, int rank) {
         this.month = month;
         this.year = year;
