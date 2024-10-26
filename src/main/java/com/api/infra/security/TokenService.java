@@ -23,7 +23,7 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("API fatec")
                     .withSubject(user.getEmail())
-                    // .withClaim("id", user.getId()) use to add info in token jwt
+                    .withClaim("role", user.getRole().name())
                     .withExpiresAt(expireAt())
                     .sign(algorithm);
         } catch (JWTCreationException exception){
