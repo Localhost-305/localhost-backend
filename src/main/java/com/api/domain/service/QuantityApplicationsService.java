@@ -26,7 +26,7 @@ public class QuantityApplicationsService {
         int monthInt = months;
 
         // Converte os dados para uma lista de QuantityApplicationDto
-        List<QuantityApplicationDto> retornoMedia = results.stream()
+        List<QuantityApplicationDto> returnAverage = results.stream()
                 .map(result -> new QuantityApplicationDto(
                         (int) result[0],                // year
                         (int) result[1],                // month
@@ -35,23 +35,23 @@ public class QuantityApplicationsService {
                 ))
                 .collect(Collectors.toList());
 
-        List<QuantityApplicationDto> retornoMedia1 = average(retornoMedia,1,monthInt);
-        List<QuantityApplicationDto> retornoMedia2 = average(retornoMedia1,2,monthInt);
-        List<QuantityApplicationDto> retornoMedia3 = average(retornoMedia2,3,monthInt);
-        return  retornoMedia3;
+        List<QuantityApplicationDto> returnAverage1 = average(returnAverage, 1, monthInt);
+        List<QuantityApplicationDto> returnAverage2 = average(returnAverage1, 2, monthInt);
+        List<QuantityApplicationDto> returnAverage3 = average(returnAverage2, 3, monthInt);
+        return returnAverage3;
     }
 
 
-    public  List <QuantityApplicationDto> average(List<QuantityApplicationDto> listAvg, int plusMonth,int monthInt){
+    public List<QuantityApplicationDto> average(List<QuantityApplicationDto> listAvg, int plusMonth, int monthInt) {
 
         Double sumList = 0.0;
         Double sumRank = 0.0;
-        int    maxRank =0;
+        int maxRank = 0;
         int elementCount = listAvg.size();
 
-        for (QuantityApplicationDto averageMouth:listAvg){
+        for (QuantityApplicationDto averageMouth : listAvg) {
             //sumList += averageMouth.getQuantityApplications() * averageMouth.getRank();
-            sumList += averageMouth.getQuantityApplications() ;
+            sumList += averageMouth.getQuantityApplications();
             sumRank += averageMouth.getRank();
             maxRank = averageMouth.getRank();
 
@@ -60,10 +60,10 @@ public class QuantityApplicationsService {
         maxRank++;
 
 
-        Double averageAll= (sumList /elementCount);
-        if (monthInt == 3){
-            averageAll = Math.round(averageAll * (1-0.5) * 100.0)/100.0;
-        }else if (monthInt > 3){
+        Double averageAll = (sumList / elementCount);
+        if (monthInt == 3) {
+            averageAll = Math.round(averageAll * (1 - 0.5) * 100.0) / 100.0;
+        } else if (monthInt > 3) {
             Double averageAllMonth = sumList / sumRank;
             averageAllMonth = (averageAllMonth + 0.5) * (1 - 0.5);
             averageAll = Math.round(averageAll * (1 - 0.5) * 100.0) / 100.0;
@@ -74,7 +74,7 @@ public class QuantityApplicationsService {
         System.out.println(currentDate);
         LocalDate newDate = currentDate.plusMonths(plusMonth);
 
-        QuantityApplicationDto quantityApplicationDto = new QuantityApplicationDto(newDate.getMonthValue(),newDate.getYear(),averageAll,maxRank);
+        QuantityApplicationDto quantityApplicationDto = new QuantityApplicationDto(newDate.getMonthValue(), newDate.getYear(), averageAll, maxRank);
         listAvg.add(quantityApplicationDto);
 
         return listAvg;
