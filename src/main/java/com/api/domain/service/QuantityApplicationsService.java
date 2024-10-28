@@ -38,12 +38,6 @@ public class QuantityApplicationsService {
         List<QuantityApplicationDto> retornoMedia1 = average(retornoMedia,1,monthInt);
         List<QuantityApplicationDto> retornoMedia2 = average(retornoMedia1,2,monthInt);
         List<QuantityApplicationDto> retornoMedia3 = average(retornoMedia2,3,monthInt);
-
-        System.out.println(retornoMedia1.size());
-        System.out.println(retornoMedia2.size());
-        System.out.println(retornoMedia3.size());
-
-
         return  retornoMedia3;
     }
 
@@ -59,36 +53,28 @@ public class QuantityApplicationsService {
             //sumList += averageMouth.getQuantityApplications() * averageMouth.getRank();
             sumList += averageMouth.getQuantityApplications() ;
             sumRank += averageMouth.getRank();
-
-            System.out.println(averageMouth.getQuantityApplications());
-
-//            if (maxRank < averageMouth.getRank()){
-//                maxRank = averageMouth.getRank() ;
-//            }
-
             maxRank = averageMouth.getRank();
+
         }
-
-
-
-        Double averageAll;
-        if (monthInt == 3){
-            averageAll = (sumList /elementCount)*(1-0.5);
-        }else{
-            averageAll = sumList / sumRank;
-        }
-
-        //Double averageAll = sumList / sumRank;
 
         maxRank++;
+
+
+        Double averageAll= (sumList /elementCount);
+        if (monthInt == 3){
+            averageAll = Math.round(averageAll * (1-0.5) * 100.0)/100.0;
+        }else if (monthInt > 3){
+            Double averageAllMonth = sumList / sumRank;
+            averageAllMonth = (averageAllMonth + 0.5) * (1 - 0.5);
+            averageAll = Math.round(averageAll * (1 - 0.5) * 100.0) / 100.0;
+        }
+
+
         LocalDate currentDate = LocalDate.now();
         System.out.println(currentDate);
         LocalDate newDate = currentDate.plusMonths(plusMonth);
 
         QuantityApplicationDto quantityApplicationDto = new QuantityApplicationDto(newDate.getMonthValue(),newDate.getYear(),averageAll,maxRank);
-
-//        System.out.println(quantityApplicationDto.getQuantityApplications());
-
         listAvg.add(quantityApplicationDto);
 
         return listAvg;
