@@ -23,6 +23,7 @@ public class QuantityApplicationsService {
         // Chama o repositório para obter os dados
         List<Object[]> results = quantityApplicationsRepository.findApplicationsByMonths(months);
 
+        int monthInt = months;
 
         // Converte os dados para uma lista de QuantityApplicationDto
         List<QuantityApplicationDto> retornoMedia = results.stream()
@@ -34,9 +35,9 @@ public class QuantityApplicationsService {
                 ))
                 .collect(Collectors.toList());
 
-        List<QuantityApplicationDto> retornoMedia1 = average(retornoMedia,1);
-        List<QuantityApplicationDto> retornoMedia2 = average(retornoMedia1,2);
-        List<QuantityApplicationDto> retornoMedia3 = average(retornoMedia2,3);
+        List<QuantityApplicationDto> retornoMedia1 = average(retornoMedia,1,monthInt);
+        List<QuantityApplicationDto> retornoMedia2 = average(retornoMedia1,2,monthInt);
+        List<QuantityApplicationDto> retornoMedia3 = average(retornoMedia2,3,monthInt);
 
         System.out.println(retornoMedia1.size());
         System.out.println(retornoMedia2.size());
@@ -47,26 +48,37 @@ public class QuantityApplicationsService {
     }
 
 
-    public  List <QuantityApplicationDto> average(List<QuantityApplicationDto> listAvg, int plusMonth){
+    public  List <QuantityApplicationDto> average(List<QuantityApplicationDto> listAvg, int plusMonth,int monthInt){
 
         Double sumList = 0.0;
         Double sumRank = 0.0;
         int    maxRank =0;
+        int elementCount = listAvg.size();
 
         for (QuantityApplicationDto averageMouth:listAvg){
-            sumList += averageMouth.getQuantityApplications() * averageMouth.getRank();
+            //sumList += averageMouth.getQuantityApplications() * averageMouth.getRank();
+            sumList += averageMouth.getQuantityApplications() ;
             sumRank += averageMouth.getRank();
 
             System.out.println(averageMouth.getQuantityApplications());
 
-            if (maxRank < averageMouth.getRank()){
-                maxRank = averageMouth.getRank() ;
-            }
+//            if (maxRank < averageMouth.getRank()){
+//                maxRank = averageMouth.getRank() ;
+//            }
+
+            maxRank = averageMouth.getRank();
         }
 
-        System.out.println();
 
-        Double averageAll = sumList / sumRank;
+
+        Double averageAll;
+        if (monthInt == 3){
+            averageAll = (sumList /elementCount)*(1-0.5);
+        }else{
+            averageAll = sumList / sumRank;
+        }
+
+        //Double averageAll = sumList / sumRank;
 
         maxRank++;
         LocalDate currentDate = LocalDate.now();
