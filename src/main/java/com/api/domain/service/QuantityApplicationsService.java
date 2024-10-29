@@ -51,10 +51,9 @@ public class QuantityApplicationsService {
 
         for (QuantityApplicationDto averageMouth : listAvg) {
             //sumList += averageMouth.getQuantityApplications() * averageMouth.getRank();
-            sumList += averageMouth.getQuantityApplications();
-            sumRank += averageMouth.getRank();
-            maxRank = averageMouth.getRank();
-
+            sumList += averageMouth.quantityApplications();
+            sumRank += averageMouth.rank();
+            maxRank = averageMouth.rank();
         }
 
         maxRank++;
@@ -62,11 +61,11 @@ public class QuantityApplicationsService {
 
         Double averageAll = (sumList / elementCount);
         if (monthInt == 3) {
-            averageAll = Math.round(averageAll * (1 - 0.5) * 100.0) / 100.0;
+            averageAll = Math.round(averageAll * 0.5 * 100.0) / 100.0;
         } else if (monthInt > 3) {
             Double averageAllMonth = sumList / sumRank;
-            averageAllMonth = (averageAllMonth + 0.5) * (1 - 0.5);
-            averageAll = Math.round(averageAll * (1 - 0.5) * 100.0) / 100.0;
+            averageAllMonth = (averageAllMonth + 0.5) * (0.5);
+            averageAll = Math.round(averageAll * (0.5) * 100.0) / 100.0;
         }
 
 
