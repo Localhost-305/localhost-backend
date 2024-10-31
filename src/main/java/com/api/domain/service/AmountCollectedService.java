@@ -21,15 +21,16 @@ public class AmountCollectedService {
         this.amonuntCollectedRepository = amonuntCollectedRepository;
     }
 
-    public List<AmountCollectedDto> findAmountCollectedByMonths(int months) {
-        List<Object[]> results = amonuntCollectedRepository.findAmountCollectedByMonths(months);
+    public List<AmountCollectedDto> findAmountCollectedByMonths(int months, String profissao) {
+        List<Object[]> results = amonuntCollectedRepository.findAmountCollectedByMonths(months,profissao);
 
         return results.stream()
                 .map(result -> new AmountCollectedDto(
                         (int) result[0],                   // year
-                        (int) result[1],                   // month
-                        ((Number) result[2]).doubleValue(), // collected revenue
-                        ((Number) result[3]).intValue()     // rank // rank
+                        (int) result[1],
+                        (String) result[2],// month
+                        ((Number) result[3]).doubleValue(), // collected revenue
+                        ((Number) result[4]).intValue()     // rank // rank
                 ))
                 .collect(Collectors.toList());
     }

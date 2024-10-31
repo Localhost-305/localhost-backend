@@ -14,23 +14,25 @@ import java.util.List;
 public interface AmonuntCollectedRepository extends JpaRepository<FactHiring, Long> {
 
     @Query(value = """ 
-            SELECT  
-                YEAR(fh.hiring_date) AS year,  
-                MONTH(fh.hiring_date) AS month,  
-                SUM(fh.initial_salary * 0.15) AS collected_revenue, 
+            SELECT 
+                YEAR(fh.hiring_date) AS year, 
+                MONTH(fh.hiring_date) AS month, 
+                dj.job_title AS jobTitle, 
+                SUM(fh.initial_salary * 0.15) AS collected_revenue,
                 DENSE_RANK() OVER (ORDER BY YEAR(fh.hiring_date), MONTH(fh.hiring_date)) AS `rank`
-            FROM  
-                fact_hirings fh 
-            WHERE  
+            FROM 
+                fact_hirings fh
+            JOIN
+                dim_jobs dj ON fh.job_id = dj.job_id
+            WHERE 
                 fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE 
-            GROUP BY  
-                year, month 
-            ORDER BY  
+                AND (:profissao IS NULL OR dj.job_title = :profissao)
+            GROUP BY 
+                year, month, jobTitle
+            ORDER BY 
                 year, month;
             """, nativeQuery = true)
-
-
-    List<Object[]> findAmountCollectedByMonths(@Param("months") int months);
+    List<Object[]> findAmountCollectedByMonths(@Param("months") int months,@Param("profissao") String profissao );
 
 
 }
