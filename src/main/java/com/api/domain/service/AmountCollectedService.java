@@ -26,9 +26,10 @@ public class AmountCollectedService {
 
         return results.stream()
                 .map(result -> new AmountCollectedDto(
-                        (String) result[0],                   // period (YYYY-MM)
-                        ((Number) result[1]).doubleValue(),   // collected revenue
-                        ((Number) result[2]).intValue()       // rank
+                        (int) result[0],                   // year
+                        (int) result[1],                   // month
+                        ((Number) result[2]).doubleValue(), // collected revenue
+                        ((Number) result[3]).intValue()     // rank // rank
                 ))
                 .collect(Collectors.toList());
     }

@@ -15,17 +15,18 @@ public interface AmonuntCollectedRepository extends JpaRepository<FactHiring, Lo
 
     @Query(value = """ 
             SELECT  
-                DATE_FORMAT(fh.hiring_date, '%Y-%m') AS period,  
+                YEAR(fh.hiring_date) AS year,  
+                MONTH(fh.hiring_date) AS month,  
                 SUM(fh.initial_salary * 0.15) AS collected_revenue, 
-                DENSE_RANK() OVER (ORDER BY DATE_FORMAT(fh.hiring_date, '%Y-%m')) AS `rank`
+                DENSE_RANK() OVER (ORDER BY YEAR(fh.hiring_date), MONTH(fh.hiring_date)) AS `rank`
             FROM  
                 fact_hirings fh 
             WHERE  
                 fh.hiring_date BETWEEN DATE_SUB(CURRENT_DATE, INTERVAL :months MONTH) AND CURRENT_DATE 
             GROUP BY  
-                period 
+                year, month 
             ORDER BY  
-                period;
+                year, month;
             """, nativeQuery = true)
 
 

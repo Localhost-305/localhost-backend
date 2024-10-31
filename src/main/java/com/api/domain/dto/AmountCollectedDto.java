@@ -2,8 +2,6 @@ package com.api.domain.dto;
 
 
 public record AmountCollectedDto(
-        String period,
-        double collectedRevenue,
-        int rank) {
+        int year, int month, double collectedRevenue, int rank) {
 }
 
