@@ -19,9 +19,9 @@ public class AmountCollectedController {
     private AmountCollectedService amountCollectedService;
 
     @GetMapping ("/collected")
-    public List<AmountCollectedDto> getAllAmount (@RequestParam("months") int months ,
-                                                  @RequestParam(required = false) String profissao){
-        return amountCollectedService.findAmountCollectedByMonths(months,profissao);
+    public List<AmountCollectedDto> getAmountCollected (@RequestParam("months") int months ,
+                                                  @RequestParam(required = false) String profession){
+        return amountCollectedService.findAmountCollectedByMonths(months,profession);
     }
 
 

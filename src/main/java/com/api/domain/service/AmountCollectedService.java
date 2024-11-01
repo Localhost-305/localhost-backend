@@ -20,17 +20,17 @@ public class AmountCollectedService {
         this.amountCollectedRepository = amountCollectedRepository;
     }
 
-    public List<AmountCollectedDto> findAmountCollectedByMonths(int months, String profissao) {
-        List<Object[]> results = amountCollectedRepository.findAmountCollectedByMonths(months, profissao);
+    public List<AmountCollectedDto> findAmountCollectedByMonths(int months, String profession) {
+        List<Object[]> results = amountCollectedRepository.findAmountCollectedByMonths(months, profession);
 
        int monthInt =months;
         List<AmountCollectedDto> returnAverage = results.stream()
                 .map(result -> new AmountCollectedDto(
-                        (int) result[0],                   // year
+                        (int) result[0],
                         (int) result[1],
-                        (String) result[2],// month
-                        ((Number) result[3]).doubleValue(), // collected revenue
-                        ((Number) result[4]).intValue()    // rank
+                        (String) result[2],
+                        ((Number) result[3]).doubleValue(),
+                        ((Number) result[4]).intValue()
                 ))
                 .collect(Collectors.toList());
 
