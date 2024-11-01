@@ -28,8 +28,8 @@ public class QuantityApplicationsService {
         // Converte os dados para uma lista de QuantityApplicationDto
         List<QuantityApplicationDto> returnAverage = results.stream()
                 .map(result -> new QuantityApplicationDto(
-                        (int) result[0],                // year
-                        (int) result[1],                // month
+                        (int) result[1],
+                        (int) result[0],
                         ((Number) result[2]).doubleValue(), // total applications
                         ((Number) result[3]).intValue()     // rank
                 ))
@@ -69,8 +69,9 @@ public class QuantityApplicationsService {
         }
 
 
+
         LocalDate currentDate = LocalDate.now();
-        System.out.println(currentDate);
+
         LocalDate newDate = currentDate.plusMonths(plusMonth);
 
         QuantityApplicationDto quantityApplicationDto = new QuantityApplicationDto(newDate.getMonthValue(), newDate.getYear(), averageAll, maxRank);
