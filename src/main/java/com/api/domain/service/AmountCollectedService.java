@@ -65,7 +65,7 @@ public class AmountCollectedService {
         AmountCollectedDto amountCollectedDto = new AmountCollectedDto(
                 newDate.getYear(),
                 newDate.getMonthValue(),
-                listAvg.isEmpty() ? "" : listAvg.get(0).jobTitle(), // Preserva o jobTitle do primeiro elemento, se disponível
+                listAvg.isEmpty() ? "" : listAvg.get(0).jobTitle(),
                 averageAll,
                 maxRank + 1
         );
