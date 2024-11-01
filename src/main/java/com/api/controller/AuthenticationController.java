@@ -7,10 +7,14 @@ import com.api.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.web.bind.annotation.*;
+
+import java.util.List;
+import java.util.stream.Collectors;
 
 @RestController
 @RequestMapping("/auth")
@@ -25,14 +29,23 @@ public class AuthenticationController {
 
     @RequestMapping("/login")
     @PostMapping
-    public ResponseEntity login(@RequestBody @Valid LoginDto loginData){
+    public ResponseEntity login(@RequestBody @Valid LoginDto loginData) {
         var authenticationToken = new UsernamePasswordAuthenticationToken(loginData.email(), loginData.password());
         var authentication = manager.authenticate(authenticationToken);
         User user = (User) authentication.getPrincipal();
         var tokenJWT = tokenService.generateToken(user);
-        return ResponseEntity.ok(new DataTokenJWTDTO(tokenJWT, new UserResumeDTO(user.getUserId(), user.getName(), user.getEmail())));
+
+        List<String> permissions = user.getRole().getPermissions().stream()
+                .map(permission -> permission.getPermissionName())
+                .collect(Collectors.toList());
+
+        // Cria o UserResumeDTO com a role e as permissões
+        var userResume = new UserResumeDTO(user.getUserId(), user.getName(), user.getEmail(), user.getRole().getRoleName(), permissions);
+
+        return ResponseEntity.ok(new DataTokenJWTDTO(tokenJWT, userResume));
     }
 
+    @PreAuthorize("hasRole('ADMIN') and @permissionEvaluator.hasPermission(authentication, 'allowed_to_change')")
     @PostMapping("/register")
     public ResponseEntity register(@RequestBody @Valid UserDto data){
         if(this.userRepository.findByEmail(data.email()) != null)return ResponseEntity.badRequest().build();

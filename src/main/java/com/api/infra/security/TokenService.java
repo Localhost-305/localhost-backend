@@ -23,11 +23,12 @@ public class TokenService {
             return JWT.create()
                     .withIssuer("API fatec")
                     .withSubject(user.getEmail())
-                    .withClaim("role", user.getRole().name())
+                    .withClaim("role", user.getRole().getRoleName())
+                    .withArrayClaim("permissions", user.getRole().getPermissions().stream().map(p -> p.getPermissionName()).toArray(String[]::new))
                     .withExpiresAt(expireAt())
                     .sign(algorithm);
-        } catch (JWTCreationException exception){
-            throw new RuntimeException("failed to generate jwt", exception);
+        } catch (JWTCreationException exception) {
+            throw new RuntimeException("Failed to generate JWT", exception);
         }
     }
 

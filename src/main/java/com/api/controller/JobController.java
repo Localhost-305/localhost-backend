@@ -22,7 +22,7 @@ public class JobController {
     @GetMapping
     public ResponseEntity findAll() {return ResponseEntity.ok(jobService.findAll());}
 
-    @PreAuthorize("ADMIN")
+    @PreAuthorize("SUPERVISOR")
     @GetMapping("/jobAverage")
     public ResponseEntity<ArrayList<Object>> getAll(@RequestParam(required = false)  String startDateStr , @RequestParam(required = false)  String endDateStr) {
         if(startDateStr == null){
