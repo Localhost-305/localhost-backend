@@ -8,6 +8,7 @@ import com.api.domain.service.FactHiringService;
 import org.springframework.format.annotation.DateTimeFormat;
 
 import java.time.LocalDate;
+import java.util.HashMap;
 import java.util.List;
 import java.util.Map;
 
@@ -30,26 +31,31 @@ public class FactHiringController {
     }
 
 
-    @GetMapping("/retention")
-    public ResponseEntity<List<Map<String, Object>>> getRetentionRate(
-            @RequestParam(required = false) String startDateStr,
-            @RequestParam(required = false) String endDateStr) {
+@GetMapping("/retention")
+public ResponseEntity<Map<String, Object>> getRetentionRate(
+        @RequestParam(required = false) String startDateStr,
+        @RequestParam(required = false) String endDateStr) {
 
-        if (startDateStr == null) {
-            startDateStr = "2000-01-01"; // data padrão para início
-        }
-        if (endDateStr == null) {
-            endDateStr = LocalDate.now().toString(); // data padrão para fim
-        }
-
-        // Converte as strings para LocalDate
-        LocalDate startDate = LocalDate.parse(startDateStr);
-        LocalDate endDate = LocalDate.parse(endDateStr);
-
-        // Chama o serviço para calcular a taxa de retenção
-        List<Map<String, Object>> retentionRate = factHiringService.calculateRetentionRate(startDate, endDate);
-        return ResponseEntity.ok(retentionRate);
+    if (startDateStr == null) {
+        startDateStr = "2000-01-01"; // data padrão para início
     }
+    if (endDateStr == null) {
+        endDateStr = LocalDate.now().toString(); // data padrão para fim
+    }
+
+    // Converte as strings para LocalDate
+    LocalDate startDate = LocalDate.parse(startDateStr);
+    LocalDate endDate = LocalDate.parse(endDateStr);
+
+    // Chama o serviço para calcular a taxa de retenção
+    double retentionRate = factHiringService.calculateRetentionRate(startDate, endDate);
+
+    // Cria o objeto de resposta no formato "retentionDays: ..."
+    Map<String, Object> response = new HashMap<>();
+    response.put("retentionDays", retentionRate);
+
+    return ResponseEntity.ok(response);
+}
 
 
 }
