@@ -35,5 +35,5 @@ jobs:
       - name: Push Docker image to GitHub Container Registry
         run: |
           REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-          docker push ghcr.io/$REPOSITORY_NAME/my-image:latest
+          docker push ghcr.io/$REPOSITORY_NAME/docker-image-test:latest
 
