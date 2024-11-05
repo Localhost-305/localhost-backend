@@ -30,8 +30,6 @@ jobs:
       - name: Build Docker image
         run: |
           REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-          echo "Converted Repository Name: $REPOSITORY_NAME"
-          echo "Repository Name: ${{ github.repository }}"
           docker build -t ghcr.io/$REPOSITORY_NAME/docker-image-test .
 
       - name: Push Docker image to GitHub Container Registry
