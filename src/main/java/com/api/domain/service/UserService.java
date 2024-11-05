@@ -22,6 +22,7 @@ public class UserService {
 
     @Autowired
     private UserRepository repository;
+    @Autowired
     private RoleRepository roleRepository;
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
@@ -31,10 +32,8 @@ public class UserService {
         String encodedPassword = passwordEncoder.encode(userDto.password());
         newUser.setPassword(encodedPassword);
 
-        // Buscando a role pelo nome
         Role role = roleRepository.findByRoleName(userDto.role())
-                .orElseThrow(() -> new RuntimeException("Role not found")); // Verifica se a role existe
-
+                .orElseThrow(() -> new RuntimeException("Role not found"));
         newUser.setRole(role);
 
         repository.save(newUser);

@@ -3,6 +3,7 @@ package com.api.controller;
 import com.api.domain.dto.*;
 import com.api.domain.entity.User;
 import com.api.domain.repository.UserRepository;
+import com.api.domain.service.UserService;
 import com.api.infra.security.TokenService;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -23,7 +24,7 @@ public class AuthenticationController {
     @Autowired
     private AuthenticationManager manager;
     @Autowired
-    private UserRepository userRepository;
+    private UserService userService;
     @Autowired
     private TokenService tokenService;
 
@@ -39,21 +40,17 @@ public class AuthenticationController {
                 .map(permission -> permission.getPermissionName())
                 .collect(Collectors.toList());
 
-        // Cria o UserResumeDTO com a role e as permissões
-        var userResume = new UserResumeDTO(user.getUserId(), user.getName(), user.getEmail(), user.getRole().getRoleName(), permissions);
+
+        var userResume = new UserResumeDTO(user.getUserId(), user.getName(), user.getEmail(), user.getRole().getRoleName(), user.getRole().getId(), permissions);
 
         return ResponseEntity.ok(new DataTokenJWTDTO(tokenJWT, userResume));
     }
 
-    @PreAuthorize("hasRole('ADMIN') and @permissionEvaluator.hasPermission(authentication, 'allowed_to_change')")
+    @PreAuthorize("hasAnyAuthority('allowed_to_change')")
     @PostMapping("/register")
-    public ResponseEntity register(@RequestBody @Valid UserDto data){
-        if(this.userRepository.findByEmail(data.email()) != null)return ResponseEntity.badRequest().build();
+    public ResponseEntity<Void> register(@RequestBody @Valid UserDto userDto){
 
-        String encryptedPassword = new BCryptPasswordEncoder().encode(data.password());
-        User newUser = new User(data);
-
-        this.userRepository.save(newUser);
+        userService.save(userDto);
 
         return ResponseEntity.ok().build();
     }

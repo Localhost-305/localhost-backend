@@ -1,5 +1,6 @@
 package com.api.infra.security;
 
+import com.api.domain.entity.Permission;
 import com.api.domain.entity.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -24,7 +25,7 @@ public class TokenService {
                     .withIssuer("API fatec")
                     .withSubject(user.getEmail())
                     .withClaim("role", user.getRole().getRoleName())
-                    .withArrayClaim("permissions", user.getRole().getPermissions().stream().map(p -> p.getPermissionName()).toArray(String[]::new))
+                    .withArrayClaim("permissions", user.getRole().getPermissions().stream().map(Permission::getPermissionName).toArray(String[]::new))
                     .withExpiresAt(expireAt())
                     .sign(algorithm);
         } catch (JWTCreationException exception) {

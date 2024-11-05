@@ -1,7 +1,6 @@
 package com.api.domain.entity;
 
 import com.api.domain.dto.PermissionDTO;
-import com.api.domain.dto.RoleDTO;
 import jakarta.persistence.*;
 import jakarta.validation.Valid;
 import lombok.Data;

@@ -1,14 +1,10 @@
 package com.api.domain.entity;
 
-import com.api.domain.dto.JobDto;
-import com.api.domain.dto.RoleDTO;
 import jakarta.persistence.*;
-import jakarta.validation.Valid;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
-import java.util.Set;
-import java.util.stream.Collectors;
+import java.util.List;
 
 @Entity(name="role")
 @Table(name="dim_roles")
@@ -23,12 +19,10 @@ public class Role {
     @Column(name = "role_name")
     private String roleName;
 
-    @OneToMany(mappedBy = "role", fetch = FetchType.EAGER) // Fetch pode ser EAGER para carregar permissões
-    private Set<RolePermission> rolePermissions;
+    @ManyToMany(fetch = FetchType.EAGER)
+    @JoinTable(name = "fact_roles_permissions",
+    joinColumns = @JoinColumn(name = "role_id"),
+    inverseJoinColumns = @JoinColumn(name = "permission_id"))
+    private List<Permission> permissions;
 
-    public Set<Permission> getPermissions() {
-        return rolePermissions.stream()
-                .map(RolePermission::getPermission)
-                .collect(Collectors.toSet());
-    }
 }

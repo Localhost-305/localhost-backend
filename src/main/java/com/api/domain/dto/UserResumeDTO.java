@@ -8,6 +8,7 @@ public record UserResumeDTO (
         String name,
         String email,
         String role,
+        Long roleId,
         List<String> permissions
 )
 { }
