@@ -50,7 +50,7 @@ public class User implements UserDetails {
     @JsonIgnore
     public Collection<? extends GrantedAuthority> getAuthorities() {
         List<GrantedAuthority> authorities = new ArrayList<>();
-        authorities.add(new SimpleGrantedAuthority(role.getRoleName()));
+        authorities.add(new SimpleGrantedAuthority("ROLE_"+role.getRoleName()));
         authorities.addAll(getRole()
         .getPermissions()
         .stream()

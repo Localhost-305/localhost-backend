@@ -45,13 +45,4 @@ public class AuthenticationController {
 
         return ResponseEntity.ok(new DataTokenJWTDTO(tokenJWT, userResume));
     }
-
-    @PreAuthorize("hasAnyAuthority('allowed_to_change')")
-    @PostMapping("/register")
-    public ResponseEntity<Void> register(@RequestBody @Valid UserDto userDto){
-
-        userService.save(userDto);
-
-        return ResponseEntity.ok().build();
-    }
 }

@@ -12,7 +12,7 @@ import org.springframework.web.bind.annotation.*;
 import java.util.List;
 
 @RestController
-@RequestMapping("/users")
+@RequestMapping("/user")
 public class UserController {
 
     @Autowired
@@ -24,9 +24,13 @@ public class UserController {
         return ResponseEntity.ok(userService.getAllUsers());
     }
 
+    @PreAuthorize("hasAnyAuthority('allowed_to_change')")
     @PostMapping
-    public ResponseEntity saveUser(@RequestBody @Valid UserDto userDto){
+    public ResponseEntity<Void> register(@RequestBody @Valid UserDto userDto){
+
         userService.save(userDto);
+
         return ResponseEntity.ok().build();
     }
+
 }
