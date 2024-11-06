@@ -34,3 +34,17 @@ jobs:
           REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
           docker push ghcr.io/$REPOSITORY_NAME/docker-image-test:latest
 
+#  deploy:
+#    needs: build
+#    runs-on: self-hosted
+#    steps:
+#      - name: Pull Docker image
+#        run: |
+#          REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+#          docker pull ghcr.io/$REPOSITORY_NAME/docker-image-test:latest
+#
+#      - name: Run Docker container
+#        run: |
+#          REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+#          docker run -d -p 9090:9090 --name container_localhost_backend ghcr.io/$REPOSITORY_NAME/docker-image-test:latest
+
