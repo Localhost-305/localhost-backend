@@ -26,13 +26,13 @@ jobs:
 
       - name: Build Docker image
         run: |
-          REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-          docker build -t ghcr.io/$REPOSITORY_NAME/docker-image-test .
+#          REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+          docker build -t ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test .
 
       - name: Push Docker image to GitHub Container Registry
         run: |
-          REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
-          docker push ghcr.io/$REPOSITORY_NAME/docker-image-test:latest
+#          REPOSITORY_NAME=$(echo ${{ github.repository }} | tr '[:upper:]' '[:lower:]')
+          docker push ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
 
 #  deploy:
 #    needs: build
