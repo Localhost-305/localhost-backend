@@ -35,10 +35,10 @@ jobs:
     runs-on: self-hosted
     steps:
       - name: Pull Docker image
-        run: docker pull ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-test:latest
+        run: docker pull ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
 
       - name: Remove Docker container
-        run: docker rm -f container_localhost_backend
+        run: docker rm -f container-backend
 
       - name: Run Docker container
-        run: docker run -d -p 9090:9090 -e DATABASE_URL=${{ secrets.DATABASE_URL }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_PASSWORD }}' --name container_localhost_backend ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
+        run: docker run -d -p 9090:9090 -e DATABASE_URL=${{ secrets.DATABASE_URL }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_PASSWORD }}' --name container-backend ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
