@@ -19,9 +19,9 @@ public class QuantityApplicationsService {
     @Autowired
     private QuantityApplicationsRepository quantityApplicationsRepository;
 
-    public List<QuantityApplicationDto> findAll(int months) {
+    public List<QuantityApplicationDto> findAll(int months, String profession) {
         // Chama o repositório para obter os dados
-        List<Object[]> results = quantityApplicationsRepository.findApplicationsByMonths(months);
+        List<Object[]> results = quantityApplicationsRepository.findApplicationsByMonths(months,profession);
 
         int monthInt = months;
 
@@ -30,8 +30,9 @@ public class QuantityApplicationsService {
                 .map(result -> new QuantityApplicationDto(
                         (int) result[1],
                         (int) result[0],
-                        ((Number) result[2]).doubleValue(), // total applications
-                        ((Number) result[3]).intValue()     // rank
+                        (String) result[2],
+                        ((Number) result[3]).doubleValue(), // total applications
+                        ((Number) result[4]).intValue()     // rank
                 ))
                 .collect(Collectors.toList());
 
@@ -74,7 +75,7 @@ public class QuantityApplicationsService {
 
         LocalDate newDate = currentDate.plusMonths(plusMonth);
 
-        QuantityApplicationDto quantityApplicationDto = new QuantityApplicationDto(newDate.getMonthValue(), newDate.getYear(), averageAll, maxRank);
+        QuantityApplicationDto quantityApplicationDto = new QuantityApplicationDto(newDate.getMonthValue(), newDate.getYear(),listAvg.isEmpty() ? "" : listAvg.get(0).jobTitle(), averageAll, maxRank);
         listAvg.add(quantityApplicationDto);
 
         return listAvg;

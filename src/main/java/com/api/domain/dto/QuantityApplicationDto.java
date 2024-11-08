@@ -1,6 +1,6 @@
 package com.api.domain.dto;
 
-public record QuantityApplicationDto(int month, int year, double quantityApplications, int rank) {
+public record QuantityApplicationDto(int month, int year,String jobTitle, double quantityApplications, int rank) {
     // O construtor é gerado automaticamente, não é necessário redefini-lo.
 
     @Override
@@ -8,6 +8,7 @@ public record QuantityApplicationDto(int month, int year, double quantityApplica
         return "QuantityApplicationDto{" +
                 "month=" + month +
                 ", year=" + year +
+               ", job=" +jobTitle +
                 ", quantityApplications=" + quantityApplications +
                 ", rank=" + rank +
                 '}';
