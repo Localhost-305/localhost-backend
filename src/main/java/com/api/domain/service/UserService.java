@@ -52,6 +52,20 @@ public class UserService {
         repository.save(existingUser);
     }
 
+    public void updateRole(Long userId, String newRole) {
+
+        User existingUser = repository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        newRole = newRole.trim();
+        Role role = roleRepository.findByRoleName(newRole)
+                .orElseThrow(() -> new RuntimeException("Role not found"));
+
+        existingUser.setRole(role);
+
+        repository.save(existingUser);
+    }
+
     public List<User> getAllUsers(){
         return repository.findAll();
     }
