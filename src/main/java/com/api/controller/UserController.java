@@ -27,9 +27,14 @@ public class UserController {
     @PreAuthorize("hasAnyAuthority('allowed_to_change')")
     @PostMapping
     public ResponseEntity<Void> register(@RequestBody @Valid UserDto userDto){
-
         userService.save(userDto);
+        return ResponseEntity.ok().build();
+    }
 
+    @PreAuthorize("hasAnyAuthority('allowed_to_change')")
+    @PutMapping("/{userId}")
+    public ResponseEntity<Void> updateUser(@PathVariable Long userId, @RequestBody @Valid UserDto userDto) {
+        userService.update(userId, userDto);
         return ResponseEntity.ok().build();
     }
 
