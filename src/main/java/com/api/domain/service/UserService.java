@@ -66,6 +66,7 @@ public class UserService {
         repository.save(existingUser);
     }
 
+
     public List<User> getAllUsers(){
         return repository.findAll();
     }
