@@ -30,15 +30,15 @@ jobs:
       - name: Push Docker image to GitHub Container Registry
         run: docker push ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
 
-  deploy:
-    needs: build
-    runs-on: self-hosted
-    steps:
-      - name: Pull Docker image
-        run: docker pull ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
-
-      - name: Remove Docker container
-        run: docker rm -f container-backend
-
-      - name: Run Docker container
-        run: docker run -d -p 9090:9090 -e AWS_EC2_IP_PUB=${{ secrets.AWS_EC2_IP_PUB }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_PASSWORD }}' --name container-backend ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
+#  deploy:
+#    needs: build
+#    runs-on: self-hosted
+#    steps:
+#      - name: Pull Docker image
+#        run: docker pull ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
+#
+#      - name: Remove Docker container
+#        run: docker rm -f container-backend
+#
+#      - name: Run Docker container
+#        run: docker run -d -p 9090:9090 -e AWS_EC2_IP_PUB=${{ secrets.AWS_EC2_IP_PUB }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_PASSWORD }}' --name container-backend ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
