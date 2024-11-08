@@ -39,4 +39,11 @@ public class UserController {
         return ResponseEntity.ok().build();
     }
 
+    @PreAuthorize("hasAnyAuthority('allowed_to_change')")
+    @PutMapping("/{userId}/role")
+    public ResponseEntity<Void> updateRole(@PathVariable Long userId, @RequestBody String newRole) {
+        userService.updateRole(userId, newRole);
+        return ResponseEntity.ok().build();
+    }
+
 }
