@@ -8,6 +8,7 @@ import org.springframework.stereotype.Service;
 import java.time.LocalDate;
 import java.util.*;
 import java.util.stream.Collectors;
+import java.math.BigDecimal;
 
 @Service
 public class FactHiringService {
@@ -46,8 +47,18 @@ public class FactHiringService {
                 .collect(Collectors.toList());
     }
 
-    public List<Map<String, Object>> calculateRetentionRate(LocalDate startDate, LocalDate endDate) {
-        return factHiringRepository.calculateRetentionRate(startDate, endDate);
+    public double calculateRetentionRate(LocalDate startDate, LocalDate endDate) {
+        List<Map<String, Object>> retentionRates = factHiringRepository.calculateRetentionRate(startDate, endDate);
+
+        double totalRetention = retentionRates.stream()
+                .mapToDouble(entry -> {
+                    BigDecimal retentionValue = (BigDecimal) entry.get("average_retention_days");
+                    return retentionValue != null ? retentionValue.doubleValue() : 0.0;
+                })
+                .average()
+                .orElse(0.0);
+
+        return totalRetention;
     }
 
 }
