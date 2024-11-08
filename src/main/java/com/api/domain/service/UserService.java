@@ -46,15 +46,6 @@ public class UserService {
         if (userDto.email() != null && !userDto.email().isBlank()) {
             existingUser.setEmail(userDto.email());
         }
-        if (userDto.password() != null && !userDto.password().isBlank()) {
-            String encodedPassword = passwordEncoder.encode(userDto.password());
-            existingUser.setPassword(encodedPassword);
-        }
-        if (userDto.role() != null && !userDto.role().isBlank()) {
-            Role role = roleRepository.findByRoleName(userDto.role())
-                    .orElseThrow(() -> new RuntimeException("Role not found"));
-            existingUser.setRole(role);
-        }
 
         existingUser.setUpdatedOn(LocalDate.now());
 
