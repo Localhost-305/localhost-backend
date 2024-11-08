@@ -11,4 +11,5 @@ public record UserDto(
 ) {
     public interface Create {}
     public interface Update {}
+    public interface UpdateRole{}
 }

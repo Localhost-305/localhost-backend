@@ -1,5 +1,6 @@
 package com.api.controller;
 
+import com.api.domain.dto.RoleUpdateDto;
 import com.api.domain.dto.UserDto;
 import com.api.domain.entity.User;
 import com.api.domain.service.UserService;
@@ -41,9 +42,10 @@ public class UserController {
 
     @PreAuthorize("hasAnyAuthority('allowed_to_change')")
     @PutMapping("/{userId}/role")
-    public ResponseEntity<Void> updateRole(@PathVariable Long userId, @RequestBody String newRole) {
-        userService.updateRole(userId, newRole);
+    public ResponseEntity<Void> updateRole(@PathVariable Long userId, @RequestBody RoleUpdateDto roleUpdateDto) {
+        userService.updateRole(userId, roleUpdateDto.getNewRole());
         return ResponseEntity.ok().build();
     }
+
 
 }
