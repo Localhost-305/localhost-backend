@@ -1,10 +1,8 @@
 package com.api.domain.service;
 
-import com.api.domain.dto.PermissionDTO;
 import com.api.domain.dto.UserDto;
-import com.api.domain.entity.Permission;
-import com.api.domain.entity.User;
 import com.api.domain.entity.Role;
+import com.api.domain.entity.User;
 import com.api.domain.repository.RoleRepository;
 import com.api.domain.repository.UserRepository;
 import jakarta.validation.Valid;
@@ -14,8 +12,6 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
-import java.util.Set;
-import java.util.stream.Collectors;
 
 @Service
 public class UserService {
@@ -40,6 +36,21 @@ public class UserService {
 
     }
 
+    public void update(Long userId, @Valid UserDto userDto) {
+        User existingUser = repository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+
+        if (userDto.name() != null && !userDto.name().isBlank()) {
+            existingUser.setName(userDto.name());
+        }
+        if (userDto.email() != null && !userDto.email().isBlank()) {
+            existingUser.setEmail(userDto.email());
+        }
+
+        existingUser.setUpdatedOn(LocalDate.now());
+
+        repository.save(existingUser);
+    }
 
     public List<User> getAllUsers(){
         return repository.findAll();
