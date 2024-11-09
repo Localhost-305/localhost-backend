@@ -4,12 +4,14 @@ import com.api.domain.dto.QuantityApplicationDto;
 import com.api.domain.exception.InvalidMonthsException;
 import com.api.domain.service.QuantityApplicationsService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.*;
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.PathVariable;
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RestController;
 
 import java.util.Arrays;
 import java.util.List;
 
-@CrossOrigin(origins = "*")
 @RestController
 @RequestMapping("/quantityApplications")
 public class QuantityApplicationsController {
