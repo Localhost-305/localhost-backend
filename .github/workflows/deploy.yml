@@ -32,7 +32,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: self-hosted
+    runs-on: [self-hosted, backend]
     steps:
       - name: Pull Docker image
         run: docker pull ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
@@ -41,4 +41,4 @@ jobs:
         run: docker rm -f container-backend
 
       - name: Run Docker container
-        run: docker run -d --name ${{ secrets.DOCKER_BACKEND_CONTAINER }} --network ${{ secrets.DOCKER_NETWORK }} -m 512m --memory-swap 1g -p 9090:9090 -e DOCKER_DATABASE_CONTAINER=${{ secrets.DOCKER_DATABASE_CONTAINER }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_PASSWORD }}' ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
+        run: docker run -d --name ${{ secrets.DOCKER_BACKEND_CONTAINER }} --network ${{ secrets.DOCKER_NETWORK }} -p 9090:9090 -e DOCKER_DATABASE_CONTAINER=${{ secrets.DOCKER_DATABASE_CONTAINER }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USERNAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_PASSWORD }}' ghcr.io/${{ secrets.REPOSITORY_NAME }}/docker-image-backend-test:latest
