@@ -14,7 +14,7 @@ import java.io.IOException;
 @RequestMapping("/excel")
 public class ImportExcelToETL {
 
-  private static final String DIRECTORY = Paths.get(System.getProperty("user.dir"), "..\\localhost-etl\\", "localhost-etl").toString();
+    private static final String DIRECTORY = "/app/shared/files/upload";
 
     @PostMapping("/upload")
     public ResponseEntity<String> uploadExcel(@RequestParam("file") MultipartFile file) {
