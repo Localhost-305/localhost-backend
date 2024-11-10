@@ -20,8 +20,6 @@ public class CorsFilter extends OncePerRequestFilter {
         response.setHeader("Access-Control-Allow-Headers", "*");
         response.setHeader("Access-Control-Allow-Credentials", "true");
 
-        System.out.println("\nEntrou no metodo de CorsFilter");
-
         if ("OPTIONS".equalsIgnoreCase(request.getMethod())) {
             response.setStatus(HttpServletResponse.SC_OK);
         } else {
