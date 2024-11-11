@@ -12,6 +12,7 @@ import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 @Service
 public class UserService {
@@ -22,6 +23,8 @@ public class UserService {
     private RoleRepository roleRepository;
 
     private BCryptPasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+    @Autowired
+    private UserRepository userRepository;
 
     public void save(@Valid UserDto userDto) {
         User newUser = new User(userDto);
@@ -52,20 +55,18 @@ public class UserService {
         repository.save(existingUser);
     }
 
-    public void updateRole(Long userId, String newRole) {
-
-        User existingUser = repository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
-
-        newRole = newRole.trim();
-        Role role = roleRepository.findByRoleName(newRole)
+    public void updateRole(Long userId, String roleId) {
+        Role role = roleRepository.findById(Long.parseLong(roleId))
                 .orElseThrow(() -> new RuntimeException("Role not found"));
-
-        existingUser.setRole(role);
-
-        repository.save(existingUser);
+        User currentUser = repository.findById(userId)
+                .orElseThrow(() -> new RuntimeException("User not found"));
+        currentUser.setRole(role);
+        repository.save(currentUser);
     }
 
+    public List<Role> getAllRoles(){
+        return roleRepository.findAll();
+    }
 
     public List<User> getAllUsers(){
         return repository.findAll();
