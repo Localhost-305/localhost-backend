@@ -26,7 +26,9 @@ public class ImportExcelToETL {
 
         try {
             File dest = new File(DIRECTORY + file.getOriginalFilename());
-            file.transferTo(dest); 
+            file.transferTo(dest);
+
+            System.out.println("Em teoria o java ja salvou o arquivo"+file.getOriginalFilename()+" no diretorio "+DIRECTORY);
 
             return ResponseEntity.ok("Arquivo salvo com sucesso em " + dest.getAbsolutePath());
         } catch (IOException e) {
