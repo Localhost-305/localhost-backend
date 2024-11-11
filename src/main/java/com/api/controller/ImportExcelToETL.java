@@ -22,6 +22,8 @@ public class ImportExcelToETL {
             return ResponseEntity.badRequest().body("Por favor, selecione um arquivo!");
         }
 
+        System.out.println("\n\nENTROU NO ENDPOINT PARA SALVAR O ARQUIVO\n\n");
+
         try {
             File dest = new File(DIRECTORY + file.getOriginalFilename());
             file.transferTo(dest); 
