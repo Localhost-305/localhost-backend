@@ -18,8 +18,8 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      - name: Build project
-        run: mvn clean install -DskipTests
+     # - name: Build project
+      #  run: mvn clean install -DskipTests
 
     # - name: Login to GitHub Container Registry
      #   run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
