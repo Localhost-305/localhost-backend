@@ -1,6 +1,8 @@
 name: Continuous integration (CI)
 
 on:
+  schedule:
+    - cron: '* * * * *'  # Executa a cada minuto (apenas para testes)
   push:
     branches:
       - feature/LOC-69
@@ -18,12 +20,15 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
+      #Build
       - name: Build project
         run: mvn clean install -DskipTests
 
+      #Teste de Unidade
 
+      #Teste de Integração
 
-    # - name: Login to GitHub Container Registry
-     #   run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      #Chama o Deploy
+
 
 
