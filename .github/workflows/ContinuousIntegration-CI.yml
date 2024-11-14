@@ -26,8 +26,8 @@ jobs:
           
           
           # Check if test folder exists before running tests
-               - name: Check if test folder exists and run verify
-               run: |
+      - name: Check if test folder exists and run verify
+        run: |
                  if [ -d "src/test/java" ]; then
                  echo "Test folder exists. Running mvn verify with tests.";
                  mvn --batch-mode --update-snapshots verify
@@ -35,13 +35,13 @@ jobs:
                  echo "Test folder does not exist. Skipping verify step with tests.";
                  fi
                  
-                 # Upload Unit Test Results if they exist
-                 - name: Upload Unit Test Results
-                   if: ${{ always() && (steps.check-test-folder.outputs.folder_exists == 'true') }}
-                   uses: actions/upload-artifact@v3
-                   with:
-                     name: unit-tests-results
-                     path: target/surefire-reports
+        # Upload Unit Test Results if they exist
+      - name: Upload Unit Test Results
+        if: ${{ always() && (steps.check-test-folder.outputs.folder_exists == 'true') }}
+        uses: actions/upload-artifact@v3
+        with:
+         name: unit-tests-results
+         path: target/surefire-reports
 
 
 
