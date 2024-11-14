@@ -22,25 +22,11 @@ jobs:
 
       #Build
       - name: Build project
-        run: mvn clean install -DskipTests
+        run: mvn clean install
+     #Teste de Unidade
 
+     #Teste de Integração
 
-      # Check if the test folder exists before running tests
-      - name: Check if test folder exists
-        run: |
-          if [ -d "src/test/java" ]; then
-            echo "Test folder exists. Running unit tests.";
-           # mvn test  # Execute tests only if the folder exists
-          else
-            echo "Test folder does not exist. Skipping unit tests.";
-          fi
-
-      # Upload Unit Test Results (only if tests were run and reports exist)
-      - name: Upload Unit Test Results
-        uses: actions/upload-artifact@v3
-        with:
-          name: unit-tests-results
-          path: target/surefire-reports
 
       #Chama o Deploy
 
