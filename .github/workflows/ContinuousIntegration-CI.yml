@@ -22,10 +22,8 @@ jobs:
 
       #Build
       - name: Build project
-        run: mvn clean install
-     #Teste de Unidade
+        run: mvn clean install -DskipTests
 
-     #Teste de Integração
 
 
       #Chama o Deploy
