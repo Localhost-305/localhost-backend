@@ -24,10 +24,27 @@ jobs:
       - name: Build project
         run: mvn clean install -DskipTests
 
-      #Teste de Unidade
 
-      #Teste de Integração
+      # Run unit tests
+      - name: Run Unit Tests
+        run: mvn test
 
+      # Check if test reports exist and handle accordingly
+      - name: Check if test reports exist
+        run: |
+          if [ -d "target/surefire-reports" ]; then
+            echo "Test reports found, proceeding with the next steps.";
+          else
+            echo "No test reports found, skipping the upload.";
+            exit 0; # Skip the next step (upload) if no reports
+          fi
+
+      # Upload Unit Test Results (if the reports exist)
+      - name: Upload Unit Test Results
+        uses: actions/upload-artifact@v3
+        with:
+          name: unit-tests-results
+          path: target/surefire-reports
       #Chama o Deploy
 
 
