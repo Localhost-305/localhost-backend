@@ -2,7 +2,7 @@ name: Continuous integration (CI)
 
 on:
   schedule:
-    - cron: '*/5 * * * *'  # Executa a cada 5 minuto (apenas para testes)
+    - cron: '0 0 * * *' # Executa todos os dias a meia noite
   push:
     branches:
       - feature/LOC-69
