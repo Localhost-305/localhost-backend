@@ -1,11 +1,13 @@
 name: Continuous integration (CI)
 
 on:
-  schedule:
-    - cron: '0 0 * * *' # Executa todos os dias a meia noite
+
   push:
     branches:
       - feature/LOC-69
+  schedule:
+  - cron: '0 0 * * *' # Executa todos os dias a meia noite
+  #- cron: '*/6 * * * *' # Executa a cada 6 minutos
 
 jobs:
   build:
