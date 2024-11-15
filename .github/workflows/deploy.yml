@@ -41,4 +41,4 @@ jobs:
         run: docker image prune -a -f
 
       - name: Run Docker container
-        run: docker run -d --name ${{ secrets.DOCKER_CONTAINER_BACKEND }} --network ${{ secrets.DOCKER_NETWORK }} -p 9090:9090 -v shared-data:${{ vars.DOCKER_VOLUME_SHARED }} -e DOCKER_DATABASE_CONTAINER=${{ secrets.DOCKER_CONTAINER_DATABASE }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USER_NAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_USER_PASSWORD }}' ghcr.io/${{ vars.GIT_REPOSITORY_BACKEND }}/${{ vars.DOCKER_IMAGE_BACKEND }}:latest
+        run: docker run -d --name ${{ secrets.DOCKER_CONTAINER_BACKEND }} --network ${{ secrets.DOCKER_NETWORK }} -p 9090:9090 -v shared-data:${{ vars.DOCKER_VOLUME_SHARED }} -e AWS_EC2_IP_DATABASE=${{ secrets.AWS_EC2_IP_DATABASE }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USER_NAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_USER_PASSWORD }}' ghcr.io/${{ vars.GIT_REPOSITORY_BACKEND }}/${{ vars.DOCKER_IMAGE_BACKEND }}:latest
