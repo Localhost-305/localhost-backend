@@ -23,7 +23,10 @@ jobs:
       #Build
       - name: Build project
         run: mvn clean install
+      - name: Test unit
         run: mvn test
+
+
 
 
       #Chama o Deploy
