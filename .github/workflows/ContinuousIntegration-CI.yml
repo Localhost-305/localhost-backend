@@ -25,12 +25,6 @@ jobs:
         run: mvn clean install
         run: mvn test
 
-      - name: Upload test results
-        if: failure()
-        run: mvn surefire-report:report
-
-
-
 
       #Chama o Deploy
 
