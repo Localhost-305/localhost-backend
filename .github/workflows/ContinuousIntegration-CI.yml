@@ -22,7 +22,13 @@ jobs:
 
       #Build
       - name: Build project
-        run: mvn clean install -DskipTests
+        run: mvn clean install
+        run: mvn test
+
+      - name: Upload test results
+        if: failure()
+        run: mvn surefire-report:report
+
 
 
 
