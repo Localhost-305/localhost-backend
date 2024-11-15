@@ -23,13 +23,19 @@ jobs:
       #Build
       - name: Build project
         run: mvn clean install
+
+        # Executa testes de Unidade
       - name: Test unit
         run: mvn test
 
+      # Executa testes de integração
+      - name: Test Integration
+        run: mvn verify
 
 
 
-      #Chama o Deploy
+
+
 
 
 
