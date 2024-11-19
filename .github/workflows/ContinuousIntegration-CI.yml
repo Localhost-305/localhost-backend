@@ -5,13 +5,13 @@ on:
     - cron: '0 0 * * *' # Executa todos os dias a meia noite
   push:
     branches:
-      - dev
+      - feature/LOC-69
   pull_request:
     branches:
       - dev
 
 jobs:
-  build:
+  IntegracaoDev:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -25,11 +25,14 @@ jobs:
 
       #Build
       - name: Build project
-        run: mvn clean install -DskipTests
+        run: mvn clean install
+
+     #Teste de Integração e Unidade
+      - name: Testes
+        run: mvn verify
 
 
 
-      #Chama o Deploy
 
 
 
