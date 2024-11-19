@@ -2,7 +2,7 @@ name: Continuous integration (CI)
 
 on:
   schedule:
-    - cron: '0 0 * * *' # Executa todos os dias a meia noite
+    - cron: '0 0 * * *'  # Executa todos os dias à meia-noite
   push:
     branches:
       - feature/LOC-69
@@ -23,20 +23,14 @@ jobs:
           distribution: 'temurin'
           java-version: '17'
 
-      #Build
+      # Build
       - name: Build project
         run: mvn clean install
 
-     #Teste de Unidade
+      # Teste de Unidade
       - name: Teste de Unidade
-        run: mvn teste
+        run: mvn test
 
-     #Teste de Integração
-      - name: Testes de integração
+      # Teste de Integração
+      - name: Testes de Integração
         run: mvn verify
-
-
-
-
-
-
