@@ -27,8 +27,12 @@ jobs:
       - name: Build project
         run: mvn clean install
 
-     #Teste de Integração e Unidade
-      - name: Testes
+     #Teste de Unidade
+      - name: Teste de Unidade
+        run: mvn teste
+
+     #Teste de Integração
+      - name: Testes de integração
         run: mvn verify
 
 
