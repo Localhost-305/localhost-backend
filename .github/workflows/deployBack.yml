@@ -1,11 +1,12 @@
-name: DeployBackend
+name: DeployBack
 
 on:
   push:
     branches:
-      - feature/LOC-69
+      - feature/LOC-72
+
 jobs:
-  build-deploy:
+  build:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
