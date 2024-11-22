@@ -3,7 +3,7 @@ name: DeployBack
 on:
   push:
     branches:
-      - feature/LOC-72
+      - feature/LOC-69
 
 jobs:
   build:
