@@ -1,4 +1,4 @@
-name: Continuous integration (CI)
+name: Continuous integration (CI) Java
 
 on:
   schedule:
