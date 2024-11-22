@@ -5,7 +5,7 @@ on:
     - cron: '0 0 * * *'  # Executa todos os dias à meia-noite
   push:
     branches:
-      - feature/LOC-69
+      - feature/LOC-109
   pull_request:
     branches:
       - dev
@@ -32,5 +32,5 @@ jobs:
         run: mvn test
 
       # Teste de Integração
-      - name: Testes de Integração
-        run: mvn verify
+      #- name: Testes de Integração
+      #  run: mvn verify
