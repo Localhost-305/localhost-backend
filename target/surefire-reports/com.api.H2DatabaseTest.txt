@@ -1,0 +1,28 @@
+-------------------------------------------------------------------------------
+Test set: com.api.H2DatabaseTest
+-------------------------------------------------------------------------------
+Tests run: 5, Failures: 0, Errors: 1, Skipped: 0, Time elapsed: 0.542 s <<< FAILURE! -- in com.api.H2DatabaseTest
+com.api.H2DatabaseTest.testInsertFactApplications -- Time elapsed: 0.010 s <<< ERROR!
+org.springframework.dao.DataIntegrityViolationException: StatementCallback; SQL [INSERT INTO fact_applications (recruiter_id, candidate_id, job_id, date_id, hour_id, process_id, number_of_applications) VALUES (1, 1, 1, 1, 1, 1, 1)]; Cannot add or update a child row: a foreign key constraint fails (`localhost305`.`fact_applications`, CONSTRAINT `fact_applications_ibfk_3` FOREIGN KEY (`process_id`) REFERENCES `dim_recruitment_processes` (`process_id`))
+	at org.springframework.jdbc.support.SQLExceptionSubclassTranslator.doTranslate(SQLExceptionSubclassTranslator.java:97)
+	at org.springframework.jdbc.support.AbstractFallbackSQLExceptionTranslator.translate(AbstractFallbackSQLExceptionTranslator.java:107)
+	at org.springframework.jdbc.core.JdbcTemplate.translateException(JdbcTemplate.java:1548)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:408)
+	at org.springframework.jdbc.core.JdbcTemplate.update(JdbcTemplate.java:567)
+	at com.api.H2DatabaseTest.testInsertFactApplications(H2DatabaseTest.java:54)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
+Caused by: java.sql.SQLIntegrityConstraintViolationException: Cannot add or update a child row: a foreign key constraint fails (`localhost305`.`fact_applications`, CONSTRAINT `fact_applications_ibfk_3` FOREIGN KEY (`process_id`) REFERENCES `dim_recruitment_processes` (`process_id`))
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.StatementImpl.executeUpdateInternal(StatementImpl.java:1344)
+	at com.mysql.cj.jdbc.StatementImpl.executeLargeUpdate(StatementImpl.java:2090)
+	at com.mysql.cj.jdbc.StatementImpl.executeUpdate(StatementImpl.java:1253)
+	at com.zaxxer.hikari.pool.ProxyStatement.executeUpdate(ProxyStatement.java:119)
+	at com.zaxxer.hikari.pool.HikariProxyStatement.executeUpdate(HikariProxyStatement.java)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:555)
+	at org.springframework.jdbc.core.JdbcTemplate$1UpdateStatementCallback.doInStatement(JdbcTemplate.java:552)
+	at org.springframework.jdbc.core.JdbcTemplate.execute(JdbcTemplate.java:393)
+	... 5 more
+
