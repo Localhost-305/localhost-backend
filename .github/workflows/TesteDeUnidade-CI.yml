@@ -8,30 +8,22 @@ on:
 
 jobs:
   testeDeUnidade:
+    if: >
+      startsWith(github.event.head_commit.message, 'feature') ||
+      startsWith(github.event.head_commit.message, 'fix') ||
+      startsWith(github.event.head_commit.message, 'bug')
     runs-on: ubuntu-latest
     steps:
-      # Verificar mensagem do commit
-      - name: Verificar mensagem do commit
-        id: verificar_commit
-        run: |
-          if [[ ! "$(echo "${{ github.event.head_commit.message }}" | grep -E '^(feature|fix|bug)')" ]]; then
-            echo "🚨 Mensagem do commit está incorreta. Verifique se ela começa com 'feature', 'fix' ou 'bug'."
-            exit 1
-          else
-            echo "✅ Mensagem do commit válida."
-
-      # Checkout do repositório
       - name: Checkout
         uses: actions/checkout@v3
 
-      # Setup do Java
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
           java-version: '17'
 
-      # Build do projeto
+      # Build
       - name: Build project
         run: mvn clean install
 
