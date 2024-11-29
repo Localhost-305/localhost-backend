@@ -8,8 +8,12 @@ import org.springframework.test.context.ActiveProfiles;
 import org.springframework.core.env.Environment;
 
 import java.sql.SQLException;
+import java.util.HashSet;
+import java.util.List;
+import java.util.Set;
 
 import static org.assertj.core.api.Assertions.assertThat;
+import static org.hibernate.validator.internal.util.Contracts.assertTrue;
 
 @DataJpaTest
 @ActiveProfiles("test")
@@ -41,7 +45,7 @@ class DataSourceTest {
     @Test
     void testH2DatabaseSchema() {
         Integer count = jdbcTemplate.queryForObject(
-                "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE TABLE_NAME = 'DIM_DATE'",
+                "SELECT COUNT(*) FROM INFORMATION_SCHEMA.TABLES WHERE UPPER(TABLE_NAME) = 'DIM_JOBS'",
                 Integer.class
         );
         assertThat(count).isGreaterThan(0);
@@ -52,6 +56,5 @@ class DataSourceTest {
         String url = jdbcTemplate.getDataSource().getConnection().getMetaData().getURL();
         assertThat(url).doesNotContain("jdbc:mysql");
     }
-
 
 }
