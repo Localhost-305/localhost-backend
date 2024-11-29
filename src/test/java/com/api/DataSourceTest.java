@@ -6,14 +6,8 @@ import org.springframework.boot.test.autoconfigure.orm.jpa.DataJpaTest;
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.test.context.ActiveProfiles;
 import org.springframework.core.env.Environment;
-
 import java.sql.SQLException;
-import java.util.HashSet;
-import java.util.List;
-import java.util.Set;
-
 import static org.assertj.core.api.Assertions.assertThat;
-import static org.hibernate.validator.internal.util.Contracts.assertTrue;
 
 @DataJpaTest
 @ActiveProfiles("test")

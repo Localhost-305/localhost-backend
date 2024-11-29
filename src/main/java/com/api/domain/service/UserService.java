@@ -36,7 +36,6 @@ public class UserService {
         newUser.setRole(role);
 
         repository.save(newUser);
-
     }
 
     public void update(Long userId, @Valid UserDto userDto) {
