@@ -1,8 +1,6 @@
 name: Continuous integration (CI) Java
 
 on:
-  schedule:
-    - cron: '0 0 * * *'  # Executa todos os dias à meia-noite
   push:
     branches:
       - feature/LOC-109
