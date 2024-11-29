@@ -2,8 +2,16 @@ name: Teste de Unidade (CI) Java
 
 on:
   push:
+    branches-ignore: # Ignora pushes nas branches main e dev
+      - main
+      - dev
+
 jobs:
   testeDeUnidade:
+    if: >
+      startsWith(github.event.head_commit.message, 'feature') ||
+      startsWith(github.event.head_commit.message, 'fix') ||
+      startsWith(github.event.head_commit.message, 'bug')
     runs-on: ubuntu-latest
     steps:
       - name: Checkout

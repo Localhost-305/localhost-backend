@@ -1,9 +1,9 @@
 name: DeployBack
 
 on:
-  push:
+  pull_request:
     branches:
-      - feature/LOC-169
+      - main
 
 jobs:
   build:
