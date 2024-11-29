@@ -2,8 +2,6 @@ name: Continuous integration (CI) Java
 
 on:
   push:
-    branches:
-      - feature/LOC-109
   pull_request:
     branches:
       - dev
