@@ -1,11 +1,9 @@
-name: Continuous integration (CI) Java
-on:
-  pull_request:
-    branches:
-      - dev
+name: Teste de Unidade (CI) Java
 
+on:
+  push:
 jobs:
-  IntegracaoDev:
+  testeDeUnidade:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
@@ -21,10 +19,6 @@ jobs:
       - name: Build project
         run: mvn clean install
 
-      # Inicializar o Banco
-      - name: Banco de Teste
+      # Teste de Unidade
+      - name: Teste de Unidade
         run: mvn test
-
-      # Teste de Integração
-      - name: Testes de Integração
-      #  run: mvn verify
