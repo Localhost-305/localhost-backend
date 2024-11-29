@@ -1,4 +1,4 @@
-name: Teste de Unidade (CI)
+name: Teste de Unidade (CI) Java
 
 on:
   push:
