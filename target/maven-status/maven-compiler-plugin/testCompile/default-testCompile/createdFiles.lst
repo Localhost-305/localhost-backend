@@ -1,2 +1,10 @@
 com\api\domain\service\JobServiceTest.class
+com\api\controller\AmountCollectedControllerTest.class
+com\api\controller\JobControllerTest.class
 com\api\ApiApplicationTests.class
+com\api\controller\AuthenticationControllerTest.class
+com\api\controller\CandidateControllerTest.class
+com\api\controller\UserControllerTest.class
+com\api\controller\QuantityApplicationsControllerTest.class
+com\api\DataSourceTest.class
+com\api\domain\repository\UserRepositoryTest.class

@@ -1,2 +1,10 @@
-C:\Users\Noite\Documents\API\localhost-backend\src\test\java\com\api\ApiApplicationTests.java
-C:\Users\Noite\Documents\API\localhost-backend\src\test\java\com\api\domain\service\JobServiceTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\ApiApplicationTests.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\controller\AmountCollectedControllerTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\controller\AuthenticationControllerTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\controller\CandidateControllerTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\controller\JobControllerTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\controller\QuantityApplicationsControllerTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\controller\UserControllerTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\DataSourceTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\domain\repository\UserRepositoryTest.java
+C:\Vitor-Lima5BD\localhost-backend\src\test\java\com\api\domain\service\JobServiceTest.java

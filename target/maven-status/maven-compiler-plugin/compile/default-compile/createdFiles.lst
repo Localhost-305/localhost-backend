@@ -16,6 +16,7 @@ com\api\domain\entity\Permission.class
 com\api\domain\dto\DateDto.class
 com\api\domain\service\AmountCollectedService.class
 com\api\domain\dto\RecruiterDto.class
+com\api\domain\exception\UserRegistrationException.class
 com\api\domain\repository\FactHiringRepository.class
 com\api\domain\repository\DateRepository.class
 com\api\infra\security\SecurityConfigurations.class
@@ -49,9 +50,11 @@ com\api\domain\repository\RoleRepository.class
 com\api\domain\entity\Date.class
 com\api\domain\entity\FactHiringId.class
 com\api\domain\entity\FactApplicationId.class
+com\api\domain\exception\UserNotFoundException.class
 com\api\domain\repository\RecruitmentProcessRepository.class
 com\api\domain\service\FactApplicationService.class
 com\api\domain\dto\FactHiringDto.class
+com\api\domain\exception\UserUpdateException.class
 com\api\domain\entity\Role.class
 com\api\domain\dto\CandidateDto.class
 com\api\domain\dto\PermissionDTO.class
