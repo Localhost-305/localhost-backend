@@ -49,6 +49,8 @@ com\api\infra\security\TokenService.class
 com\api\domain\repository\RoleRepository.class
 com\api\domain\entity\Date.class
 com\api\domain\entity\FactHiringId.class
+com\api\domain\service\ExportPdfService.class
+com\api\controller\ExportPdfController.class
 com\api\domain\entity\FactApplicationId.class
 com\api\domain\exception\UserNotFoundException.class
 com\api\domain\repository\RecruitmentProcessRepository.class

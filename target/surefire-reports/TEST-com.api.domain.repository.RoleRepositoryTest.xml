@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.api.controller.JobControllerTest" time="0.069" tests="5" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.api.domain.repository.RoleRepositoryTest" time="0.119" tests="2" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -46,6 +46,7 @@
     <property name="localRepository" value="C:\Users\Noite\.m2\repository"/>
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\Noite\AppData\Local\Temp\"/>
+    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="17.0.12"/>
     <property name="user.dir" value="C:\Users\Noite\Documents\API\localhost-backend"/>
     <property name="os.arch" value="amd64"/>
@@ -61,14 +62,6 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testGetAverageAllWithCustomDates" classname="com.api.controller.JobControllerTest" time="0.047"/>
-  <testcase name="testGetAllWithDefaultDates" classname="com.api.controller.JobControllerTest" time="0.003"/>
-  <testcase name="testGetAverageTimeJobs" classname="com.api.controller.JobControllerTest" time="0.004">
-    <system-out><![CDATA[Tester
-2023-01-01
-2023-06-30
-]]></system-out>
-  </testcase>
-  <testcase name="testGetCandidateByJobWithTitle" classname="com.api.controller.JobControllerTest" time="0.003"/>
-  <testcase name="testFindAllWithDates" classname="com.api.controller.JobControllerTest" time="0.003"/>
+  <testcase name="shouldReturnEmptyWhenRoleNotFound" classname="com.api.domain.repository.RoleRepositoryTest" time="0.116"/>
+  <testcase name="shouldFindRoleByRoleName" classname="com.api.domain.repository.RoleRepositoryTest" time="0.002"/>
 </testsuite>
