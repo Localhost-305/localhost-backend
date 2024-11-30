@@ -25,7 +25,7 @@ jobs:
 
       # Build
       - name: Build project
-        run: mvn clean install
+        run: mvn clean
 
       # Teste de Unidade
       - name: Teste de Unidade
