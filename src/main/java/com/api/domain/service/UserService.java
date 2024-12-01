@@ -26,6 +26,10 @@ public class UserService {
     @Autowired
     private UserRepository userRepository;
 
+    @Autowired
+    private  EmailService emailService;
+
+
     public void save(@Valid UserDto userDto) {
         User newUser = new User(userDto);
         String encodedPassword = passwordEncoder.encode(userDto.password());
@@ -38,21 +42,26 @@ public class UserService {
         repository.save(newUser);
     }
 
-    public void update(Long userId, @Valid UserDto userDto) {
-        User existingUser = repository.findById(userId)
-                .orElseThrow(() -> new RuntimeException("User not found"));
+    public void update(Long userId, UserDto userDto) {
+        User existingUser = userRepository.findById(userId)
+            .orElseThrow(() -> new IllegalArgumentException("Usuário não encontrado com ID: " + userId));
 
-        if (userDto.name() != null && !userDto.name().isBlank()) {
-            existingUser.setName(userDto.name());
-        }
-        if (userDto.email() != null && !userDto.email().isBlank()) {
-            existingUser.setEmail(userDto.email());
-        }
-
+    
+        existingUser.setName(userDto.name());
+        existingUser.setEmail(userDto.email());
+        existingUser.setPassword(userDto.password());
         existingUser.setUpdatedOn(LocalDate.now());
-
-        repository.save(existingUser);
+    
+        userRepository.save(existingUser);
+    
+            String subject = "Atualização de perfil";
+            String message = "Olá " + existingUser.getName() + ",\n\nSeu perfil foi atualizado com sucesso. Por favor, verifique se as alterações são corretas.\n\n" +
+                            "Se você não realizou essa atualização, entre em contato conosco imediatamente.";
+    
+            emailService.sendEmail(existingUser.getEmail(), subject, message);
+    
     }
+    
 
     public void updateRole(Long userId, String roleId) {
         Role role = roleRepository.findById(Long.parseLong(roleId))
