@@ -1,3 +1,3 @@
 com\api\domain\service\JobServiceTest.class
+integration\service\FactApplicationServiceIntegrationTest.class
 com\api\ApiApplicationTests.class
-integration\service\UserServiceIntegrationTest.class
