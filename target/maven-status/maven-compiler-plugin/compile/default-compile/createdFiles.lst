@@ -23,6 +23,7 @@ com\api\domain\dto\LoginDto.class
 com\api\domain\dto\UserDto.class
 com\api\domain\repository\UserRepository.class
 com\api\controller\FactHiringController.class
+com\api\controller\MetricsController.class
 com\api\domain\dto\UserResumeDTO.class
 com\api\domain\service\JobService.class
 com\api\infra\springdoc\SpringDocConfiguration.class
@@ -33,6 +34,7 @@ com\api\domain\repository\CandidateRepository.class
 com\api\domain\repository\RecruiterRepository.class
 com\api\controller\FactApplicationController.class
 com\api\domain\dto\AmountCollectedDto.class
+com\api\controller\TtiRequest.class
 com\api\domain\dto\RecruitmentProcessDto.class
 com\api\domain\entity\FactApplication.class
 com\api\domain\dto\AverageByJobDto.class

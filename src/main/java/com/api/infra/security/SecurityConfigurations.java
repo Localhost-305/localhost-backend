@@ -35,6 +35,7 @@ public class SecurityConfigurations {
                     .requestMatchers(HttpMethod.POST, "/auth/login").permitAll()
                     .requestMatchers("/actuator/**").permitAll()
                     .requestMatchers("/prometheus").permitAll()
+                    .requestMatchers("/metrics/**").permitAll()
                     .requestMatchers("/auth/register").hasAnyRole("ADMIN");
                     
 

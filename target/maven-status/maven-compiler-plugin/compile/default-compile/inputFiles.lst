@@ -7,8 +7,10 @@ C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhos
 C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\controller\FactHiringController.java
 C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\controller\ImportExcelToETL.java
 C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\controller\JobController.java
+C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\controller\MetricsController.java
 C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\controller\QuantityApplicationsController.java
 C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\controller\RecruitmentProcessController.java
+C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\controller\TtiRequest.java
 C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\controller\UserController.java
 C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\domain\dto\AmountCollectedDto.java
 C:\Users\gabri\OneDrive\Documentos\Estudos\Fatec\Localhost305 - API\API\localhost-backend\src\main\java\com\api\domain\dto\AverageByJobDto.java
