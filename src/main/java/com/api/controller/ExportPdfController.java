@@ -9,6 +9,7 @@ import org.springframework.http.MediaType;
 import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestParam;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.io.ByteArrayOutputStream;
@@ -24,7 +25,7 @@ public class ExportPdfController {
     ExportPdfService exportPdfService;
 
     @GetMapping("/pdf")
-    public ResponseEntity<byte[]> exportData(String dataString) {
+    public ResponseEntity<byte[]> exportData(@RequestParam String dataString) {
         try {
             ObjectMapper objectMapper = new ObjectMapper();
             List<Map<String, Object>> data = objectMapper.readValue(dataString, List.class);
