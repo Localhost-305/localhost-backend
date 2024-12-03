@@ -1,15 +1,4 @@
 -------------------------------------------------------------------------------
 Test set: com.api.controller.AmountCollectedControllerTest
 -------------------------------------------------------------------------------
-Tests run: 5, Failures: 1, Errors: 0, Skipped: 0, Time elapsed: 0.971 s <<< FAILURE! -- in com.api.controller.AmountCollectedControllerTest
-com.api.controller.AmountCollectedControllerTest.testGetAmountCollectedInvalidMonths -- Time elapsed: 0.008 s <<< FAILURE!
-org.opentest4j.AssertionFailedError: Expected java.lang.IllegalArgumentException to be thrown, but nothing was thrown.
-	at org.junit.jupiter.api.AssertionFailureBuilder.build(AssertionFailureBuilder.java:152)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:73)
-	at org.junit.jupiter.api.AssertThrows.assertThrows(AssertThrows.java:35)
-	at org.junit.jupiter.api.Assertions.assertThrows(Assertions.java:3115)
-	at com.api.controller.AmountCollectedControllerTest.testGetAmountCollectedInvalidMonths(AmountCollectedControllerTest.java:67)
-	at java.base/java.lang.reflect.Method.invoke(Method.java:568)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-	at java.base/java.util.ArrayList.forEach(ArrayList.java:1511)
-
+Tests run: 5, Failures: 0, Errors: 0, Skipped: 0, Time elapsed: 0.295 s -- in com.api.controller.AmountCollectedControllerTest

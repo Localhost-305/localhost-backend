@@ -23,8 +23,4 @@ public class AmountCollectedController {
                                                   @RequestParam(required = false) String profession){
         return amountCollectedService.findAmountCollectedByMonths(months,profession);
     }
-
-
-
-
 }
