@@ -9,11 +9,13 @@ import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
 import org.mockito.Mockito;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.boot.test.autoconfigure.web.servlet.WebMvcTest;
+import org.springframework.boot.test.autoconfigure.web.servlet.AutoConfigureMockMvc;
+import org.springframework.boot.test.context.SpringBootTest;
 import org.springframework.boot.test.mock.mockito.MockBean;
 import org.springframework.http.MediaType;
 import org.springframework.security.authentication.AuthenticationManager;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
+import org.springframework.test.context.ActiveProfiles;
 import org.springframework.test.web.servlet.MockMvc;
 
 import java.util.List;
@@ -22,7 +24,9 @@ import static org.mockito.Mockito.when;
 import static org.springframework.test.web.servlet.request.MockMvcRequestBuilders.post;
 import static org.springframework.test.web.servlet.result.MockMvcResultMatchers.*;
 
-@WebMvcTest(AuthenticationController.class)
+@SpringBootTest
+@AutoConfigureMockMvc
+@ActiveProfiles("test")
 class AuthenticationControllerTest {
 
     @Autowired
@@ -74,18 +78,18 @@ class AuthenticationControllerTest {
         // Chamada do endpoint e validações
         mockMvc.perform(post("/auth/login")
                         .contentType(MediaType.APPLICATION_JSON)
-                        .content("""
+                        .content(""" 
                                 {
                                     "email": "john.doe@example.com",
                                     "password": "password"
                                 }
                                 """))
                 .andExpect(status().isOk())
-                .andExpect(jsonPath("$.token").value("mocked-jwt-token"))
-                .andExpect(jsonPath("$.user.userId").value(1))
+                .andExpect(jsonPath("$.tokenJWT").value("mocked-jwt-token"))
+                .andExpect(jsonPath("$.user.id").value(1)) // Corrigido aqui
                 .andExpect(jsonPath("$.user.name").value("John Doe"))
                 .andExpect(jsonPath("$.user.email").value("john.doe@example.com"))
-                .andExpect(jsonPath("$.user.roleName").value("ADMIN"))
+                .andExpect(jsonPath("$.user.role").value("ADMIN"))
                 .andExpect(jsonPath("$.user.permissions[0]").value("READ_PRIVILEGE"));
     }
 }

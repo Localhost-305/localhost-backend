@@ -1,4 +1,4 @@
-name: TesteDeIntegração (CI)
+name: Teste De Integração (CI) Java
 on:
   pull_request:
     branches:

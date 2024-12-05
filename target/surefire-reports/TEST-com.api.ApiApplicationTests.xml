@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.api.controller.AuthenticationControllerTest" time="10.695" tests="1" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.api.ApiApplicationTests" time="8.381" tests="1" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -47,7 +47,6 @@
     <property name="java.vendor.url.bug" value="https://bugreport.java.com/bugreport/"/>
     <property name="java.io.tmpdir" value="C:\Users\10500114\AppData\Local\Temp\"/>
     <property name="idea.version" value="2023.1.1"/>
-    <property name="com.zaxxer.hikari.pool_number" value="1"/>
     <property name="java.version" value="17.0.7"/>
     <property name="user.dir" value="C:\Users\10500114\ProjetosIntellij\localhost-backend"/>
     <property name="os.arch" value="amd64"/>
@@ -63,10 +62,10 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testLoginEndpoint" classname="com.api.controller.AuthenticationControllerTest" time="0.394">
-    <system-out><![CDATA[2024-12-04T21:21:12.987-03:00  INFO 4316 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.api.controller.AuthenticationControllerTest]: AuthenticationControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
-2024-12-04T21:21:13.414-03:00  INFO 4316 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.api.ApiApplication for test class com.api.controller.AuthenticationControllerTest
-2024-12-04T21:21:13.446-03:00  INFO 4316 --- [           main] o.s.b.d.r.RestartApplicationListener     : Restart disabled due to context in which it is running
+  <testcase name="contextLoads" classname="com.api.ApiApplicationTests" time="0.791">
+    <system-out><![CDATA[21:21:04.370 [main] INFO org.springframework.test.context.support.AnnotationConfigContextLoaderUtils -- Could not detect default configuration classes for test class [com.api.ApiApplicationTests]: ApiApplicationTests does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+21:21:04.581 [main] INFO org.springframework.boot.test.context.SpringBootTestContextBootstrapper -- Found @SpringBootConfiguration com.api.ApiApplication for test class com.api.ApiApplicationTests
+21:21:04.713 [main] INFO org.springframework.boot.devtools.restart.RestartApplicationListener -- Restart disabled due to context in which it is running
 
   .   ____          _            __ _ _
  /\\ / ___'_ __ _ _(_)_ __  __ _ \ \ \ \
@@ -77,71 +76,79 @@
 
  :: Spring Boot ::                (v3.3.2)
 
-2024-12-04T21:21:13.611-03:00  INFO 4316 --- [           main] c.a.c.AuthenticationControllerTest       : Starting AuthenticationControllerTest using Java 17.0.7 with PID 4316 (started by 10500114 in C:\Users\10500114\ProjetosIntellij\localhost-backend)
-2024-12-04T21:21:13.612-03:00  INFO 4316 --- [           main] c.a.c.AuthenticationControllerTest       : The following 1 profile is active: "test"
-2024-12-04T21:21:15.729-03:00  INFO 4316 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2024-12-04T21:21:15.784-03:00  INFO 4316 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 54 ms. Found 13 JPA repository interfaces.
-2024-12-04T21:21:16.320-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
-2024-12-04T21:21:16.322-03:00  INFO 4316 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Starting...
-2024-12-04T21:21:16.352-03:00  INFO 4316 --- [           main] com.zaxxer.hikari.pool.HikariPool        : HikariPool-1 - Added connection conn9: url=jdbc:h2:mem:testdb user=SA
-2024-12-04T21:21:16.357-03:00  INFO 4316 --- [           main] com.zaxxer.hikari.HikariDataSource       : HikariPool-1 - Start completed.
-2024-12-04T21:21:16.374-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
-2024-12-04T21:21:16.374-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [db/migration/test-schema.sql]
-2024-12-04T21:21:16.395-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_roles
-2024-12-04T21:21:16.398-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_roles ( role_id BIGINT AUTO_INCREMENT PRIMARY KEY, role_name VARCHAR(255) NOT NULL UNIQUE )
-2024-12-04T21:21:16.399-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_permissions
-2024-12-04T21:21:16.401-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_permissions ( permission_id BIGINT AUTO_INCREMENT PRIMARY KEY, permission_name VARCHAR(255) NOT NULL UNIQUE )
-2024-12-04T21:21:16.402-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_candidates
-2024-12-04T21:21:16.404-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_candidates ( candidate_id BIGINT AUTO_INCREMENT PRIMARY KEY, candidate_name VARCHAR(200) NOT NULL, email VARCHAR(255) UNIQUE NOT NULL, phone VARCHAR(12) NOT NULL, birth_date DATE NOT NULL )
-2024-12-04T21:21:16.405-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_jobs
-2024-12-04T21:21:16.407-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_jobs ( job_id BIGINT AUTO_INCREMENT PRIMARY KEY, job_title VARCHAR(200) NOT NULL, number_of_positions INT NOT NULL, job_requirements VARCHAR(500) NOT NULL, job_status VARCHAR(20) NOT NULL, location VARCHAR(300) NOT NULL, responsible_person VARCHAR(200) NOT NULL, opening_date DATETIME NOT NULL, closing_date DATETIME NOT NULL )
-2024-12-04T21:21:16.408-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_recruitment_processes
-2024-12-04T21:21:16.409-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_recruitment_processes ( process_id BIGINT AUTO_INCREMENT PRIMARY KEY, process_name VARCHAR(200) NOT NULL, start_date DATETIME NOT NULL, end_date DATETIME NOT NULL, process_status VARCHAR(20) NOT NULL, process_description VARCHAR(500) NOT NULL )
-2024-12-04T21:21:16.410-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_recruiters
-2024-12-04T21:21:16.411-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_recruiters ( recruiter_id BIGINT AUTO_INCREMENT PRIMARY KEY, recruiter_name VARCHAR(200) NOT NULL, role VARCHAR(50) NOT NULL, feedbacks_given INT NOT NULL )
-2024-12-04T21:21:16.412-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_date
-2024-12-04T21:21:16.413-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_date ( date_id BIGINT AUTO_INCREMENT PRIMARY KEY, date_day INT NOT NULL, date_month INT NOT NULL, date_year INT NOT NULL )
-2024-12-04T21:21:16.414-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_hour
-2024-12-04T21:21:16.415-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_hour ( hour_id BIGINT AUTO_INCREMENT PRIMARY KEY, hour_hour INT NOT NULL )
-2024-12-04T21:21:16.416-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS fact_applications
-2024-12-04T21:21:16.427-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE fact_applications ( recruiter_id BIGINT, candidate_id BIGINT, job_id BIGINT, process_id BIGINT, date_id BIGINT, hour_id BIGINT, number_of_applications INT NOT NULL, PRIMARY KEY (recruiter_id, candidate_id, job_id, process_id, date_id, hour_id), FOREIGN KEY (candidate_id) REFERENCES dim_candidates(candidate_id), FOREIGN KEY (job_id) REFERENCES dim_jobs(job_id), FOREIGN KEY (process_id) REFERENCES dim_recruitment_processes(process_id), FOREIGN KEY (recruiter_id) REFERENCES dim_recruiters(recruiter_id), FOREIGN KEY (date_id) REFERENCES dim_date(date_id), FOREIGN KEY (hour_id) REFERENCES dim_hour(hour_id) )
-2024-12-04T21:21:16.428-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS fact_hirings
-2024-12-04T21:21:16.436-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE fact_hirings ( hiring_id BIGINT AUTO_INCREMENT, candidate_id BIGINT, job_id BIGINT, date_id BIGINT NOT NULL, hour_id BIGINT NOT NULL, hiring_date DATE NOT NULL, initial_salary DECIMAL(8,2) NOT NULL, contract_type VARCHAR(50) NOT NULL, acceptance_date DATETIME NOT NULL, qty_hirings INT NOT NULL, contract_end_date DATE, PRIMARY KEY (hiring_id, candidate_id, job_id, date_id, hour_id), FOREIGN KEY (candidate_id) REFERENCES dim_candidates(candidate_id), FOREIGN KEY (job_id) REFERENCES dim_jobs(job_id), FOREIGN KEY (date_id) REFERENCES dim_date(date_id), FOREIGN KEY (hour_id) REFERENCES dim_hour(hour_id) )
-2024-12-04T21:21:16.437-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS fact_roles_permissions
-2024-12-04T21:21:16.441-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE fact_roles_permissions ( role_id BIGINT NOT NULL, permission_id BIGINT NOT NULL, PRIMARY KEY (role_id, permission_id), FOREIGN KEY (role_id) REFERENCES dim_roles(role_id) ON DELETE CASCADE, FOREIGN KEY (permission_id) REFERENCES dim_permissions(permission_id) ON DELETE CASCADE )
-2024-12-04T21:21:16.441-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_users
-2024-12-04T21:21:16.444-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_users ( user_id BIGINT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(200) NOT NULL, email VARCHAR(255) UNIQUE NOT NULL, password VARCHAR(255) NOT NULL, created_on DATE NOT NULL, updated_on DATE NOT NULL, role_id BIGINT, FOREIGN KEY (role_id) REFERENCES dim_roles(role_id) )
-2024-12-04T21:21:16.445-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [db/migration/test-schema.sql] in 71 ms.
-2024-12-04T21:21:16.445-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
-2024-12-04T21:21:16.446-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
-2024-12-04T21:21:16.446-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [db/migration/test-data.sql]
-2024-12-04T21:21:16.467-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 3 returned as update count for SQL: INSERT INTO dim_roles (role_name) VALUES ('ADMIN'), ('SUPERVISOR'), ('USER')
-2024-12-04T21:21:16.468-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_permissions (permission_name) VALUES ('allowed_to_see'), ('allowed_to_change'), ('allowed_to_import'), ('allowed_to_add_role'), ('allowed_to_see_money')
-2024-12-04T21:21:16.469-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO fact_roles_permissions (role_id, permission_id) SELECT 1, permission_id FROM dim_permissions WHERE permission_name IN ('allowed_to_see', 'allowed_to_change', 'allowed_to_import', 'allowed_to_add_role', 'allowed_to_see_money')
-2024-12-04T21:21:16.470-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 3 returned as update count for SQL: INSERT INTO fact_roles_permissions (role_id, permission_id) SELECT 2, permission_id FROM dim_permissions WHERE permission_name IN ('allowed_to_see', 'allowed_to_import', 'allowed_to_see_money')
-2024-12-04T21:21:16.471-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 2 returned as update count for SQL: INSERT INTO fact_roles_permissions (role_id, permission_id) SELECT 3, permission_id FROM dim_permissions WHERE permission_name IN ('allowed_to_see', 'allowed_to_import')
-2024-12-04T21:21:16.472-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 1 returned as update count for SQL: INSERT INTO dim_users (email, name, password, created_on, updated_on, role_id) VALUES ('api@email.com', 'api', 'password-hash', '2024-09-13', '2024-09-13', 1)
-2024-12-04T21:21:16.473-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) VALUES ('Admin User', 'admin@example.com', 'hashedpassword1', '2024-01-01', '2024-11-01', 1), ('Supervisor User', 'supervisor@example.com', 'hashedpassword2', '2024-02-01', '2024-11-01', 2), ('Regular User 1', 'user1@example.com', 'hashedpassword3', '2024-03-01', '2024-11-01', 3), ('Regular User 2', 'user2@example.com', 'hashedpassword4', '2024-04-01', '2024-11-01', 3), ('Regular User 3', 'user3@example.com', 'hashedpassword5', '2024-05-01', '2024-11-01', 3)
-2024-12-04T21:21:16.475-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_candidates (candidate_name, email, phone, birth_date) VALUES ('John Doe', 'johndoe@example.com', '12345678901', '1990-01-01'), ('Jane Smith', 'janesmith@example.com', '12345678902', '1985-05-15'), ('Alice Johnson', 'alicej@example.com', '12345678903', '1992-07-20'), ('Bob Brown', 'bobbrown@example.com', '12345678904', '1988-12-10'), ('Eve White', 'evewhite@example.com', '12345678905', '1995-03-25')
-2024-12-04T21:21:16.476-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_jobs (job_title, number_of_positions, job_requirements, job_status, location, responsible_person, opening_date, closing_date) VALUES ('Java Developer', 3, 'Experience in Java and Spring', 'OPEN', 'Remote', 'Manager A', '2024-11-01 08:00:00', '2024-12-15 18:00:00'), ('Data Analyst', 2, 'Proficiency in SQL and Python', 'CLOSED', 'New York', 'Manager B', '2024-10-01 09:00:00', '2024-11-01 17:00:00'), ('UI/UX Designer', 1, 'Expertise in Figma and Adobe XD', 'OPEN', 'San Francisco', 'Manager C', '2024-09-15 08:00:00', '2024-12-01 18:00:00'), ('DevOps Engineer', 4, 'Experience in CI/CD pipelines', 'OPEN', 'Seattle', 'Manager D', '2024-11-10 09:00:00', '2025-01-10 17:00:00'), ('Project Manager', 2, 'Strong communication skills', 'CLOSED', 'Chicago', 'Manager E', '2024-08-01 09:00:00', '2024-09-30 17:00:00')
-2024-12-04T21:21:16.477-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_recruitment_processes (process_name, start_date, end_date, process_status, process_description) VALUES ('Java Hiring Process', '2024-11-01 08:00:00', '2024-12-15 18:00:00', 'ACTIVE', 'Recruitment for Java developers'), ('Data Analysis Recruitment', '2024-10-01 09:00:00', '2024-11-01 17:00:00', 'COMPLETED', 'Process to hire data analysts'), ('UI/UX Designer Selection', '2024-09-15 08:00:00', '2024-12-01 18:00:00', 'ACTIVE', 'Hiring UI/UX designers'), ('DevOps Hiring Process', '2024-11-10 09:00:00', '2025-01-10 17:00:00', 'PLANNED', 'Recruitment for DevOps engineers'), ('Project Manager Onboarding', '2024-08-01 09:00:00', '2024-09-30 17:00:00', 'COMPLETED', 'Selection of project managers')
-2024-12-04T21:21:16.478-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_recruiters (recruiter_name, role, feedbacks_given) VALUES ('Michael Green', 'Senior Recruiter', 50), ('Samantha Blue', 'HR Specialist', 40), ('James Brown', 'Recruitment Manager', 60), ('Emily White', 'Recruiter', 30), ('Robert Black', 'HR Consultant', 20)
-2024-12-04T21:21:16.479-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_date (date_day, date_month, date_year) VALUES (1, 11, 2024), (2, 11, 2024), (3, 11, 2024), (4, 11, 2024), (5, 11, 2024)
-2024-12-04T21:21:16.480-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_hour (hour_hour) VALUES (9), (10), (11), (14), (15)
-2024-12-04T21:21:16.483-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO fact_applications (recruiter_id, candidate_id, job_id, process_id, date_id, hour_id, number_of_applications) VALUES (1, 1, 1, 1, 1, 1, 1), (2, 2, 2, 2, 2, 2, 2), (3, 3, 3, 3, 3, 3, 1), (4, 4, 4, 4, 4, 4, 1), (5, 5, 1, 1, 5, 5, 1)
-2024-12-04T21:21:16.485-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO fact_hirings (hiring_id, candidate_id, job_id, date_id, hour_id, hiring_date, initial_salary, contract_type, acceptance_date, qty_hirings, contract_end_date) VALUES (1, 1, 1, 1, 1, '2024-11-01', 6000.00, 'CLT', '2024-11-01 10:00:00', 1, '2025-11-01'), (2, 2, 2, 2, 2, '2024-10-10', 7000.00, 'PJ', '2024-10-11 11:00:00', 1, NULL), (3, 3, 3, 3, 3, '2024-09-15', 5500.00, 'CLT', '2024-09-16 14:00:00', 1, '2026-09-15'), (4, 4, 4, 4, 4, '2024-11-20', 7500.00, 'CLT', '2024-11-21 16:00:00', 1, '2025-11-20'), (5, 5, 5, 5, 5, '2024-08-01', 5000.00, 'CLT', '2024-08-02 09:00:00', 1, '2025-08-01')
-2024-12-04T21:21:16.485-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [db/migration/test-data.sql] in 39 ms.
-2024-12-04T21:21:16.526-03:00  INFO 4316 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
-2024-12-04T21:21:16.535-03:00  INFO 4316 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
-2024-12-04T21:21:16.561-03:00  INFO 4316 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
-2024-12-04T21:21:16.564-03:00  WARN 4316 --- [           main] org.hibernate.dialect.Dialect            : HHH000511: The 2.2.224 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
-2024-12-04T21:21:16.564-03:00  WARN 4316 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
-2024-12-04T21:21:16.917-03:00  INFO 4316 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
+2024-12-04T21:21:05.227-03:00  INFO 4316 --- [           main] com.api.ApiApplicationTests              : Starting ApiApplicationTests using Java 17.0.7 with PID 4316 (started by 10500114 in C:\Users\10500114\ProjetosIntellij\localhost-backend)
+2024-12-04T21:21:05.230-03:00  INFO 4316 --- [           main] com.api.ApiApplicationTests              : The following 1 profile is active: "test"
+2024-12-04T21:21:06.203-03:00  INFO 4316 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2024-12-04T21:21:06.318-03:00  INFO 4316 --- [           main] .s.d.r.c.RepositoryConfigurationDelegate : Finished Spring Data repository scanning in 107 ms. Found 13 JPA repository interfaces.
+2024-12-04T21:21:06.408-03:00  INFO 4316 --- [           main] beddedDataSourceBeanFactoryPostProcessor : Replacing 'dataSource' DataSource bean with embedded version
+2024-12-04T21:21:06.740-03:00  INFO 4316 --- [           main] o.s.j.d.e.EmbeddedDatabaseFactory        : Starting embedded database: url='jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false', username='sa'
+2024-12-04T21:21:06.744-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-12-04T21:21:06.744-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+2024-12-04T21:21:06.971-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-12-04T21:21:06.971-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+2024-12-04T21:21:06.980-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-12-04T21:21:06.980-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+2024-12-04T21:21:06.981-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [db/migration/test-schema.sql]
+2024-12-04T21:21:06.987-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_roles
+2024-12-04T21:21:07.003-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_roles ( role_id BIGINT AUTO_INCREMENT PRIMARY KEY, role_name VARCHAR(255) NOT NULL UNIQUE )
+2024-12-04T21:21:07.003-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_permissions
+2024-12-04T21:21:07.005-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_permissions ( permission_id BIGINT AUTO_INCREMENT PRIMARY KEY, permission_name VARCHAR(255) NOT NULL UNIQUE )
+2024-12-04T21:21:07.005-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_candidates
+2024-12-04T21:21:07.006-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_candidates ( candidate_id BIGINT AUTO_INCREMENT PRIMARY KEY, candidate_name VARCHAR(200) NOT NULL, email VARCHAR(255) UNIQUE NOT NULL, phone VARCHAR(12) NOT NULL, birth_date DATE NOT NULL )
+2024-12-04T21:21:07.007-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_jobs
+2024-12-04T21:21:07.008-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_jobs ( job_id BIGINT AUTO_INCREMENT PRIMARY KEY, job_title VARCHAR(200) NOT NULL, number_of_positions INT NOT NULL, job_requirements VARCHAR(500) NOT NULL, job_status VARCHAR(20) NOT NULL, location VARCHAR(300) NOT NULL, responsible_person VARCHAR(200) NOT NULL, opening_date DATETIME NOT NULL, closing_date DATETIME NOT NULL )
+2024-12-04T21:21:07.008-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_recruitment_processes
+2024-12-04T21:21:07.009-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_recruitment_processes ( process_id BIGINT AUTO_INCREMENT PRIMARY KEY, process_name VARCHAR(200) NOT NULL, start_date DATETIME NOT NULL, end_date DATETIME NOT NULL, process_status VARCHAR(20) NOT NULL, process_description VARCHAR(500) NOT NULL )
+2024-12-04T21:21:07.010-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_recruiters
+2024-12-04T21:21:07.011-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_recruiters ( recruiter_id BIGINT AUTO_INCREMENT PRIMARY KEY, recruiter_name VARCHAR(200) NOT NULL, role VARCHAR(50) NOT NULL, feedbacks_given INT NOT NULL )
+2024-12-04T21:21:07.011-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_date
+2024-12-04T21:21:07.012-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_date ( date_id BIGINT AUTO_INCREMENT PRIMARY KEY, date_day INT NOT NULL, date_month INT NOT NULL, date_year INT NOT NULL )
+2024-12-04T21:21:07.012-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_hour
+2024-12-04T21:21:07.013-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_hour ( hour_id BIGINT AUTO_INCREMENT PRIMARY KEY, hour_hour INT NOT NULL )
+2024-12-04T21:21:07.014-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS fact_applications
+2024-12-04T21:21:07.036-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE fact_applications ( recruiter_id BIGINT, candidate_id BIGINT, job_id BIGINT, process_id BIGINT, date_id BIGINT, hour_id BIGINT, number_of_applications INT NOT NULL, PRIMARY KEY (recruiter_id, candidate_id, job_id, process_id, date_id, hour_id), FOREIGN KEY (candidate_id) REFERENCES dim_candidates(candidate_id), FOREIGN KEY (job_id) REFERENCES dim_jobs(job_id), FOREIGN KEY (process_id) REFERENCES dim_recruitment_processes(process_id), FOREIGN KEY (recruiter_id) REFERENCES dim_recruiters(recruiter_id), FOREIGN KEY (date_id) REFERENCES dim_date(date_id), FOREIGN KEY (hour_id) REFERENCES dim_hour(hour_id) )
+2024-12-04T21:21:07.036-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS fact_hirings
+2024-12-04T21:21:07.044-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE fact_hirings ( hiring_id BIGINT AUTO_INCREMENT, candidate_id BIGINT, job_id BIGINT, date_id BIGINT NOT NULL, hour_id BIGINT NOT NULL, hiring_date DATE NOT NULL, initial_salary DECIMAL(8,2) NOT NULL, contract_type VARCHAR(50) NOT NULL, acceptance_date DATETIME NOT NULL, qty_hirings INT NOT NULL, contract_end_date DATE, PRIMARY KEY (hiring_id, candidate_id, job_id, date_id, hour_id), FOREIGN KEY (candidate_id) REFERENCES dim_candidates(candidate_id), FOREIGN KEY (job_id) REFERENCES dim_jobs(job_id), FOREIGN KEY (date_id) REFERENCES dim_date(date_id), FOREIGN KEY (hour_id) REFERENCES dim_hour(hour_id) )
+2024-12-04T21:21:07.044-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS fact_roles_permissions
+2024-12-04T21:21:07.049-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE fact_roles_permissions ( role_id BIGINT NOT NULL, permission_id BIGINT NOT NULL, PRIMARY KEY (role_id, permission_id), FOREIGN KEY (role_id) REFERENCES dim_roles(role_id) ON DELETE CASCADE, FOREIGN KEY (permission_id) REFERENCES dim_permissions(permission_id) ON DELETE CASCADE )
+2024-12-04T21:21:07.049-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: DROP TABLE IF EXISTS dim_users
+2024-12-04T21:21:07.051-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 0 returned as update count for SQL: CREATE TABLE dim_users ( user_id BIGINT AUTO_INCREMENT PRIMARY KEY, name VARCHAR(200) NOT NULL, email VARCHAR(255) UNIQUE NOT NULL, password VARCHAR(255) NOT NULL, created_on DATE NOT NULL, updated_on DATE NOT NULL, role_id BIGINT, FOREIGN KEY (role_id) REFERENCES dim_roles(role_id) )
+2024-12-04T21:21:07.054-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [db/migration/test-schema.sql] in 69 ms.
+2024-12-04T21:21:07.056-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-12-04T21:21:07.056-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+2024-12-04T21:21:07.057-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.DataSourceUtils      : Fetching JDBC Connection from DataSource
+2024-12-04T21:21:07.057-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+2024-12-04T21:21:07.058-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executing SQL script from class path resource [db/migration/test-data.sql]
+2024-12-04T21:21:07.067-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 3 returned as update count for SQL: INSERT INTO dim_roles (role_name) VALUES ('ADMIN'), ('SUPERVISOR'), ('USER')
+2024-12-04T21:21:07.068-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_permissions (permission_name) VALUES ('allowed_to_see'), ('allowed_to_change'), ('allowed_to_import'), ('allowed_to_add_role'), ('allowed_to_see_money')
+2024-12-04T21:21:07.071-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO fact_roles_permissions (role_id, permission_id) SELECT 1, permission_id FROM dim_permissions WHERE permission_name IN ('allowed_to_see', 'allowed_to_change', 'allowed_to_import', 'allowed_to_add_role', 'allowed_to_see_money')
+2024-12-04T21:21:07.073-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 3 returned as update count for SQL: INSERT INTO fact_roles_permissions (role_id, permission_id) SELECT 2, permission_id FROM dim_permissions WHERE permission_name IN ('allowed_to_see', 'allowed_to_import', 'allowed_to_see_money')
+2024-12-04T21:21:07.074-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 2 returned as update count for SQL: INSERT INTO fact_roles_permissions (role_id, permission_id) SELECT 3, permission_id FROM dim_permissions WHERE permission_name IN ('allowed_to_see', 'allowed_to_import')
+2024-12-04T21:21:07.075-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 1 returned as update count for SQL: INSERT INTO dim_users (email, name, password, created_on, updated_on, role_id) VALUES ('api@email.com', 'api', 'password-hash', '2024-09-13', '2024-09-13', 1)
+2024-12-04T21:21:07.077-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) VALUES ('Admin User', 'admin@example.com', 'hashedpassword1', '2024-01-01', '2024-11-01', 1), ('Supervisor User', 'supervisor@example.com', 'hashedpassword2', '2024-02-01', '2024-11-01', 2), ('Regular User 1', 'user1@example.com', 'hashedpassword3', '2024-03-01', '2024-11-01', 3), ('Regular User 2', 'user2@example.com', 'hashedpassword4', '2024-04-01', '2024-11-01', 3), ('Regular User 3', 'user3@example.com', 'hashedpassword5', '2024-05-01', '2024-11-01', 3)
+2024-12-04T21:21:07.078-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_candidates (candidate_name, email, phone, birth_date) VALUES ('John Doe', 'johndoe@example.com', '12345678901', '1990-01-01'), ('Jane Smith', 'janesmith@example.com', '12345678902', '1985-05-15'), ('Alice Johnson', 'alicej@example.com', '12345678903', '1992-07-20'), ('Bob Brown', 'bobbrown@example.com', '12345678904', '1988-12-10'), ('Eve White', 'evewhite@example.com', '12345678905', '1995-03-25')
+2024-12-04T21:21:07.079-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_jobs (job_title, number_of_positions, job_requirements, job_status, location, responsible_person, opening_date, closing_date) VALUES ('Java Developer', 3, 'Experience in Java and Spring', 'OPEN', 'Remote', 'Manager A', '2024-11-01 08:00:00', '2024-12-15 18:00:00'), ('Data Analyst', 2, 'Proficiency in SQL and Python', 'CLOSED', 'New York', 'Manager B', '2024-10-01 09:00:00', '2024-11-01 17:00:00'), ('UI/UX Designer', 1, 'Expertise in Figma and Adobe XD', 'OPEN', 'San Francisco', 'Manager C', '2024-09-15 08:00:00', '2024-12-01 18:00:00'), ('DevOps Engineer', 4, 'Experience in CI/CD pipelines', 'OPEN', 'Seattle', 'Manager D', '2024-11-10 09:00:00', '2025-01-10 17:00:00'), ('Project Manager', 2, 'Strong communication skills', 'CLOSED', 'Chicago', 'Manager E', '2024-08-01 09:00:00', '2024-09-30 17:00:00')
+2024-12-04T21:21:07.081-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_recruitment_processes (process_name, start_date, end_date, process_status, process_description) VALUES ('Java Hiring Process', '2024-11-01 08:00:00', '2024-12-15 18:00:00', 'ACTIVE', 'Recruitment for Java developers'), ('Data Analysis Recruitment', '2024-10-01 09:00:00', '2024-11-01 17:00:00', 'COMPLETED', 'Process to hire data analysts'), ('UI/UX Designer Selection', '2024-09-15 08:00:00', '2024-12-01 18:00:00', 'ACTIVE', 'Hiring UI/UX designers'), ('DevOps Hiring Process', '2024-11-10 09:00:00', '2025-01-10 17:00:00', 'PLANNED', 'Recruitment for DevOps engineers'), ('Project Manager Onboarding', '2024-08-01 09:00:00', '2024-09-30 17:00:00', 'COMPLETED', 'Selection of project managers')
+2024-12-04T21:21:07.082-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_recruiters (recruiter_name, role, feedbacks_given) VALUES ('Michael Green', 'Senior Recruiter', 50), ('Samantha Blue', 'HR Specialist', 40), ('James Brown', 'Recruitment Manager', 60), ('Emily White', 'Recruiter', 30), ('Robert Black', 'HR Consultant', 20)
+2024-12-04T21:21:07.083-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_date (date_day, date_month, date_year) VALUES (1, 11, 2024), (2, 11, 2024), (3, 11, 2024), (4, 11, 2024), (5, 11, 2024)
+2024-12-04T21:21:07.084-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO dim_hour (hour_hour) VALUES (9), (10), (11), (14), (15)
+2024-12-04T21:21:07.086-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO fact_applications (recruiter_id, candidate_id, job_id, process_id, date_id, hour_id, number_of_applications) VALUES (1, 1, 1, 1, 1, 1, 1), (2, 2, 2, 2, 2, 2, 2), (3, 3, 3, 3, 3, 3, 1), (4, 4, 4, 4, 4, 4, 1), (5, 5, 1, 1, 5, 5, 1)
+2024-12-04T21:21:07.088-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : 5 returned as update count for SQL: INSERT INTO fact_hirings (hiring_id, candidate_id, job_id, date_id, hour_id, hiring_date, initial_salary, contract_type, acceptance_date, qty_hirings, contract_end_date) VALUES (1, 1, 1, 1, 1, '2024-11-01', 6000.00, 'CLT', '2024-11-01 10:00:00', 1, '2025-11-01'), (2, 2, 2, 2, 2, '2024-10-10', 7000.00, 'PJ', '2024-10-11 11:00:00', 1, NULL), (3, 3, 3, 3, 3, '2024-09-15', 5500.00, 'CLT', '2024-09-16 14:00:00', 1, '2026-09-15'), (4, 4, 4, 4, 4, '2024-11-20', 7500.00, 'CLT', '2024-11-21 16:00:00', 1, '2025-11-20'), (5, 5, 5, 5, 5, '2024-08-01', 5000.00, 'CLT', '2024-08-02 09:00:00', 1, '2025-08-01')
+2024-12-04T21:21:07.089-03:00 DEBUG 4316 --- [           main] o.s.jdbc.datasource.init.ScriptUtils     : Executed SQL script from class path resource [db/migration/test-data.sql] in 31 ms.
+2024-12-04T21:21:07.247-03:00  INFO 4316 --- [           main] o.hibernate.jpa.internal.util.LogHelper  : HHH000204: Processing PersistenceUnitInfo [name: default]
+2024-12-04T21:21:07.354-03:00  INFO 4316 --- [           main] org.hibernate.Version                    : HHH000412: Hibernate ORM core version 6.5.2.Final
+2024-12-04T21:21:07.415-03:00  INFO 4316 --- [           main] o.h.c.internal.RegionFactoryInitiator    : HHH000026: Second-level cache disabled
+2024-12-04T21:21:07.971-03:00  INFO 4316 --- [           main] o.s.o.j.p.SpringPersistenceUnitInfo      : No LoadTimeWeaver setup: ignoring JPA class transformer
+2024-12-04T21:21:08.030-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+2024-12-04T21:21:08.067-03:00  WARN 4316 --- [           main] org.hibernate.dialect.Dialect            : HHH000511: The 2.2.224 version for [org.hibernate.dialect.MySQLDialect] is no longer supported, hence certain features may not work properly. The minimum supported version is 8.0.0. Check the community dialects project for available legacy versions.
+2024-12-04T21:21:08.074-03:00  WARN 4316 --- [           main] org.hibernate.orm.deprecation            : HHH90000025: MySQLDialect does not need to be specified explicitly using 'hibernate.dialect' (remove the property setting and it will be selected by default)
+2024-12-04T21:21:09.899-03:00  INFO 4316 --- [           main] o.h.e.t.j.p.i.JtaPlatformInitiator       : HHH000489: No JTA platform available (set 'hibernate.transaction.jta.platform' to enable JTA platform integration)
 Hibernate: 
     alter table dim_users 
        drop 
        foreign key FKr4aak45u01954dec1qvq21hgx
-2024-12-04T21:21:16.918-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.917-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+2024-12-04T21:21:09.918-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table dim_users 
        drop 
        foreign key FKr4aak45u01954dec1qvq21hgx" via JDBC [Syntax error in SQL statement "\000d\000a    alter table dim_users \000d\000a       drop \000d\000a       [*]foreign key FKr4aak45u01954dec1qvq21hgx"; expected "identifier";]
@@ -196,8 +203,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -289,8 +296,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -298,7 +303,7 @@ Hibernate:
     alter table fact_roles_permissions 
        drop 
        foreign key FKjkccswumf5osulsy4vvqo0848
-2024-12-04T21:21:16.921-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.925-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table fact_roles_permissions 
        drop 
        foreign key FKjkccswumf5osulsy4vvqo0848" via JDBC [Syntax error in SQL statement "\000d\000a    alter table fact_roles_permissions \000d\000a       drop \000d\000a       [*]foreign key FKjkccswumf5osulsy4vvqo0848"; expected "identifier";]
@@ -353,8 +358,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -446,8 +451,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -455,7 +458,7 @@ Hibernate:
     alter table fact_roles_permissions 
        drop 
        foreign key FKmdcx6sg9mqh1x1uq5gyap4ocn
-2024-12-04T21:21:16.925-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.929-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table fact_roles_permissions 
        drop 
        foreign key FKmdcx6sg9mqh1x1uq5gyap4ocn" via JDBC [Syntax error in SQL statement "\000d\000a    alter table fact_roles_permissions \000d\000a       drop \000d\000a       [*]foreign key FKmdcx6sg9mqh1x1uq5gyap4ocn"; expected "identifier";]
@@ -510,8 +513,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -603,14 +606,12 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
 Hibernate: 
     drop table if exists dim_candidates
-2024-12-04T21:21:16.929-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.932-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists dim_candidates" via JDBC [Cannot drop "DIM_CANDIDATES" because "CONSTRAINT_6C, CONSTRAINT_3A4" depends on it;]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -661,8 +662,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -745,14 +746,12 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "DIM_CANDIDATES"
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
 Hibernate: 
     drop table if exists dim_date
-2024-12-04T21:21:16.952-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.934-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists dim_date" via JDBC [Cannot drop "DIM_DATE" because "CONSTRAINT_3A49F81, CONSTRAINT_6CD9" depends on it;]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -803,8 +802,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -887,14 +886,12 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "DIM_DATE" becau
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
 Hibernate: 
     drop table if exists dim_hour
-2024-12-04T21:21:16.960-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.938-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists dim_hour" via JDBC [Cannot drop "DIM_HOUR" because "CONSTRAINT_3A49F816, CONSTRAINT_6CD99" depends on it;]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -945,8 +942,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -1029,14 +1026,12 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "DIM_HOUR" becau
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
 Hibernate: 
     drop table if exists dim_jobs
-2024-12-04T21:21:16.968-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.942-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists dim_jobs" via JDBC [Cannot drop "DIM_JOBS" because "CONSTRAINT_6CD, CONSTRAINT_3A49" depends on it;]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -1087,8 +1082,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -1171,14 +1166,12 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "DIM_JOBS" becau
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
 Hibernate: 
     drop table if exists dim_permissions
-2024-12-04T21:21:16.973-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.946-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists dim_permissions" via JDBC [Cannot drop "DIM_PERMISSIONS" because "CONSTRAINT_FC7" depends on it;]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -1229,8 +1222,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -1313,14 +1306,12 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "DIM_PERMISSIONS
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
 Hibernate: 
     drop table if exists dim_recruiters
-2024-12-04T21:21:16.978-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.950-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists dim_recruiters" via JDBC [Cannot drop "DIM_RECRUITERS" because "CONSTRAINT_3A49F8" depends on it;]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -1371,8 +1362,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -1455,14 +1446,12 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "DIM_RECRUITERS"
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
 Hibernate: 
     drop table if exists dim_recruitment_processes
-2024-12-04T21:21:16.981-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.953-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists dim_recruitment_processes" via JDBC [Cannot drop "DIM_RECRUITMENT_PROCESSES" because "CONSTRAINT_3A49F" depends on it;]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -1513,8 +1502,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -1597,14 +1586,12 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "DIM_RECRUITMENT
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
 Hibernate: 
     drop table if exists dim_roles
-2024-12-04T21:21:16.984-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.956-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     drop table if exists dim_roles" via JDBC [Cannot drop "DIM_ROLES" because "CONSTRAINT_FC, CONSTRAINT_91941" depends on it;]
 
 org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
@@ -1655,8 +1642,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -1739,8 +1726,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Cannot drop "DIM_ROLES" beca
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -1761,7 +1746,8 @@ Hibernate:
         phone varchar(255),
         primary key (candidate_id)
     ) engine=InnoDB
-2024-12-04T21:21:16.998-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.969-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+2024-12-04T21:21:09.970-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_candidates (
         birth_date datetime(6),
         candidate_id bigint not null auto_increment,
@@ -1826,8 +1812,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -1923,8 +1909,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -1936,7 +1920,7 @@ Hibernate:
         date_id bigint not null auto_increment,
         primary key (date_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.001-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.972-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_date (
         day integer,
         month integer,
@@ -1999,8 +1983,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -2096,8 +2080,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -2107,7 +2089,7 @@ Hibernate:
         hour_id bigint not null auto_increment,
         primary key (hour_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.004-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.975-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_hour (
         hour integer,
         hour_id bigint not null auto_increment,
@@ -2166,8 +2148,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -2261,8 +2243,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -2277,7 +2257,7 @@ Hibernate:
         responsible_person varchar(255),
         primary key (job_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.008-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.979-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_jobs (
         number_of_positions integer,
         job_id bigint not null auto_increment,
@@ -2346,8 +2326,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -2445,8 +2425,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -2456,7 +2434,7 @@ Hibernate:
         permission_name varchar(255),
         primary key (permission_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.010-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.980-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_permissions (
         permission_id bigint not null auto_increment,
         permission_name varchar(255),
@@ -2515,8 +2493,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -2609,8 +2587,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -2622,7 +2598,7 @@ Hibernate:
         role varchar(255),
         primary key (recruiter_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.015-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.983-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_recruiters (
         feedbacks_given integer,
         recruiter_id bigint not null auto_increment,
@@ -2685,8 +2661,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -2781,8 +2757,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -2797,7 +2771,7 @@ Hibernate:
         process_name varchar(255),
         primary key (process_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.020-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.987-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_recruitment_processes (
         created_on date,
         updated_on date,
@@ -2866,8 +2840,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -2965,8 +2939,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -2976,7 +2948,7 @@ Hibernate:
         role_name varchar(255),
         primary key (role_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.041-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.989-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_roles (
         role_id bigint not null auto_increment,
         role_name varchar(255),
@@ -3035,8 +3007,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -3129,8 +3101,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -3145,7 +3115,7 @@ Hibernate:
         password varchar(255),
         primary key (user_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.048-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.992-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table dim_users (
         created_on date,
         updated_on date,
@@ -3214,8 +3184,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -3313,8 +3283,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -3329,7 +3297,7 @@ Hibernate:
         recruiter_id integer not null,
         primary key (candidate_id, date_id, hour_id, job_id, process_id, recruiter_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.052-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.995-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table fact_applications (
         candidate_id integer not null,
         date_id integer not null,
@@ -3398,8 +3366,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -3497,8 +3465,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -3516,7 +3482,7 @@ Hibernate:
         contract_type varchar(255),
         primary key (candidate_id, date_id, hour_id, job_id)
     ) engine=InnoDB
-2024-12-04T21:21:17.056-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:09.997-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table fact_hirings (
         candidate_id integer not null,
         contract_end_date date,
@@ -3591,8 +3557,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -3693,8 +3659,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -3703,7 +3667,7 @@ Hibernate:
         permission_id bigint not null,
         role_id bigint not null
     ) engine=InnoDB
-2024-12-04T21:21:17.060-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:10.006-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     create table fact_roles_permissions (
         permission_id bigint not null,
         role_id bigint not null
@@ -3760,8 +3724,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -3853,8 +3817,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Syntax error in SQL statemen
 	at org.h2.jdbc.JdbcConnection.prepareCommand(JdbcConnection.java:1166) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:245) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 117 common frames omitted
 
@@ -3863,7 +3825,7 @@ Hibernate:
        add constraint FKr4aak45u01954dec1qvq21hgx 
        foreign key (role_id) 
        references dim_roles (role_id)
-2024-12-04T21:21:17.064-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:10.009-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table dim_users 
        add constraint FKr4aak45u01954dec1qvq21hgx 
        foreign key (role_id) 
@@ -3919,8 +3881,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -4006,8 +3968,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "DIM_USERS" not found;
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 116 common frames omitted
 
@@ -4016,7 +3976,7 @@ Hibernate:
        add constraint FKjkccswumf5osulsy4vvqo0848 
        foreign key (permission_id) 
        references dim_permissions (permission_id)
-2024-12-04T21:21:17.067-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:10.012-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table fact_roles_permissions 
        add constraint FKjkccswumf5osulsy4vvqo0848 
        foreign key (permission_id) 
@@ -4072,8 +4032,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -4159,8 +4119,6 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FACT_ROLES_PERMISSION
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 116 common frames omitted
 
@@ -4169,7 +4127,7 @@ Hibernate:
        add constraint FKmdcx6sg9mqh1x1uq5gyap4ocn 
        foreign key (role_id) 
        references dim_roles (role_id)
-2024-12-04T21:21:17.071-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
+2024-12-04T21:21:10.016-03:00  WARN 4316 --- [           main] o.h.t.s.i.ExceptionHandlerLoggedImpl     : GenerationTarget encountered exception accepting command : Error executing DDL "
     alter table fact_roles_permissions 
        add constraint FKmdcx6sg9mqh1x1uq5gyap4ocn 
        foreign key (role_id) 
@@ -4225,8 +4183,8 @@ org.hibernate.tool.schema.spi.CommandAcceptanceException: Error executing DDL "
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContextInternal(DefaultCacheAwareContextLoaderDelegate.java:225) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.cache.DefaultCacheAwareContextLoaderDelegate.loadContext(DefaultCacheAwareContextLoaderDelegate.java:152) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.support.DefaultTestContext.getApplicationContext(DefaultTestContext.java:130) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.setUpRequestContextIfNecessary(ServletTestExecutionListener.java:191) ~[spring-test-6.1.11.jar:6.1.11]
-	at org.springframework.test.context.web.ServletTestExecutionListener.prepareTestInstance(ServletTestExecutionListener.java:130) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.injectDependencies(DependencyInjectionTestExecutionListener.java:142) ~[spring-test-6.1.11.jar:6.1.11]
+	at org.springframework.test.context.support.DependencyInjectionTestExecutionListener.prepareTestInstance(DependencyInjectionTestExecutionListener.java:98) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.TestContextManager.prepareTestInstance(TestContextManager.java:260) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.springframework.test.context.junit.jupiter.SpringExtension.postProcessTestInstance(SpringExtension.java:163) ~[spring-test-6.1.11.jar:6.1.11]
 	at org.junit.jupiter.engine.descriptor.ClassBasedTestDescriptor.lambda$invokeTestInstancePostProcessors$10(ClassBasedTestDescriptor.java:377) ~[junit-jupiter-engine-5.9.1.jar:5.9.1]
@@ -4312,20 +4270,13 @@ Caused by: org.h2.jdbc.JdbcSQLSyntaxErrorException: Table "FACT_ROLES_PERMISSION
 	at org.h2.command.Command.executeUpdate(Command.java:256) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.executeInternal(JdbcStatement.java:262) ~[h2-2.2.224.jar:2.2.224]
 	at org.h2.jdbc.JdbcStatement.execute(JdbcStatement.java:231) ~[h2-2.2.224.jar:2.2.224]
-	at com.zaxxer.hikari.pool.ProxyStatement.execute(ProxyStatement.java:94) ~[HikariCP-5.1.0.jar:na]
-	at com.zaxxer.hikari.pool.HikariProxyStatement.execute(HikariProxyStatement.java) ~[HikariCP-5.1.0.jar:na]
 	at org.hibernate.tool.schema.internal.exec.GenerationTargetToDatabase.accept(GenerationTargetToDatabase.java:80) ~[hibernate-core-6.5.2.Final.jar:6.5.2.Final]
 	... 116 common frames omitted
 
-2024-12-04T21:21:17.076-03:00  INFO 4316 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
-2024-12-04T21:21:18.055-03:00  WARN 4316 --- [           main] JpaBaseConfiguration$JpaWebConfiguration : spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2024-12-04T21:21:18.116-03:00  INFO 4316 --- [           main] r$InitializeUserDetailsManagerConfigurer : Global AuthenticationManager configured with UserDetailsService bean with name authenticationService
-2024-12-04T21:21:18.424-03:00  WARN 4316 --- [           main] s.w.s.m.m.a.RequestMappingHandlerMapping : Multiple @RequestMapping annotations found on public org.springframework.http.ResponseEntity com.api.controller.AuthenticationController.login(com.api.domain.dto.LoginDto), but only the first will be used: [@org.springframework.web.bind.annotation.RequestMapping(consumes={}, headers={}, method={}, name="", params={}, path={"/login"}, produces={}, value={"/login"}), @org.springframework.web.bind.annotation.PostMapping(consumes={}, headers={}, name="", params={}, path={}, produces={}, value={})]
-2024-12-04T21:21:23.134-03:00  INFO 4316 --- [           main] o.s.b.a.h2.H2ConsoleAutoConfiguration    : H2 console available at '/h2-console'. Database available at 'jdbc:h2:mem:testdb'
-2024-12-04T21:21:23.228-03:00  INFO 4316 --- [           main] o.s.b.t.m.w.SpringBootMockServletContext : Initializing Spring TestDispatcherServlet ''
-2024-12-04T21:21:23.228-03:00  INFO 4316 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Initializing Servlet ''
-2024-12-04T21:21:23.230-03:00  INFO 4316 --- [           main] o.s.t.web.servlet.TestDispatcherServlet  : Completed initialization in 2 ms
-2024-12-04T21:21:23.256-03:00  INFO 4316 --- [           main] c.a.c.AuthenticationControllerTest       : Started AuthenticationControllerTest in 9.811 seconds (process running for 20.432)
+2024-12-04T21:21:10.027-03:00  INFO 4316 --- [           main] j.LocalContainerEntityManagerFactoryBean : Initialized JPA EntityManagerFactory for persistence unit 'default'
+2024-12-04T21:21:10.889-03:00  INFO 4316 --- [           main] o.s.d.j.r.query.QueryEnhancerFactory     : Hibernate is in classpath; If applicable, HQL parser will be used.
+2024-12-04T21:21:11.700-03:00  INFO 4316 --- [           main] com.api.ApiApplicationTests              : Started ApiApplicationTests in 7.003 seconds (process running for 8.876)
+2024-12-04T21:21:11.728-03:00 DEBUG 4316 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:e10bddef-24da-4f86-9a95-3af5f3c6defa;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
 ]]></system-out>
   </testcase>
 </testsuite>

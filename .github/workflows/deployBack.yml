@@ -1,4 +1,4 @@
-name: BuildJar
+name: Deploy Back (CI) Java
 
 on:
   push:
@@ -6,7 +6,7 @@ on:
       - feature/LOC-69
 
 jobs:
-  build:
+  buildDeploy:
     runs-on: ubuntu-latest
 
     steps:

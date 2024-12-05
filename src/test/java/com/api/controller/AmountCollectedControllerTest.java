@@ -62,13 +62,18 @@ class AmountCollectedControllerTest {
 
     @Test
     void testGetAmountCollectedInvalidMonths() {
+
         int invalidMonths = -1;
+
+        doThrow(new IllegalArgumentException("Months must be between 1 and 12."))
+                .when(amountCollectedService)
+                .findAmountCollectedByMonths(eq(invalidMonths), any());
 
         assertThrows(IllegalArgumentException.class, () -> {
             amountCollectedController.getAmountCollected(invalidMonths, null);
         });
 
-        verifyNoInteractions(amountCollectedService);
+        verify(amountCollectedService).findAmountCollectedByMonths(invalidMonths, null);
     }
 
     @Test
