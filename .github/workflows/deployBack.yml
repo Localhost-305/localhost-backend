@@ -1,9 +1,9 @@
 name: Deploy Back (CI) Java
 
 on:
-  push:
+  pull_request:
     branches:
-      - feature/LOC-69
+      - main
 
 jobs:
   buildDeploy:
