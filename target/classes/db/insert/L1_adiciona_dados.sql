@@ -1,6 +1,14 @@
-use localhost305;
+DELETE FROM fact_roles_permissions;
+DELETE FROM fact_applications;
+DELETE FROM fact_hirings;
+DELETE FROM dim_users;
+DELETE FROM dim_candidates;
+DELETE FROM dim_jobs;
+DELETE FROM dim_recruitment_processes;
+DELETE FROM dim_recruiters;
+DELETE FROM dim_hour;
+DELETE FROM dim_date;
 
--- Inser��es para a tabela dim_users
 INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) VALUES ('Michelle Harvey', 'williamsmith@example.net', ')g888(Sv0E', '2024-02-12', '2024-07-08', 1);
 INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) VALUES ('Mrs. Stephanie Hernandez', 'goldenjennifer@example.net', '!J25ScMWu(', '2022-06-15', '2022-06-07', 2);
 INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) VALUES ('Michelle Potter', 'rodriguezrichard@example.net', 'A2Cb56Qd#6', '2020-04-16', '2022-01-20', 3);
@@ -11,7 +19,6 @@ INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) V
 INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) VALUES ('Devin Mitchell', 'rebeccaschmidt@example.com', '9$AKxd5j#S', '2020-10-26', '2022-03-18', 2);
 INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) VALUES ('Sean Gonzalez', 'steven15@example.net', '#8ne4NR6yz', '2021-12-11', '2020-06-26', 2);
 INSERT INTO dim_users (name, email, password, created_on, updated_on, role_id) VALUES ('Michelle Day', 'zamorajason@example.net', '+!5nCPefyE', '2022-03-10', '2021-10-21', 1);
-
 -- Inser��es para a tabela dim_candidates
 INSERT INTO dim_candidates (candidate_name, email, phone, birth_date) VALUES ('Troy Abbott', 'ptaylor@example.org', '(377)329-480', '1989-10-01');
 INSERT INTO dim_candidates (candidate_name, email, phone, birth_date) VALUES ('Alan Diaz', 'stephanie57@example.net', '001-870-361-', '1993-01-22');
@@ -1013,7 +1020,6 @@ INSERT INTO dim_candidates (candidate_name, email, phone, birth_date) VALUES ('A
 INSERT INTO dim_candidates (candidate_name, email, phone, birth_date) VALUES ('Paul Day', 'ericrodriguez@example.net', '(892)205-590', '1997-06-04');
 INSERT INTO dim_candidates (candidate_name, email, phone, birth_date) VALUES ('Megan Ward DVM', 'jessica82@example.net', '(668)333-094', '1995-04-07');
 INSERT INTO dim_candidates (candidate_name, email, phone, birth_date) VALUES ('Brittany Robinson', 'haley92@example.org', '001-427-363-', '1975-05-14');
-
 -- Inser��es para a tabela dim_jobs
 INSERT INTO dim_jobs (job_title, number_of_positions, job_requirements, job_status, location, responsible_person, opening_date, closing_date) VALUES ('Translator', 7, 'Statement audience stop real discussion half director. Tree court time matter wonder rest board.\nRisk my mother write. Each can near nice success project little. Tree we pretty this up.\nMaterial size us blood nothing. Hear recently program example special administration financial. Street action job machine.\nCrime across store theory. Player ground maintain hundred real mention cause reveal. Yeah result Congress write improve ever just.\nFederal ready present floor theory next success.', 'Open', 'East Luis', 'Peter Cruz', '2024-01-09 03:43:50', Timestamp('2024-05-29 13:47:22'));
 INSERT INTO dim_jobs (job_title, number_of_positions, job_requirements, job_status, location, responsible_person, opening_date, closing_date) VALUES ('Producer, radio', 2, 'Current behind wrong.\nSimply forward but sign use and follow. World establish east at. Adult dinner style foot.\nDegree instead explain little man forget memory. His speak country nothing you technology.\nPurpose though miss blue partner mean. Between do recently gas other stop drop question.\nStatement respond full law style mission six interesting. To expert worry coach his explain game.', 'Open', 'South Kenneth', 'William Carlson', '2024-05-04 14:53:42', Timestamp('2024-08-27 22:34:57'));
@@ -2015,7 +2021,6 @@ INSERT INTO dim_jobs (job_title, number_of_positions, job_requirements, job_stat
 INSERT INTO dim_jobs (job_title, number_of_positions, job_requirements, job_status, location, responsible_person, opening_date, closing_date) VALUES ('Psychotherapist, dance movement', 2, 'Man might rise town lawyer establish truth. Bill agree per.\nFocus seek miss affect. Listen ten economic best safe.\nHusband black trip open. Argue both performance authority dog. Across each cost son. Apply cut almost after.\nSimple agreement even candidate feel name. As off close work whom. Cell stock during a few risk card.\nSource step audience investment many benefit happen. Professor out notice bill. Message guess thus fish.\nRed surface should physical church season plant.', 'Open', 'East Juliehaven', 'Jennifer Foster', '2024-07-13 16:14:45', Timestamp('2024-10-30 23:29:21'));
 INSERT INTO dim_jobs (job_title, number_of_positions, job_requirements, job_status, location, responsible_person, opening_date, closing_date) VALUES ('Therapist, occupational', 1, 'Sell series quality page care. New work still behind fish among. Teach citizen pull meeting blood dinner. Result difference place.\nState also offer rise discover him impact. Together explain call important to our drug.\nAgreement dinner result.\nWear light to today. Size case until our way develop. Guy father staff check according change firm recent.\nTop paper size task. Skin central among performance office. Once suggest everybody similar maybe.', 'Open', 'Port Antoniofort', 'Steven Reyes', '2024-06-05 11:06:59', Timestamp('2024-08-03 18:26:27'));
 INSERT INTO dim_jobs (job_title, number_of_positions, job_requirements, job_status, location, responsible_person, opening_date, closing_date) VALUES ('Sports administrator', 7, 'Anything woman billion wind expert. Push debate reduce effect arrive time. Raise particularly out.\nWar baby operation smile miss take enough.\nCare ago news technology.\nPick base by. Let save someone.\nPlayer memory sound despite most eat material. Language to born magazine both despite until. Specific reveal difficult prove put.\nChoose college its case business conference. Before language sister may side blue. Pay yard green away.', 'Closed', 'Coreyfort', 'Jesse Hicks', '2024-09-02 01:57:23', Timestamp('2024-07-08 17:18:42'));
-
 -- Inser��es para a tabela dim_recruitment_processes
 INSERT INTO dim_recruitment_processes (process_name, start_date, end_date, process_status, process_description) VALUES ('oil', '2024-07-28 08:52:28', Timestamp('2024-09-14 10:18:48'), 'Active', 'Chance travel white.\nOut trade baby gun social religious.\nOr law anything movement owner degree. Bad its method after you such. Trade nation tough style fly morning. Event thought run product body drop.\nUs which degree during. Fund weight assume former something west.\nInformation this she affect management. Floor full church TV expect red.\nPretty glass land program. Wide tax majority record late. Institution difficult city purpose season.');
 INSERT INTO dim_recruitment_processes (process_name, start_date, end_date, process_status, process_description) VALUES ('gun', '2024-11-10 03:43:08', Timestamp('2024-07-17 21:29:38'), 'Pending', 'As ground eight meeting age show. Suffer new office interest kitchen possible.\nSingle population range understand. Mission official price blood animal station employee. Human effect professional wait could.\nHome give billion successful education wear. Likely represent game hold second. Range eight hold data agent will. One probably know let anything kid.\nTask defense be within. Mouth anything address religious. In require unit factor author both movement college.');
@@ -2117,7 +2122,6 @@ INSERT INTO dim_recruitment_processes (process_name, start_date, end_date, proce
 INSERT INTO dim_recruitment_processes (process_name, start_date, end_date, process_status, process_description) VALUES ('support', '2024-03-04 07:05:41', Timestamp('2024-09-14 22:31:21'), 'Completed', 'Out put hundred real where identify I at. Federal air buy. General eat argue attack statement. Work plant wide again community yes degree maybe.\nResearch alone firm. Professor section prepare six six article sort.\nAmong too everything chair style. Simple good religious mother race open. Message there throughout beyond.\nChoice share company trouble buy brother her land. Peace during say wish voice focus. Successful miss environment else yeah situation.');
 INSERT INTO dim_recruitment_processes (process_name, start_date, end_date, process_status, process_description) VALUES ('impact', '2024-05-09 16:49:53', Timestamp('2024-09-08 13:49:59'), 'Completed', 'Body laugh face put. Kind professor someone heart yeah.\nThreat summer off respond win step. During compare try indicate gun meet future indeed.\nWind stuff hospital modern through art. Science pretty police size often. Pay base star yeah market.\nFriend then campaign hour. Forward whose sometimes admit commercial shake interesting. Yet enough difficult.\nYour economy effort church appear staff water. About though from actually.\nWriter hair wind situation simple movement.');
 INSERT INTO dim_recruitment_processes (process_name, start_date, end_date, process_status, process_description) VALUES ('politics', '2024-03-16 14:20:42', Timestamp('2024-10-18 10:25:02'), 'Active', 'Personal season rich mouth. Space one sport vote success.\nOut rest task. Method place letter security realize.\nBack listen plan large. Response thus how to bad.\nNo my food decade plan always explain nearly.\nContinue worry southern cut car. Wide capital onto government rock.\nSide remain let meeting last ground art. Citizen within whether here together check catch. Conference doctor sister.\nBehavior society practice stuff race never second. Group option cost deep we.');
-
 -- Inser��es para a tabela dim_recruiters
 INSERT INTO dim_recruiters (recruiter_name, role, feedbacks_given) VALUES ('Michael Neal', 'Designer, exhibition/display', 10);
 INSERT INTO dim_recruiters (recruiter_name, role, feedbacks_given) VALUES ('Edward Harrison', 'Mining engineer', 80);
@@ -2219,7 +2223,6 @@ INSERT INTO dim_recruiters (recruiter_name, role, feedbacks_given) VALUES ('Step
 INSERT INTO dim_recruiters (recruiter_name, role, feedbacks_given) VALUES ('Kimberly Dixon', 'Acupuncturist', 23);
 INSERT INTO dim_recruiters (recruiter_name, role, feedbacks_given) VALUES ('Laura Thornton', 'Sales professional, IT', 1);
 INSERT INTO dim_recruiters (recruiter_name, role, feedbacks_given) VALUES ('Shannon Strong', 'Community development worker', 28);
-
 -- Inser��es para a tabela dim_date
 INSERT INTO dim_date (day, month, year) VALUES (1, 1, 2024);
 INSERT INTO dim_date (day, month, year) VALUES (2, 1, 2024);
@@ -2587,7 +2590,6 @@ INSERT INTO dim_date (day, month, year) VALUES (28, 12, 2024);
 INSERT INTO dim_date (day, month, year) VALUES (29, 12, 2024);
 INSERT INTO dim_date (day, month, year) VALUES (30, 12, 2024);
 INSERT INTO dim_date (day, month, year) VALUES (31, 12, 2024);
-
 -- Inser��es para a tabela dim_hour
 INSERT INTO dim_hour (hour) VALUES (0);
 INSERT INTO dim_hour (hour) VALUES (1);
@@ -2613,7 +2615,6 @@ INSERT INTO dim_hour (hour) VALUES (20);
 INSERT INTO dim_hour (hour) VALUES (21);
 INSERT INTO dim_hour (hour) VALUES (22);
 INSERT INTO dim_hour (hour) VALUES (23);
-
 -- Inser��es para a tabela fact_roles_permissions
 INSERT INTO fact_roles_permissions (role_id, permission_id) VALUES (1, 1);
 INSERT INTO fact_roles_permissions (role_id, permission_id) VALUES (1, 2);
