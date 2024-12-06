@@ -1,9 +1,9 @@
-name: Deploy
+name: Deploy Back (CI) Java
 
 on:
-  push:
+  pull_request:
     branches:
-      - feature/LOC-69
+      - main
 
 jobs:
   buildDeploy:
@@ -31,11 +31,3 @@ jobs:
         with:
           name: backend-application-jar
           path: target/*.jar # Altere o caminho, se necessário.
-
-
-  deploy:
-    needs: buildDeploy
-    runs-on: backend-vm
-    steps:
-      - name: Copping the .jar file
-        run: cp target/*.jar .
