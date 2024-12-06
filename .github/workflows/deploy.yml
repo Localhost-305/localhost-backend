@@ -6,39 +6,36 @@ on:
       - feature/LOC-72
 
 jobs:
-  build:
+  buildDeploy:
     runs-on: ubuntu-latest
+
     steps:
-      - name: Checkout
+      # Passo 1: Fazer o checkout do código
+      - name: Checkout Code
         uses: actions/checkout@v3
 
+      # Passo 2: Configurar o Java
       - name: Setup Java
         uses: actions/setup-java@v3
         with:
           distribution: 'temurin'
-          java-version: '17'
+          java-version: '17' # Altere a versão conforme sua necessidade.
 
-      - name: Build project
-        run: mvn clean install -DskipTests
+      # Passo 3: Instalar Dependências e Construir o Projeto (com Maven)
+      - name: Build with Maven
+        run: mvn clean package
 
-      - name: Login to GitHub Container Registry
-        run: echo ${{ secrets.GITHUB_TOKEN }} | docker login ghcr.io -u ${{ github.actor }} --password-stdin
+      # Passo 4: Publicar o arquivo .jar como Artefato
+      - name: Upload JAR Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-application-jar
+          path: target/*.jar # Altere o caminho, se necessário.
 
-      - name: Build Docker image
-        run: docker build -t ghcr.io/${{ vars.GIT_REPOSITORY_BACKEND }}/${{ vars.DOCKER_IMAGE_BACKEND }} .
-
-      - name: Push Docker image to GitHub Container Registry
-        run: docker push ghcr.io/${{ vars.GIT_REPOSITORY_BACKEND }}/${{ vars.DOCKER_IMAGE_BACKEND }}:latest
 
   deploy:
-    needs: build
+    needs: buildDeploy
     runs-on: backend-vm
     steps:
-      - name: Remove Docker container
-        run: docker rm -f ${{ secrets.DOCKER_CONTAINER_BACKEND }}
-
-      - name: Remove unused Docker images
-        run: docker image prune -a -f
-
-      - name: Run Docker container
-        run: docker run -d --name ${{ secrets.DOCKER_CONTAINER_BACKEND }} --network ${{ secrets.DOCKER_NETWORK }} -p 9090:9090 -v shared-data:${{ vars.DOCKER_VOLUME_SHARED }} -e AWS_EC2_IP_DATABASE=${{ secrets.AWS_EC2_IP_DATABASE }} -e DATABASE_USERNAME=${{ secrets.DATABASE_USER_NAME }} -e DATABASE_PASSWORD='${{ secrets.DATABASE_USER_PASSWORD }}' ghcr.io/${{ vars.GIT_REPOSITORY_BACKEND }}/${{ vars.DOCKER_IMAGE_BACKEND }}:latest
+      - name: Copping the .jar file
+        run: cp target/*.jar .
