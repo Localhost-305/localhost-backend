@@ -32,7 +32,7 @@ jobs:
 
   deploy:
     needs: build
-    runs-on: backend
+    runs-on: backend-vm
     steps:
       - name: Remove Docker container
         run: docker rm -f ${{ secrets.DOCKER_CONTAINER_BACKEND }}
