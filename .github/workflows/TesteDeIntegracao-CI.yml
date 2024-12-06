@@ -21,10 +21,6 @@ jobs:
       - name: Build project
         run: mvn clean install
 
-      # Inicializar o Banco
-      - name: Banco de Teste
-        run: mvn test
-
       # Teste de Integração
       - name: Testes de Integração
         run: mvn verify
