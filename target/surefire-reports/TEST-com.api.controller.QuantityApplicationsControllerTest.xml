@@ -1,5 +1,5 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.api.domain.service.JobServiceTest" time="0.067" tests="3" errors="0" skipped="0" failures="0">
+<testsuite xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="https://maven.apache.org/surefire/maven-surefire-plugin/xsd/surefire-test-report-3.0.xsd" version="3.0" name="com.api.controller.QuantityApplicationsControllerTest" time="0.096" tests="3" errors="0" skipped="0" failures="0">
   <properties>
     <property name="java.specification.version" value="17"/>
     <property name="sun.cpu.isalist" value="amd64"/>
@@ -63,7 +63,18 @@
     <property name="sun.io.unicode.encoding" value="UnicodeLittle"/>
     <property name="java.class.version" value="61.0"/>
   </properties>
-  <testcase name="testGetAverageTimeJob" classname="com.api.domain.service.JobServiceTest" time="0.059"/>
-  <testcase name="testGetAverageTimeJobWithDifferentJobTitle" classname="com.api.domain.service.JobServiceTest" time="0.002"/>
-  <testcase name="testGetAverageTimeJobWithNoData" classname="com.api.domain.service.JobServiceTest" time="0.002"/>
+  <testcase name="testGetAmountCollectedValidMonthsWithoutProfession" classname="com.api.controller.QuantityApplicationsControllerTest" time="0.008">
+    <system-out><![CDATA[2024-12-05T19:09:12.475-03:00  INFO 8996 --- [           main] t.c.s.AnnotationConfigContextLoaderUtils : Could not detect default configuration classes for test class [com.api.controller.QuantityApplicationsControllerTest]: QuantityApplicationsControllerTest does not declare any static, non-private, non-final, nested classes annotated with @Configuration.
+2024-12-05T19:09:12.491-03:00  INFO 8996 --- [           main] .b.t.c.SpringBootTestContextBootstrapper : Found @SpringBootConfiguration com.api.ApiApplication for test class com.api.controller.QuantityApplicationsControllerTest
+2024-12-05T19:09:12.536-03:00 DEBUG 8996 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:0ef53a69-1459-4526-b6d9-72a7b338a25d;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+]]></system-out>
+  </testcase>
+  <testcase name="testGetAmountCollectedInvalidMonths" classname="com.api.controller.QuantityApplicationsControllerTest" time="0.01">
+    <system-out><![CDATA[2024-12-05T19:09:12.547-03:00 DEBUG 8996 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:0ef53a69-1459-4526-b6d9-72a7b338a25d;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+]]></system-out>
+  </testcase>
+  <testcase name="testGetAmountCollectedValidMonthsWithProfession" classname="com.api.controller.QuantityApplicationsControllerTest" time="0.008">
+    <system-out><![CDATA[2024-12-05T19:09:12.559-03:00 DEBUG 8996 --- [           main] o.s.j.datasource.SimpleDriverDataSource  : Creating new JDBC Driver Connection to [jdbc:h2:mem:0ef53a69-1459-4526-b6d9-72a7b338a25d;DB_CLOSE_DELAY=-1;DB_CLOSE_ON_EXIT=false]
+]]></system-out>
+  </testcase>
 </testsuite>

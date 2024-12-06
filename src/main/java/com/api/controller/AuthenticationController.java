@@ -7,9 +7,6 @@ import com.api.domain.entity.User;
 import com.api.domain.service.EmailService;
 import com.api.domain.service.UserService;
 import com.api.infra.security.TokenService;
-
-import io.micrometer.core.instrument.Counter;
-import io.micrometer.core.instrument.MeterRegistry;
 import jakarta.validation.Valid;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.ResponseEntity;
@@ -31,19 +28,6 @@ import java.util.stream.Collectors;
 @RequestMapping("/auth")
 public class AuthenticationController {
 
-    Counter authUserSucess;
-    Counter authUserErrors;
-
-    public AuthenticationController(MeterRegistry registry){
-        authUserSucess = Counter.builder("auth_user_sucess")
-            .description("usuarios autenticados")
-            .register(registry);
-
-        authUserErrors = Counter.builder("auth_user_error")
-            .description("erros de login")
-            .register(registry);
-    }
-
     @Autowired
     private AuthenticationManager manager;
 
@@ -62,7 +46,6 @@ public class AuthenticationController {
     @RequestMapping("/login")
     @PostMapping
     public ResponseEntity login(@RequestBody @Valid LoginDto loginData) {
-
         String email = loginData.email();
 
         try {
@@ -104,7 +87,6 @@ public class AuthenticationController {
             String message = "Detectamos 3 tentativas de login falhas na sua conta. "
                     + "Se não foi você, por favor, entre em contato com o suporte.";
             emailService.sendEmail(email, subject, message);
-
         }
     }
 }

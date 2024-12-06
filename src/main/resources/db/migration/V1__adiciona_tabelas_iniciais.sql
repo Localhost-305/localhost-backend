@@ -48,14 +48,14 @@ CREATE TABLE IF NOT EXISTS dim_recruiters (
 
 CREATE TABLE IF NOT EXISTS dim_date (
     date_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    day INT NOT NULL,
-    month INT NOT NULL,
-    year INT NOT NULL
+    date_day INT NOT NULL,
+    date_month INT NOT NULL,
+    date_year INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS dim_hour (
     hour_id BIGINT AUTO_INCREMENT PRIMARY KEY,
-    hour INT NOT NULL
+    hour_hour INT NOT NULL
 );
 
 CREATE TABLE IF NOT EXISTS fact_applications (

@@ -1,0 +1,33 @@
+name: Deploy Back (CI) Java
+
+on:
+  pull_request:
+    branches:
+      - main
+
+jobs:
+  buildDeploy:
+    runs-on: ubuntu-latest
+
+    steps:
+      # Passo 1: Fazer o checkout do código
+      - name: Checkout Code
+        uses: actions/checkout@v3
+
+      # Passo 2: Configurar o Java
+      - name: Setup Java
+        uses: actions/setup-java@v3
+        with:
+          distribution: 'temurin'
+          java-version: '17' # Altere a versão conforme sua necessidade.
+
+      # Passo 3: Instalar Dependências e Construir o Projeto (com Maven)
+      - name: Build with Maven
+        run: mvn clean package
+
+      # Passo 4: Publicar o arquivo .jar como Artefato
+      - name: Upload JAR Artifact
+        uses: actions/upload-artifact@v3
+        with:
+          name: backend-application-jar
+          path: target/*.jar # Altere o caminho, se necessário.
